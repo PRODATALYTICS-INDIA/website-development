@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProDatalytics - Transform Data Into Decisions | Data Science Consulting</title>
+    <meta name="description" content="Premium data science consulting firm specializing in machine learning solutions, data analytics, and training programs. Transform your data into actionable business intelligence." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#000000",
+                        secondary: "#1a1a1a",
+                        accent: "#10b981",
+                        background: "#111111",
+                        surface: "#2a2a2a",
+                        "text-primary": "#ffffff",
+                        "text-secondary": "#a1a1aa",
+                        success: "#059669",
+                        warning: "#f59e0b",
+                        error: "#ef4444",
+                        border: "#2a2a2a"
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fprodatalyt6124back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="bg-background text-text-primary font-sans">
+    <!-- Glassmorphic Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-border/30">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-accent" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                        <circle cx="16" cy="16" r="4"/>
+                    </svg>
+                    <span class="text-xl font-bold">ProDatalytics</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-accent font-medium">Home</a>
+                    <a href="services.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Services</a>
+                    <a href="about.html" class="text-text-secondary hover:text-accent transition-colors duration-300">About</a>
+                    <a href="internship_program.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Internship</a>
+                    <a href="contact.html" class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-success transition-all duration-300">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-text-primary">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-border/30">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="homepage.html" class="text-accent font-medium">Home</a>
+                    <a href="services.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Services</a>
+                    <a href="about.html" class="text-text-secondary hover:text-accent transition-colors duration-300">About</a>
+                    <a href="internship_program.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Internship</a>
+                    <a href="contact.html" class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-success transition-all duration-300 text-center">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 bg-success/20 rounded-full blur-lg animate-pulse delay-1000"></div>
+            <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-accent/10 rounded-full blur-2xl animate-pulse delay-2000"></div>
+            <div class="absolute bottom-20 right-1/3 w-28 h-28 bg-success/15 rounded-full blur-xl animate-pulse delay-3000"></div>
+        </div>
+
+        <!-- Data Visualization Background -->
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" viewBox="0 0 1200 800">
+                <defs>
+                    <linearGradient id="dataGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.3"/>
+                        <stop offset="100%" style="stop-color:#059669;stop-opacity:0.1"/>
+                    </linearGradient>
+                </defs>
+                <path d="M0,400 Q300,200 600,300 T1200,250" stroke="url(#dataGradient)" stroke-width="2" fill="none" opacity="0.6">
+                    <animate attributeName="d" dur="8s" repeatCount="indefinite" values="M0,400 Q300,200 600,300 T1200,250;M0,350 Q300,150 600,400 T1200,200;M0,400 Q300,200 600,300 T1200,250"/>
+                </path>
+                <path d="M0,500 Q400,300 800,400 T1200,350" stroke="url(#dataGradient)" stroke-width="1.5" fill="none" opacity="0.4">
+                    <animate attributeName="d" dur="10s" repeatCount="indefinite" values="M0,500 Q400,300 800,400 T1200,350;M0,450 Q400,250 800,500 T1200,300;M0,500 Q400,300 800,400 T1200,350"/>
+                </path>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Transform <span class="text-accent">Data</span> Into <span class="text-accent">Decisions</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-text-secondary mb-8 max-w-3xl mx-auto">
+                    Premium data science consulting that bridges the gap between complex analytics and actionable business intelligence. 
+                    Unlock your data's potential with cutting-edge ML solutions.
+                </p>
+
+                <!-- Primary CTAs -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                    <a href="contact.html" class="bg-accent text-white font-semibold px-8 py-4 rounded-lg hover:bg-success transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-glow">
+                        Schedule Consultation
+                    </a>
+                    <a href="services.html" class="bg-surface text-text-primary font-semibold px-8 py-4 rounded-lg border border-border hover:bg-secondary transition-all duration-300">
+                        Explore Services
+                    </a>
+                    <a href="internship_program.html" class="text-accent hover:text-success font-semibold px-8 py-4 transition-colors duration-300">
+                        View Internship Program →
+                    </a>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent mb-2">150+</div>
+                        <div class="text-text-secondary text-sm">Projects Delivered</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent mb-2">50+</div>
+                        <div class="text-text-secondary text-sm">ML Models Deployed</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent mb-2">95%</div>
+                        <div class="text-text-secondary text-sm">Client Satisfaction</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent mb-2">24/7</div>
+                        <div class="text-text-secondary text-sm">Support Available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview Section -->
+    <section class="py-20 bg-secondary/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Our Core Services</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Comprehensive data science solutions designed to transform your business through intelligent analytics and machine learning innovation.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Data Science Consulting -->
+                <div class="bg-white rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Data Science Consulting</h3>
+                    <p class="text-gray-600 mb-6">
+                        Strategic data initiatives that align with your business objectives. From data strategy to implementation, 
+                        we guide your transformation journey with proven methodologies.
+                    </p>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Data Strategy & Roadmap
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Analytics Implementation
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Performance Optimization
+                        </li>
+                    </ul>
+                    <a href="services.html" class="text-accent hover:text-success font-semibold transition-colors duration-300">
+                        Learn More →
+                    </a>
+                </div>
+
+                <!-- Machine Learning Solutions -->
+                <div class="bg-white rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Machine Learning Solutions</h3>
+                    <p class="text-gray-600 mb-6">
+                        Custom ML models and AI solutions that automate processes, predict outcomes, and drive intelligent 
+                        decision-making across your organization.
+                    </p>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Predictive Analytics
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Natural Language Processing
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Computer Vision
+                        </li>
+                    </ul>
+                    <a href="services.html" class="text-accent hover:text-success font-semibold transition-colors duration-300">
+                        Learn More →
+                    </a>
+                </div>
+
+                <!-- Training Programs -->
+                <div class="bg-white rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9l-11-6zM18.82 9L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Training Programs</h3>
+                    <p class="text-gray-600 mb-6">
+                        Comprehensive training programs and internships designed to build data science capabilities 
+                        within your team and develop the next generation of data professionals.
+                    </p>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Corporate Training
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Internship Programs
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Certification Courses
+                        </li>
+                    </ul>
+                    <a href="internship_program.html" class="text-accent hover:text-success font-semibold transition-colors duration-300">
+                        Learn More →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Trust Bar -->
+    <section class="py-16 bg-background">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl font-semibold text-text-secondary mb-8">Trusted by Leading Organizations</h3>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
+                <!-- Client Logo Placeholders -->
+                <div class="flex items-center justify-center h-16">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2126&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Tech Corp" class="h-12 w-auto filter grayscale hover:grayscale-0 transition-all duration-300" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                </div>
+                <div class="flex items-center justify-center h-16">
+                    <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Data Solutions Inc" class="h-12 w-auto filter grayscale hover:grayscale-0 transition-all duration-300" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                </div>
+                <div class="flex items-center justify-center h-16">
+                    <img src="https://cdn.pixabay.com/photo/2016/12/27/13/10/logo-1933884_1280.png" alt="Analytics Pro" class="h-12 w-auto filter grayscale hover:grayscale-0 transition-all duration-300" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                </div>
+                <div class="flex items-center justify-center h-16">
+                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=2139&auto=format&fit=crop&ixlib=rb-4.0.3" alt="ML Innovations" class="h-12 w-auto filter grayscale hover:grayscale-0 transition-all duration-300" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                </div>
+                <div class="flex items-center justify-center h-16">
+                    <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Enterprise Systems" class="h-12 w-auto filter grayscale hover:grayscale-0 transition-all duration-300" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                </div>
+                <div class="flex items-center justify-center h-16">
+                    <img src="https://cdn.pixabay.com/photo/2017/03/19/03/40/avatar-2155431_1280.png" alt="Digital Dynamics" class="h-12 w-auto filter grayscale hover:grayscale-0 transition-all duration-300" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-accent/5">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Data?</h2>
+                <p class="text-xl text-text-secondary mb-8">
+                    Join leading organizations who trust ProDatalytics to unlock their data's potential. 
+                    Schedule a consultation today and discover how we can accelerate your data science journey.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="bg-accent text-white font-semibold px-8 py-4 rounded-lg hover:bg-success transition-all duration-300 transform hover:scale-105">
+                        Get Started Today
+                    </a>
+                    <a href="services.html" class="bg-surface text-text-primary font-semibold px-8 py-4 rounded-lg border border-border hover:bg-secondary transition-all duration-300">
+                        View All Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Email Contact Box -->
+    <div id="floating-email" class="fixed bottom-6 right-6 z-40">
+        <div class="bg-surface border border-border rounded-lg p-4 shadow-lg max-w-sm transform transition-all duration-300 hover:scale-105">
+            <div class="flex items-center justify-between mb-3">
+                <h4 class="font-semibold text-text-primary">Quick Contact</h4>
+                <button id="close-floating" class="text-text-secondary hover:text-text-primary">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+            </div>
+            <form id="quick-contact-form" class="space-y-3">
+                <input type="email" placeholder="Your email" required class="w-full bg-background border border-border rounded px-3 py-2 text-sm text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-accent" />
+                <textarea placeholder="Your message" rows="3" required class="w-full bg-background border border-border rounded px-3 py-2 text-sm text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-accent resize-none"></textarea>
+                <button type="submit" class="w-full bg-accent text-white py-2 rounded hover:bg-success transition-colors duration-300 text-sm font-medium">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-accent" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4"/>
+                        </svg>
+                        <span class="text-xl font-bold">ProDatalytics</span>
+                    </div>
+                    <p class="text-text-secondary mb-4">
+                        Transforming data into decisions through cutting-edge analytics and machine learning solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-text-secondary">
+                        <li><a href="services.html" class="hover:text-accent transition-colors duration-300">Data Science Consulting</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition-colors duration-300">Machine Learning Solutions</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition-colors duration-300">Training Programs</a></li>
+                        <li><a href="internship_program.html" class="hover:text-accent transition-colors duration-300">Internship Program</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-text-secondary">
+                        <li><a href="about.html" class="hover:text-accent transition-colors duration-300">About Us</a></li>
+                        <li><a href="about.html" class="hover:text-accent transition-colors duration-300">Our Team</a></li>
+                        <li><a href="contact.html" class="hover:text-accent transition-colors duration-300">Contact</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-accent transition-colors duration-300">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-text-secondary">
+                        <p>Email: info@prodatalytics.com</p>
+                        <p>Phone: +91 98765 43210</p>
+                        <p>Available: 24/7 IST</p>
+                        <p>Mumbai, India</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-border pt-8 text-center text-text-secondary">
+                <p>&copy; 2025 ProDatalytics. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Floating email box
+        const floatingEmail = document.getElementById('floating-email');
+        const closeFloating = document.getElementById('close-floating');
+        const quickContactForm = document.getElementById('quick-contact-form');
+
+        closeFloating.addEventListener('click', () => {
+            floatingEmail.style.display = 'none';
+        });
+
+        quickContactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            quickContactForm.reset();
+            floatingEmail.style.display = 'none';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('bg-black/40');
+            } else {
+                header.classList.remove('bg-black/40');
+            }
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

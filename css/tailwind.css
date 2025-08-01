@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #000000; /* black - Authoritative foundation, technical sophistication */
+  --color-secondary: #1a1a1a; /* gray-900 - Subtle depth, content separation */
+  --color-accent: #10b981; /* emerald-500 - Growth focus, conversion clarity */
+  
+  /* Background Colors */
+  --color-background: #111111; /* gray-950 - Professional canvas, reduced eye strain */
+  --color-surface: #2a2a2a; /* gray-800 - Card elevation, content grouping */
+  
+  /* Text Colors */
+  --color-text-primary: #ffffff; /* white - Maximum readability, clear hierarchy */
+  --color-text-secondary: #a1a1aa; /* gray-400 - Supporting information, visual rest */
+  
+  /* Status Colors */
+  --color-success: #059669; /* emerald-600 - Positive confirmation, completed actions */
+  --color-warning: #f59e0b; /* amber-500 - Important notices, attention without alarm */
+  --color-error: #ef4444; /* red-500 - Clear problem indication, helpful guidance */
+  
+  /* Border Colors */
+  --color-border: #2a2a2a; /* gray-800 - Minimal borders for form inputs and divisions */
+  
+  /* Shadow Values */
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  
+  /* Animation Durations */
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 400ms;
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-white font-semibold px-6 py-3 rounded-lg transition-all duration-normal hover:bg-success focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background;
+  }
+  
+  .btn-secondary {
+    @apply bg-surface text-text-primary font-semibold px-6 py-3 rounded-lg border border-border transition-all duration-normal hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background;
+  }
+  
+  .card {
+    @apply bg-surface rounded-lg p-6 shadow-card border border-border;
+  }
+  
+  .input-field {
+    @apply bg-surface border border-border rounded-lg px-4 py-3 text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-normal;
+  }
+  
+  .text-accent-hover {
+    @apply text-text-secondary hover:text-accent transition-colors duration-normal;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-success));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn var(--duration-slow) ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp var(--duration-slow) ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

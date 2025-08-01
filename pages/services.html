@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services - ProDatalytics | Data Science Consulting & ML Solutions</title>
+    <meta name="description" content="Comprehensive data science consulting services including ML solutions, analytics implementation, and professional training programs. Transform your business with expert data science consulting." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#000000",
+                        secondary: "#1a1a1a",
+                        accent: "#10b981",
+                        background: "#111111",
+                        surface: "#2a2a2a",
+                        "text-primary": "#ffffff",
+                        "text-secondary": "#a1a1aa",
+                        success: "#059669",
+                        warning: "#f59e0b",
+                        error: "#ef4444",
+                        border: "#2a2a2a"
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fprodatalyt6124back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="bg-background text-text-primary font-sans">
+    <!-- Glassmorphic Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-border/30">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-accent" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                        <circle cx="16" cy="16" r="4"/>
+                    </svg>
+                    <span class="text-xl font-bold">ProDatalytics</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Home</a>
+                    <a href="services.html" class="text-accent font-medium">Services</a>
+                    <a href="about.html" class="text-text-secondary hover:text-accent transition-colors duration-300">About</a>
+                    <a href="internship_program.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Internship</a>
+                    <a href="contact.html" class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-success transition-all duration-300">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-text-primary">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-border/30">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="homepage.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Home</a>
+                    <a href="services.html" class="text-accent font-medium">Services</a>
+                    <a href="about.html" class="text-text-secondary hover:text-accent transition-colors duration-300">About</a>
+                    <a href="internship_program.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Internship</a>
+                    <a href="contact.html" class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-success transition-all duration-300 text-center">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 bg-success/20 rounded-full blur-lg animate-pulse delay-1000"></div>
+            <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-accent/10 rounded-full blur-2xl animate-pulse delay-2000"></div>
+        </div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                    Our <span class="text-accent">Services</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-text-secondary mb-8 max-w-3xl mx-auto">
+                    Comprehensive data science solutions designed to transform your business through intelligent analytics, 
+                    machine learning innovation, and strategic consulting expertise.
+                </p>
+                
+                <!-- Service Navigation -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <a href="#consulting" class="bg-surface text-text-primary px-6 py-3 rounded-lg border border-border hover:bg-secondary transition-all duration-300">
+                        Data Science Consulting
+                    </a>
+                    <a href="#ml-solutions" class="bg-surface text-text-primary px-6 py-3 rounded-lg border border-border hover:bg-secondary transition-all duration-300">
+                        ML Solutions
+                    </a>
+                    <a href="#training" class="bg-surface text-text-primary px-6 py-3 rounded-lg border border-border hover:bg-secondary transition-all duration-300">
+                        Training Programs
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Comparison Matrix -->
+    <section class="py-20 bg-secondary/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">Service Comparison Matrix</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Choose the right service package based on your business needs, technical requirements, and growth objectives.
+                </p>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full bg-white rounded-xl shadow-card">
+                    <thead class="bg-surface text-text-primary">
+                        <tr>
+                            <th class="px-6 py-4 text-left font-semibold">Features</th>
+                            <th class="px-6 py-4 text-center font-semibold">Consulting</th>
+                            <th class="px-6 py-4 text-center font-semibold">ML Solutions</th>
+                            <th class="px-6 py-4 text-center font-semibold">Training</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600">
+                        <tr class="border-b border-gray-100">
+                            <td class="px-6 py-4 font-medium text-primary">Strategic Planning</td>
+                            <td class="px-6 py-4 text-center">
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-gray-300">—</span>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="px-6 py-4 font-medium text-primary">Custom ML Models</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-gray-300">—</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-gray-300">—</span>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="px-6 py-4 font-medium text-primary">Team Training</td>
+                            <td class="px-6 py-4 text-center">
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-gray-300">—</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="px-6 py-4 font-medium text-primary">24/7 Support</td>
+                            <td class="px-6 py-4 text-center">
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-gray-300">—</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-primary">Certification</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-gray-300">—</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-gray-300">—</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Science Consulting -->
+    <section id="consulting" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-4xl font-bold">Data Science Consulting</h2>
+                    </div>
+                    
+                    <p class="text-xl text-text-secondary mb-8">
+                        Strategic data initiatives that align with your business objectives. From data strategy to implementation, 
+                        we guide your transformation journey with proven methodologies and measurable outcomes.
+                    </p>
+
+                    <!-- Key Features -->
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-accent mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold mb-1">Data Strategy & Roadmap</h4>
+                                <p class="text-text-secondary">Comprehensive assessment and strategic planning for data-driven transformation</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-accent mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold mb-1">Analytics Implementation</h4>
+                                <p class="text-text-secondary">End-to-end implementation of analytics solutions with scalable architecture</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-accent mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold mb-1">Performance Optimization</h4>
+                                <p class="text-text-secondary">Continuous monitoring and optimization for maximum ROI and efficiency</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="contact.html" class="bg-accent text-white font-semibold px-8 py-4 rounded-lg hover:bg-success transition-all duration-300 text-center">
+                            Schedule Consultation
+                        </a>
+                        <button class="bg-surface text-text-primary font-semibold px-8 py-4 rounded-lg border border-border hover:bg-secondary transition-all duration-300" onclick="toggleDetails('consulting-details')">
+                            View Technical Details
+                        </button>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Data Science Consulting Dashboard" class="rounded-xl shadow-card w-full h-96 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                    
+                    <!-- Overlay Stats -->
+                    <div class="absolute bottom-4 left-4 right-4 bg-black/80 backdrop-blur-sm rounded-lg p-4">
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <div class="text-2xl font-bold text-accent">40%</div>
+                                <div class="text-xs text-text-secondary">Avg ROI Increase</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-accent">6 Months</div>
+                                <div class="text-xs text-text-secondary">Implementation Time</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-accent">24/7</div>
+                                <div class="text-xs text-text-secondary">Support Available</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Details (Hidden by default) -->
+            <div id="consulting-details" class="hidden mt-16 bg-surface rounded-xl p-8">
+                <h3 class="text-2xl font-bold mb-6">Technical Specifications</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-semibold mb-4 text-accent">Technology Stack</h4>
+                        <ul class="space-y-2 text-text-secondary">
+                            <li>• Python, R, SQL for data analysis</li>
+                            <li>• Apache Spark for big data processing</li>
+                            <li>• Tableau, Power BI for visualization</li>
+                            <li>• AWS, Azure, GCP cloud platforms</li>
+                            <li>• Docker, Kubernetes for deployment</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4 text-accent">Methodology</h4>
+                        <ul class="space-y-2 text-text-secondary">
+                            <li>• CRISP-DM framework implementation</li>
+                            <li>• Agile project management approach</li>
+                            <li>• Continuous integration/deployment</li>
+                            <li>• Data governance and quality assurance</li>
+                            <li>• Performance monitoring and optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonial -->
+    <section class="py-16 bg-secondary/30">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="bg-white rounded-xl p-8 shadow-card">
+                    <div class="flex items-center justify-center mb-6">
+                        <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="TechCorp India Logo" class="h-12 w-auto" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                    </div>
+                    <blockquote class="text-xl text-gray-600 mb-6">
+                        "ProDatalytics transformed our data infrastructure completely. Their consulting approach helped us achieve 
+                        a 45% increase in operational efficiency within 8 months. The team's expertise in Indian market dynamics 
+                        made all the difference."
+                    </blockquote>
+                    <div class="flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Rajesh Kumar" class="w-12 h-12 rounded-full mr-4 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div class="text-left">
+                            <div class="font-semibold text-primary">Rajesh Kumar</div>
+                            <div class="text-gray-500">CTO, TechCorp India</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Machine Learning Solutions -->
+    <section id="ml-solutions" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative">
+                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Machine Learning Models" class="rounded-xl shadow-card w-full h-96 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                    
+                    <!-- ML Model Performance Chart -->
+                    <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-accent">97.3%</div>
+                            <div class="text-xs text-text-secondary">Model Accuracy</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-4xl font-bold">Machine Learning Solutions</h2>
+                    </div>
+                    
+                    <p class="text-xl text-text-secondary mb-8">
+                        Custom ML models and AI solutions that automate processes, predict outcomes, and drive intelligent 
+                        decision-making across your organization with production-ready scalability.
+                    </p>
+
+                    <!-- ML Capabilities -->
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-accent mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold mb-1">Predictive Analytics</h4>
+                                <p class="text-text-secondary">Advanced forecasting models for demand, pricing, and risk assessment</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-accent mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold mb-1">Natural Language Processing</h4>
+                                <p class="text-text-secondary">Text analysis, sentiment analysis, and chatbot development</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-accent mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold mb-1">Computer Vision</h4>
+                                <p class="text-text-secondary">Image recognition, object detection, and automated quality control</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="contact.html" class="bg-accent text-white font-semibold px-8 py-4 rounded-lg hover:bg-success transition-all duration-300 text-center">
+                            Discuss ML Project
+                        </a>
+                        <button class="bg-surface text-text-primary font-semibold px-8 py-4 rounded-lg border border-border hover:bg-secondary transition-all duration-300" onclick="toggleDetails('ml-details')">
+                            View ML Stack
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ML Technical Details -->
+            <div id="ml-details" class="hidden mt-16 bg-surface rounded-xl p-8">
+                <h3 class="text-2xl font-bold mb-6">ML Technology Stack</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="font-semibold mb-4 text-accent">Frameworks & Libraries</h4>
+                        <ul class="space-y-2 text-text-secondary">
+                            <li>• TensorFlow, PyTorch</li>
+                            <li>• Scikit-learn, XGBoost</li>
+                            <li>• Keras, Hugging Face</li>
+                            <li>• OpenCV, NLTK, spaCy</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4 text-accent">Deployment & MLOps</h4>
+                        <ul class="space-y-2 text-text-secondary">
+                            <li>• MLflow, Kubeflow</li>
+                            <li>• Docker containerization</li>
+                            <li>• REST API development</li>
+                            <li>• Model monitoring & versioning</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4 text-accent">Cloud Platforms</h4>
+                        <ul class="space-y-2 text-text-secondary">
+                            <li>• AWS SageMaker</li>
+                            <li>• Google Cloud AI Platform</li>
+                            <li>• Azure Machine Learning</li>
+                            <li>• GPU-optimized instances</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Metrics Section -->
+    <section class="py-16 bg-accent/5">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold mb-4">Proven Business Impact</h3>
+                <p class="text-xl text-text-secondary">Real results from our ML implementations across Indian enterprises</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-accent mb-2">₹2.5Cr</div>
+                    <div class="text-text-secondary">Average Cost Savings</div>
+                    <div class="text-sm text-text-secondary mt-1">Per ML project implementation</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-accent mb-2">65%</div>
+                    <div class="text-text-secondary">Process Automation</div>
+                    <div class="text-sm text-text-secondary mt-1">Average efficiency improvement</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-accent mb-2">3 Months</div>
+                    <div class="text-text-secondary">Time to Production</div>
+                    <div class="text-sm text-text-secondary mt-1">From concept to deployment</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-accent mb-2">95%</div>
+                    <div class="text-text-secondary">Client Retention</div>
+                    <div class="text-sm text-text-secondary mt-1">Long-term partnership rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Programs -->
+    <section id="training" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9l-11-6zM18.82 9L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-4xl font-bold">Training Programs</h2>
+                    </div>
+                    
+                    <p class="text-xl text-text-secondary mb-8">
+                        Comprehensive training programs and internships designed to build data science capabilities 
+                        within your team and develop the next generation of data professionals.
+                    </p>
+
+                    <!-- Training Options -->
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-accent mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold mb-1">Corporate Training</h4>
+                                <p class="text-text-secondary">Customized training programs for your existing teams and departments</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-accent mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold mb-1">Internship Programs</h4>
+                                <p class="text-text-secondary">6-month intensive programs for students and career changers</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-accent mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold mb-1">Certification Courses</h4>
+                                <p class="text-text-secondary">Industry-recognized certifications in data science and ML</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="internship_program.html" class="bg-accent text-white font-semibold px-8 py-4 rounded-lg hover:bg-success transition-all duration-300 text-center">
+                            View Internship Program
+                        </a>
+                        <a href="contact.html" class="bg-surface text-text-primary font-semibold px-8 py-4 rounded-lg border border-border hover:bg-secondary transition-all duration-300 text-center">
+                            Corporate Training Inquiry
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <img src="https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg" alt="Training Session" class="rounded-xl shadow-card w-full h-96 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                    
+                    <!-- Training Stats -->
+                    <div class="absolute bottom-4 left-4 right-4 bg-black/80 backdrop-blur-sm rounded-lg p-4">
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <div class="text-2xl font-bold text-accent">500+</div>
+                                <div class="text-xs text-text-secondary">Students Trained</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-accent">85%</div>
+                                <div class="text-xs text-text-secondary">Job Placement Rate</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-accent">₹19,999</div>
+                                <div class="text-xs text-text-secondary">Internship Fee</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Booking Widget -->
+    <section class="py-20 bg-secondary/50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl p-8 shadow-card">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold text-primary mb-4">Ready to Get Started?</h3>
+                        <p class="text-xl text-gray-600">
+                            Schedule a free consultation to discuss your data science needs and explore how our services can transform your business.
+                        </p>
+                    </div>
+
+                    <form id="consultation-form" class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                            <input type="text" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                            <input type="email" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
+                            <input type="text" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Service Interest *</label>
+                            <select required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent">
+                                <option value>Select a service</option>
+                                <option value="consulting">Data Science Consulting</option>
+                                <option value="ml-solutions">Machine Learning Solutions</option>
+                                <option value="training">Training Programs</option>
+                                <option value="multiple">Multiple Services</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Project Details</label>
+                            <textarea rows="4" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent resize-none" placeholder="Tell us about your project requirements, timeline, and goals..."></textarea>
+                        </div>
+                        <div class="md:col-span-2 text-center">
+                            <button type="submit" class="bg-accent text-white font-semibold px-12 py-4 rounded-lg hover:bg-success transition-all duration-300 transform hover:scale-105">
+                                Schedule Free Consultation
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-accent" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4"/>
+                        </svg>
+                        <span class="text-xl font-bold">ProDatalytics</span>
+                    </div>
+                    <p class="text-text-secondary mb-4">
+                        Transforming data into decisions through cutting-edge analytics and machine learning solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-text-secondary">
+                        <li><a href="#consulting" class="hover:text-accent transition-colors duration-300">Data Science Consulting</a></li>
+                        <li><a href="#ml-solutions" class="hover:text-accent transition-colors duration-300">Machine Learning Solutions</a></li>
+                        <li><a href="#training" class="hover:text-accent transition-colors duration-300">Training Programs</a></li>
+                        <li><a href="internship_program.html" class="hover:text-accent transition-colors duration-300">Internship Program</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-text-secondary">
+                        <li><a href="about.html" class="hover:text-accent transition-colors duration-300">About Us</a></li>
+                        <li><a href="about.html" class="hover:text-accent transition-colors duration-300">Our Team</a></li>
+                        <li><a href="contact.html" class="hover:text-accent transition-colors duration-300">Contact</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-accent transition-colors duration-300">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-text-secondary">
+                        <p>Email: info@prodatalytics.com</p>
+                        <p>Phone: +91 98765 43210</p>
+                        <p>Available: 24/7 IST</p>
+                        <p>Mumbai, India</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-border pt-8 text-center text-text-secondary">
+                <p>&copy; 2025 ProDatalytics. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Toggle technical details
+        function toggleDetails(elementId) {
+            const element = document.getElementById(elementId);
+            element.classList.toggle('hidden');
+        }
+
+        // Consultation form handling
+        const consultationForm = document.getElementById('consultation-form');
+        consultationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your interest! We\'ll contact you within 24 hours to schedule your free consultation.');
+            consultationForm.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('bg-black/40');
+            } else {
+                header.classList.remove('bg-black/40');
+            }
+        });
+
+        // Service navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = ['consulting', 'ml-solutions', 'training'];
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        navLinks.forEach(link => {
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('bg-accent', 'text-white');
+                                link.classList.remove('bg-surface', 'text-text-primary');
+                            } else if (link.getAttribute('href').startsWith('#')) {
+                                link.classList.remove('bg-accent', 'text-white');
+                                link.classList.add('bg-surface', 'text-text-primary');
+                            }
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Science Internship Program | ProDatalytics - Transform Your Career</title>
+    <meta name="description" content="Join ProDatalytics' comprehensive 12-week data science internship program. Hands-on ML projects, expert mentorship, and real-world experience. Applications open now." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#000000",
+                        secondary: "#1a1a1a",
+                        accent: "#10b981",
+                        background: "#111111",
+                        surface: "#2a2a2a",
+                        "text-primary": "#ffffff",
+                        "text-secondary": "#a1a1aa",
+                        success: "#059669",
+                        warning: "#f59e0b",
+                        error: "#ef4444",
+                        border: "#2a2a2a"
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fprodatalyt6124back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="bg-background text-text-primary font-sans">
+    <!-- Glassmorphic Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-border/30">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-accent" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                        <circle cx="16" cy="16" r="4"/>
+                    </svg>
+                    <span class="text-xl font-bold">ProDatalytics</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Home</a>
+                    <a href="services.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Services</a>
+                    <a href="about.html" class="text-text-secondary hover:text-accent transition-colors duration-300">About</a>
+                    <a href="internship_program.html" class="text-accent font-medium">Internship</a>
+                    <a href="contact.html" class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-success transition-all duration-300">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-text-primary">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-border/30">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="homepage.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Home</a>
+                    <a href="services.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Services</a>
+                    <a href="about.html" class="text-text-secondary hover:text-accent transition-colors duration-300">About</a>
+                    <a href="internship_program.html" class="text-accent font-medium">Internship</a>
+                    <a href="contact.html" class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-success transition-all duration-300 text-center">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 bg-success/20 rounded-full blur-lg animate-pulse delay-1000"></div>
+            <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-accent/10 rounded-full blur-2xl animate-pulse delay-2000"></div>
+            <div class="absolute bottom-20 right-1/3 w-28 h-28 bg-success/15 rounded-full blur-xl animate-pulse delay-3000"></div>
+        </div>
+
+        <!-- Learning Path Visualization -->
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" viewBox="0 0 1200 800">
+                <defs>
+                    <linearGradient id="learningGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.4"/>
+                        <stop offset="100%" style="stop-color:#059669;stop-opacity:0.1"/>
+                    </linearGradient>
+                </defs>
+                <path d="M100,600 Q300,400 500,500 T900,300 L1100,200" stroke="url(#learningGradient)" stroke-width="3" fill="none" opacity="0.7">
+                    <animate attributeName="d" dur="12s" repeatCount="indefinite" values="M100,600 Q300,400 500,500 T900,300 L1100,200;M100,550 Q300,350 500,600 T900,250 L1100,150;M100,600 Q300,400 500,500 T900,300 L1100,200"/>
+                </path>
+                <!-- Learning nodes -->
+                <circle cx="200" cy="550" r="4" fill="url(#learningGradient)" opacity="0.8">
+                    <animate attributeName="r" dur="3s" repeatCount="indefinite" values="4;6;4"/>
+                </circle>
+                <circle cx="500" cy="450" r="4" fill="url(#learningGradient)" opacity="0.8">
+                    <animate attributeName="r" dur="3s" repeatCount="indefinite" values="4;6;4" begin="1s"/>
+                </circle>
+                <circle cx="800" cy="350" r="4" fill="url(#learningGradient)" opacity="0.8">
+                    <animate attributeName="r" dur="3s" repeatCount="indefinite" values="4;6;4" begin="2s"/>
+                </circle>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="inline-flex items-center bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium mb-6">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                    Applications Open - Batch Starting September 2025
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Launch Your <span class="text-accent">Data Science</span> Career
+                </h1>
+                <p class="text-xl md:text-2xl text-text-secondary mb-8 max-w-3xl mx-auto">
+                    Join our comprehensive 12-week internship program and transform from beginner to job-ready data scientist. 
+                    Real projects, expert mentorship, and guaranteed placement support.
+                </p>
+
+                <!-- Key Program Highlights -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+                    <div class="bg-surface/50 backdrop-blur-sm rounded-lg p-6 border border-border/30">
+                        <div class="text-3xl font-bold text-accent mb-2">12 Weeks</div>
+                        <div class="text-text-secondary">Intensive Training</div>
+                    </div>
+                    <div class="bg-surface/50 backdrop-blur-sm rounded-lg p-6 border border-border/30">
+                        <div class="text-3xl font-bold text-accent mb-2">₹19,999</div>
+                        <div class="text-text-secondary">Complete Program</div>
+                    </div>
+                    <div class="bg-surface/50 backdrop-blur-sm rounded-lg p-6 border border-border/30">
+                        <div class="text-3xl font-bold text-accent mb-2">95%</div>
+                        <div class="text-text-secondary">Placement Rate</div>
+                    </div>
+                </div>
+
+                <!-- Primary CTAs -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#application-form" class="bg-accent text-white font-semibold px-8 py-4 rounded-lg hover:bg-success transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-glow">
+                        Apply Now - Limited Seats
+                    </a>
+                    <a href="#curriculum" class="bg-surface text-text-primary font-semibold px-8 py-4 rounded-lg border border-border hover:bg-secondary transition-all duration-300">
+                        View Curriculum
+                    </a>
+                    <a href="#success-stories" class="text-accent hover:text-success font-semibold px-8 py-4 transition-colors duration-300">
+                        Success Stories →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Overview Section -->
+    <section class="py-20 bg-secondary/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Why Choose Our Program?</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Our internship program bridges the gap between academic learning and industry requirements, 
+                    providing hands-on experience with real-world projects and expert mentorship.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Industry-Relevant Curriculum -->
+                <div class="bg-white rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Industry-Relevant Curriculum</h3>
+                    <p class="text-gray-600 mb-6">
+                        Curriculum designed by industry experts covering Python, Machine Learning, Deep Learning, 
+                        and modern data science tools used in top companies.
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Python & Data Analysis
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Machine Learning & AI
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Cloud & Deployment
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Real-World Projects -->
+                <div class="bg-white rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Real-World Projects</h3>
+                    <p class="text-gray-600 mb-6">
+                        Work on actual client projects and build a portfolio that showcases your skills to potential employers. 
+                        Experience the complete data science project lifecycle.
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Client Project Experience
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Portfolio Development
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Industry Exposure
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Expert Mentorship -->
+                <div class="bg-white rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-4h3v4h2v-7.5c0-1.1.9-2 2-2s2 .9 2 2V18h2v-4h3v4h2V9.5c0-1.1-.9-2-2-2h-3V6c0-1.1-.9-2-2-2s-2 .9-2 2v1.5H8c-1.1 0-2 .9-2 2V18H4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Expert Mentorship</h3>
+                    <p class="text-gray-600 mb-6">
+                        Learn directly from senior data scientists and industry professionals. Get personalized guidance, 
+                        code reviews, and career advice throughout your journey.
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            1:1 Mentorship Sessions
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Code Review & Feedback
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Career Guidance
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Placement Support -->
+                <div class="bg-white rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Guaranteed Placement Support</h3>
+                    <p class="text-gray-600 mb-6">
+                        Comprehensive placement assistance including resume building, interview preparation, 
+                        and direct connections with our hiring partner network.
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Resume & LinkedIn Optimization
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Mock Interviews
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Hiring Partner Network
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Flexible Learning -->
+                <div class="bg-white rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                            <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Flexible Learning</h3>
+                    <p class="text-gray-600 mb-6">
+                        Hybrid learning model with both online and offline sessions. Weekend batches available for working professionals. 
+                        Recorded sessions for revision and catch-up.
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Hybrid Learning Model
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Weekend Batches
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Recorded Sessions
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Certification -->
+                <div class="bg-white rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Industry Certification</h3>
+                    <p class="text-gray-600 mb-6">
+                        Receive industry-recognized certification upon successful completion. 
+                        Digital badges and certificates to showcase your skills on professional platforms.
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Industry-Recognized Certificate
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Digital Badges
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            LinkedIn Verification
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Curriculum Section -->
+    <section id="curriculum" class="py-20 bg-background">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">12-Week Curriculum Breakdown</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Comprehensive curriculum designed to take you from beginner to job-ready data scientist. 
+                    Each module builds upon the previous one with hands-on projects and real-world applications.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- Week 1-3: Foundations -->
+                <div class="curriculum-module bg-surface rounded-xl p-8 mb-6 border border-border">
+                    <div class="flex items-center justify-between cursor-pointer" onclick="toggleModule('module1')">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-accent font-bold">1-3</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Foundations & Python Mastery</h3>
+                                <p class="text-text-secondary">Building strong fundamentals in Python programming and data manipulation</p>
+                            </div>
+                        </div>
+                        <svg id="module1-icon" class="w-6 h-6 text-accent transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div id="module1-content" class="hidden mt-6 pt-6 border-t border-border">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold mb-3 text-accent">Week 1: Python Fundamentals</h4>
+                                <ul class="space-y-2 text-text-secondary">
+                                    <li>• Python syntax and data structures</li>
+                                    <li>• Control flow and functions</li>
+                                    <li>• Object-oriented programming basics</li>
+                                    <li>• File handling and error management</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-3 text-accent">Week 2-3: Data Manipulation</h4>
+                                <ul class="space-y-2 text-text-secondary">
+                                    <li>• NumPy for numerical computing</li>
+                                    <li>• Pandas for data analysis</li>
+                                    <li>• Data cleaning and preprocessing</li>
+                                    <li>• Exploratory Data Analysis (EDA)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 bg-accent/5 rounded-lg">
+                            <h5 class="font-semibold text-accent mb-2">Project: Sales Data Analysis</h5>
+                            <p class="text-text-secondary">Analyze real e-commerce sales data to identify trends, patterns, and business insights using Python and Pandas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 4-6: Data Visualization & Statistics -->
+                <div class="curriculum-module bg-surface rounded-xl p-8 mb-6 border border-border">
+                    <div class="flex items-center justify-between cursor-pointer" onclick="toggleModule('module2')">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-accent font-bold">4-6</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Data Visualization & Statistics</h3>
+                                <p class="text-text-secondary">Creating compelling visualizations and understanding statistical concepts</p>
+                            </div>
+                        </div>
+                        <svg id="module2-icon" class="w-6 h-6 text-accent transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div id="module2-content" class="hidden mt-6 pt-6 border-t border-border">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold mb-3 text-accent">Week 4: Data Visualization</h4>
+                                <ul class="space-y-2 text-text-secondary">
+                                    <li>• Matplotlib fundamentals</li>
+                                    <li>• Seaborn for statistical plots</li>
+                                    <li>• Interactive visualizations with Plotly</li>
+                                    <li>• Dashboard creation basics</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-3 text-accent">Week 5-6: Statistics</h4>
+                                <ul class="space-y-2 text-text-secondary">
+                                    <li>• Descriptive and inferential statistics</li>
+                                    <li>• Probability distributions</li>
+                                    <li>• Hypothesis testing</li>
+                                    <li>• Correlation and regression analysis</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 bg-accent/5 rounded-lg">
+                            <h5 class="font-semibold text-accent mb-2">Project: Customer Behavior Dashboard</h5>
+                            <p class="text-text-secondary">Build an interactive dashboard analyzing customer behavior patterns with statistical insights and compelling visualizations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 7-9: Machine Learning -->
+                <div class="curriculum-module bg-surface rounded-xl p-8 mb-6 border border-border">
+                    <div class="flex items-center justify-between cursor-pointer" onclick="toggleModule('module3')">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-accent font-bold">7-9</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Machine Learning Fundamentals</h3>
+                                <p class="text-text-secondary">Core ML algorithms and model building techniques</p>
+                            </div>
+                        </div>
+                        <svg id="module3-icon" class="w-6 h-6 text-accent transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div id="module3-content" class="hidden mt-6 pt-6 border-t border-border">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold mb-3 text-accent">Week 7: Supervised Learning</h4>
+                                <ul class="space-y-2 text-text-secondary">
+                                    <li>• Linear and logistic regression</li>
+                                    <li>• Decision trees and random forests</li>
+                                    <li>• Support vector machines</li>
+                                    <li>• Model evaluation metrics</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-3 text-accent">Week 8-9: Advanced ML</h4>
+                                <ul class="space-y-2 text-text-secondary">
+                                    <li>• Unsupervised learning (clustering, PCA)</li>
+                                    <li>• Ensemble methods</li>
+                                    <li>• Cross-validation and hyperparameter tuning</li>
+                                    <li>• Feature engineering and selection</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 bg-accent/5 rounded-lg">
+                            <h5 class="font-semibold text-accent mb-2">Project: Predictive Analytics Model</h5>
+                            <p class="text-text-secondary">Build and deploy a complete machine learning model for business prediction with proper validation and performance metrics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 10-12: Advanced Topics & Deployment -->
+                <div class="curriculum-module bg-surface rounded-xl p-8 mb-6 border border-border">
+                    <div class="flex items-center justify-between cursor-pointer" onclick="toggleModule('module4')">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-accent font-bold">10-12</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Advanced Topics & Deployment</h3>
+                                <p class="text-text-secondary">Deep learning, cloud deployment, and capstone project</p>
+                            </div>
+                        </div>
+                        <svg id="module4-icon" class="w-6 h-6 text-accent transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div id="module4-content" class="hidden mt-6 pt-6 border-t border-border">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold mb-3 text-accent">Week 10: Deep Learning</h4>
+                                <ul class="space-y-2 text-text-secondary">
+                                    <li>• Neural network fundamentals</li>
+                                    <li>• TensorFlow and Keras</li>
+                                    <li>• Computer vision basics</li>
+                                    <li>• Natural language processing intro</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-3 text-accent">Week 11-12: Deployment</h4>
+                                <ul class="space-y-2 text-text-secondary">
+                                    <li>• Model deployment strategies</li>
+                                    <li>• Cloud platforms (AWS, Azure, GCP)</li>
+                                    <li>• API development with Flask/FastAPI</li>
+                                    <li>• MLOps fundamentals</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 bg-accent/5 rounded-lg">
+                            <h5 class="font-semibold text-accent mb-2">Capstone Project: End-to-End ML Solution</h5>
+                            <p class="text-text-secondary">Design, build, and deploy a complete machine learning solution addressing a real business problem with full documentation and presentation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section id="success-stories" class="py-20 bg-secondary/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Success Stories</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Our alumni have successfully transitioned into data science roles at top companies. 
+                    Here are some of their inspiring journeys and achievements.
+                </p>
+            </div>
+
+            <!-- Testimonial Carousel -->
+            <div class="max-w-6xl mx-auto">
+                <div id="testimonial-carousel" class="relative">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide active">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div class="order-2 md:order-1">
+                                <div class="bg-white rounded-xl p-8 shadow-card">
+                                    <div class="flex items-center mb-6">
+                                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Priya Sharma" class="w-16 h-16 rounded-full object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                        <div>
+                                            <h4 class="font-bold text-primary text-lg">Priya Sharma</h4>
+                                            <p class="text-gray-600">Data Scientist at TechCorp</p>
+                                            <p class="text-sm text-accent">₹12 LPA Package</p>
+                                        </div>
+                                    </div>
+                                    <blockquote class="text-gray-700 italic mb-4">
+                                        "The ProDatalytics internship program completely transformed my career. From having zero coding experience to landing a data scientist role at a top tech company - the journey was incredible. The mentorship and real-world projects made all the difference."
+                                    </blockquote>
+                                    <div class="flex items-center text-accent">
+                                        <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <span class="text-sm">Background: Commerce Graduate</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-1 md:order-2">
+                                <div class="bg-accent/5 rounded-xl p-8">
+                                    <h3 class="text-2xl font-bold mb-4 text-accent">Career Transformation</h3>
+                                    <div class="space-y-4">
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-text-secondary">Started: Commerce background, no coding</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-text-secondary">Completed: 3 major ML projects</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-text-secondary">Achieved: Data Scientist role in 4 months</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-text-secondary">Salary: 400% increase from previous role</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div class="order-2 md:order-1">
+                                <div class="bg-white rounded-xl p-8 shadow-card">
+                                    <div class="flex items-center mb-6">
+                                        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Rahul Patel" class="w-16 h-16 rounded-full object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                        <div>
+                                            <h4 class="font-bold text-primary text-lg">Rahul Patel</h4>
+                                            <p class="text-gray-600">ML Engineer at DataFlow</p>
+                                            <p class="text-sm text-accent">₹15 LPA Package</p>
+                                        </div>
+                                    </div>
+                                    <blockquote class="text-gray-700 italic mb-4">
+                                        "As a mechanical engineer, I thought switching to data science would be impossible. ProDatalytics proved me wrong. The structured curriculum and hands-on approach helped me build a strong foundation and land my dream job."
+                                    </blockquote>
+                                    <div class="flex items-center text-accent">
+                                        <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <span class="text-sm">Background: Mechanical Engineer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-1 md:order-2">
+                                <div class="bg-accent/5 rounded-xl p-8">
+                                    <h3 class="text-2xl font-bold mb-4 text-accent">Engineering to Data Science</h3>
+                                    <div class="space-y-4">
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-text-secondary">Started: 5 years mechanical engineering</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-text-secondary">Learned: Python, ML, Deep Learning</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-text-secondary">Built: Computer vision project portfolio</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-text-secondary">Landed: ML Engineer role at startup</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-slide">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div class="order-2 md:order-1">
+                                <div class="bg-white rounded-xl p-8 shadow-card">
+                                    <div class="flex items-center mb-6">
+                                        <img src="https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg" alt="Anita Singh" class="w-16 h-16 rounded-full object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                        <div>
+                                            <h4 class="font-bold text-primary text-lg">Anita Singh</h4>
+                                            <p class="text-gray-600">Senior Data Analyst at FinTech Solutions</p>
+                                            <p class="text-sm text-accent">₹10 LPA Package</p>
+                                        </div>
+                                    </div>
+                                    <blockquote class="text-gray-700 italic mb-4">
+                                        "After a career break, I was worried about getting back into the workforce. The ProDatalytics program not only updated my skills but gave me confidence to pursue a completely new field. The support was incredible."
+                                    </blockquote>
+                                    <div class="flex items-center text-accent">
+                                        <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <span class="text-sm">Background: Career Break (3 years)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-1 md:order-2">
+                                <div class="bg-accent/5 rounded-xl p-8">
+                                    <h3 class="text-2xl font-bold mb-4 text-accent">Career Restart Success</h3>
+                                    <div class="space-y-4">
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-text-secondary">Started: 3-year career break</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-text-secondary">Learned: Data analysis and visualization</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-text-secondary">Built: Financial analytics portfolio</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-text-secondary">Achieved: Senior analyst position</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Navigation -->
+                    <div class="flex justify-center mt-8 space-x-2">
+                        <button onclick="showTestimonial(0)" class="carousel-dot w-3 h-3 rounded-full bg-accent transition-all duration-300"></button>
+                        <button onclick="showTestimonial(1)" class="carousel-dot w-3 h-3 rounded-full bg-text-secondary transition-all duration-300"></button>
+                        <button onclick="showTestimonial(2)" class="carousel-dot w-3 h-3 rounded-full bg-text-secondary transition-all duration-300"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placement Statistics -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-accent mb-2">95%</div>
+                    <div class="text-text-secondary">Placement Rate</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-accent mb-2">₹12L</div>
+                    <div class="text-text-secondary">Average Package</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-accent mb-2">50+</div>
+                    <div class="text-text-secondary">Hiring Partners</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-accent mb-2">200+</div>
+                    <div class="text-text-secondary">Alumni Placed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing & Payment Section -->
+    <section class="py-20 bg-background">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Investment & Payment Options</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Exceptional value compared to traditional bootcamps. Flexible payment options and scholarship opportunities 
+                    make quality data science education accessible to everyone.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Full Payment Option -->
+                    <div class="bg-white rounded-xl p-8 shadow-card border-2 border-transparent hover:border-accent transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Full Payment</h3>
+                            <div class="text-5xl font-bold text-accent mb-2">₹19,999</div>
+                            <p class="text-gray-600">Complete 12-week program</p>
+                            <div class="inline-flex items-center bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium mt-2">
+                                Save ₹5,000
+                            </div>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Complete 12-week curriculum
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                1:1 mentorship sessions
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Real-world project portfolio
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Guaranteed placement support
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Industry certification
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Lifetime alumni network access
+                            </li>
+                        </ul>
+                        <a href="#application-form" class="block w-full bg-accent text-white font-semibold py-3 rounded-lg text-center hover:bg-success transition-all duration-300">
+                            Choose Full Payment
+                        </a>
+                    </div>
+
+                    <!-- Installment Option -->
+                    <div class="bg-white rounded-xl p-8 shadow-card border-2 border-accent">
+                        <div class="text-center mb-6">
+                            <div class="inline-flex items-center bg-accent text-white px-3 py-1 rounded-full text-sm font-medium mb-3">
+                                Most Popular
+                            </div>
+                            <h3 class="text-2xl font-bold text-primary mb-2">Flexible Payment</h3>
+                            <div class="text-5xl font-bold text-accent mb-2">₹8,333</div>
+                            <p class="text-gray-600">Per month for 3 months</p>
+                            <p class="text-sm text-gray-500 mt-1">Total: ₹24,999</p>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Complete 12-week curriculum
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                1:1 mentorship sessions
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Real-world project portfolio
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Guaranteed placement support
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Industry certification
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Flexible payment schedule
+                            </li>
+                        </ul>
+                        <a href="#application-form" class="block w-full bg-accent text-white font-semibold py-3 rounded-lg text-center hover:bg-success transition-all duration-300">
+                            Choose Installments
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Scholarship Information -->
+                <div class="mt-12 bg-accent/5 rounded-xl p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-4 text-accent">Scholarship Opportunities Available</h3>
+                    <p class="text-text-secondary mb-6 max-w-2xl mx-auto">
+                        We believe in making quality education accessible. Apply for our merit-based scholarships and need-based financial assistance programs.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white rounded-lg p-6">
+                            <h4 class="font-semibold text-primary mb-2">Merit Scholarship</h4>
+                            <p class="text-gray-600 text-sm">Up to 50% off for top performers in entrance test</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-6">
+                            <h4 class="font-semibold text-primary mb-2">Women in Tech</h4>
+                            <p class="text-gray-600 text-sm">30% scholarship for female candidates</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-6">
+                            <h4 class="font-semibold text-primary mb-2">Early Bird</h4>
+                            <p class="text-gray-600 text-sm">₹3,000 off for applications before August 15th</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section id="application-form" class="py-20 bg-secondary/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Apply Now</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Take the first step towards your data science career. Fill out the application form below and our team will get back to you within 24 hours.
+                </p>
+                <div class="inline-flex items-center bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium mt-4">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    Limited Seats - Only 25 spots remaining for September batch
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl p-8 shadow-card">
+                    <form id="internship-application-form" action="https://formsubmit.co/internships@prodatalytics.com" method="POST" class="space-y-6">
+                        <!-- Hidden FormSubmit Configuration -->
+                        <input type="hidden" name="_next" value="thank_you_internship.html" />
+                        <input type="hidden" name="_subject" value="New Internship Application - ProDatalytics" />
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="hidden" name="_template" value="table" />
+
+                        <!-- Personal Information -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="full-name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                                <input type="text" id="full-name" name="full_name" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300" placeholder="Enter your full name" />
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                <input type="email" id="email" name="email" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300" placeholder="your.email@example.com" />
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300" placeholder="+91 98765 43210" />
+                            </div>
+                            <div>
+                                <label for="city" class="block text-sm font-medium text-gray-700 mb-2">City *</label>
+                                <input type="text" id="city" name="city" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300" placeholder="Your city" />
+                            </div>
+                        </div>
+
+                        <!-- Educational Background -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="education" class="block text-sm font-medium text-gray-700 mb-2">Highest Education *</label>
+                                <select id="education" name="education" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300">
+                                    <option value>Select your education level</option>
+                                    <option value="12th">12th Grade</option>
+                                    <option value="diploma">Diploma</option>
+                                    <option value="bachelors">Bachelor's Degree</option>
+                                    <option value="masters">Master's Degree</option>
+                                    <option value="phd">PhD</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="field-of-study" class="block text-sm font-medium text-gray-700 mb-2">Field of Study</label>
+                                <input type="text" id="field-of-study" name="field_of_study" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300" placeholder="e.g., Computer Science, Engineering, Commerce" />
+                            </div>
+                        </div>
+
+                        <!-- Experience & Background -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="experience" class="block text-sm font-medium text-gray-700 mb-2">Work Experience</label>
+                                <select id="experience" name="experience" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300">
+                                    <option value>Select experience level</option>
+                                    <option value="fresher">Fresher (0 years)</option>
+                                    <option value="0-1">0-1 years</option>
+                                    <option value="1-3">1-3 years</option>
+                                    <option value="3-5">3-5 years</option>
+                                    <option value="5+">5+ years</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="programming-experience" class="block text-sm font-medium text-gray-700 mb-2">Programming Experience</label>
+                                <select id="programming-experience" name="programming_experience" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300">
+                                    <option value>Select programming level</option>
+                                    <option value="none">No programming experience</option>
+                                    <option value="basic">Basic (HTML, CSS)</option>
+                                    <option value="intermediate">Intermediate (Python, Java, etc.)</option>
+                                    <option value="advanced">Advanced (Multiple languages)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Payment Preference -->
+                        <div>
+                            <label for="payment-preference" class="block text-sm font-medium text-gray-700 mb-2">Payment Preference *</label>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-accent transition-colors duration-300">
+                                    <input type="radio" name="payment_preference" value="full-payment" class="text-accent focus:ring-accent" />
+                                    <div class="ml-3">
+                                        <div class="font-medium text-gray-900">Full Payment</div>
+                                        <div class="text-sm text-gray-600">₹19,999 (Save ₹5,000)</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-accent transition-colors duration-300">
+                                    <input type="radio" name="payment_preference" value="installments" class="text-accent focus:ring-accent" />
+                                    <div class="ml-3">
+                                        <div class="font-medium text-gray-900">3 Installments</div>
+                                        <div class="text-sm text-gray-600">₹8,333/month</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-accent transition-colors duration-300">
+                                    <input type="radio" name="payment_preference" value="scholarship" class="text-accent focus:ring-accent" />
+                                    <div class="ml-3">
+                                        <div class="font-medium text-gray-900">Scholarship</div>
+                                        <div class="text-sm text-gray-600">Need assistance</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Motivation -->
+                        <div>
+                            <label for="motivation" class="block text-sm font-medium text-gray-700 mb-2">Why do you want to join this program? *</label>
+                            <textarea id="motivation" name="motivation" rows="4" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300 resize-none" placeholder="Tell us about your goals and what you hope to achieve through this program..."></textarea>
+                        </div>
+
+                        <!-- Availability -->
+                        <div>
+                            <label for="availability" class="block text-sm font-medium text-gray-700 mb-2">Preferred Batch Timing *</label>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-accent transition-colors duration-300">
+                                    <input type="radio" name="availability" value="weekday-morning" class="text-accent focus:ring-accent" />
+                                    <div class="ml-3">
+                                        <div class="font-medium text-gray-900">Weekday Morning</div>
+                                        <div class="text-sm text-gray-600">9:00 AM - 1:00 PM</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-accent transition-colors duration-300">
+                                    <input type="radio" name="availability" value="weekday-evening" class="text-accent focus:ring-accent" />
+                                    <div class="ml-3">
+                                        <div class="font-medium text-gray-900">Weekday Evening</div>
+                                        <div class="text-sm text-gray-600">6:00 PM - 10:00 PM</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-accent transition-colors duration-300">
+                                    <input type="radio" name="availability" value="weekend" class="text-accent focus:ring-accent" />
+                                    <div class="ml-3">
+                                        <div class="font-medium text-gray-900">Weekend</div>
+                                        <div class="text-sm text-gray-600">Saturday & Sunday</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-accent transition-colors duration-300">
+                                    <input type="radio" name="availability" value="flexible" class="text-accent focus:ring-accent" />
+                                    <div class="ml-3">
+                                        <div class="font-medium text-gray-900">Flexible</div>
+                                        <div class="text-sm text-gray-600">Any timing works</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="flex items-start">
+                            <input type="checkbox" id="terms" name="terms" required class="mt-1 text-accent focus:ring-accent" />
+                            <label for="terms" class="ml-3 text-sm text-gray-600">
+                                I agree to the <a href="javascript:void(0)" class="text-accent hover:text-success">Terms and Conditions</a> and 
+                                <a href="javascript:void(0)" class="text-accent hover:text-success">Privacy Policy</a>. I understand that this application does not guarantee admission and that final selection will be based on the evaluation process.
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center">
+                            <button type="submit" class="bg-accent text-white font-semibold px-12 py-4 rounded-lg hover:bg-success transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-glow">
+                                Submit Application
+                            </button>
+                            <p class="text-sm text-gray-600 mt-3">
+                                You'll receive a confirmation email within 24 hours with next steps.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-background">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Frequently Asked Questions</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Get answers to common questions about our internship program, curriculum, and application process.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div class="bg-surface rounded-xl border border-border">
+                        <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ('faq1')">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-lg font-semibold">Do I need prior programming experience to join?</h3>
+                                <svg id="faq1-icon" class="w-5 h-5 text-accent transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </div>
+                        </button>
+                        <div id="faq1-content" class="hidden px-6 pb-6">
+                            <p class="text-text-secondary">
+                                No prior programming experience is required! Our curriculum is designed for beginners and starts with Python fundamentals. 
+                                We've successfully trained students from diverse backgrounds including commerce, arts, and non-technical fields. 
+                                However, basic computer literacy and enthusiasm to learn are essential.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="bg-surface rounded-xl border border-border">
+                        <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ('faq2')">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-lg font-semibold">What is the selection process?</h3>
+                                <svg id="faq2-icon" class="w-5 h-5 text-accent transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </div>
+                        </button>
+                        <div id="faq2-content" class="hidden px-6 pb-6">
+                            <p class="text-text-secondary">
+                                Our selection process includes: 1) Online application review, 2) Basic aptitude test (logical reasoning, no coding required), 
+                                3) Personal interview to understand your motivation and goals. The entire process takes 3-5 days, and we focus on 
+                                your learning attitude rather than existing technical skills.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="bg-surface rounded-xl border border-border">
+                        <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ('faq3')">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-lg font-semibold">Is the program conducted online or offline?</h3>
+                                <svg id="faq3-icon" class="w-5 h-5 text-accent transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </div>
+                        </button>
+                        <div id="faq3-content" class="hidden px-6 pb-6">
+                            <p class="text-text-secondary">
+                                We offer a hybrid learning model. Core lectures and mentorship sessions are conducted online for flexibility, 
+                                while hands-on workshops and project presentations happen at our Mumbai center. This approach gives you the 
+                                best of both worlds - convenience and in-person interaction when needed.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="bg-surface rounded-xl border border-border">
+                        <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ('faq4')">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-lg font-semibold">What kind of job support do you provide?</h3>
+                                <svg id="faq4-icon" class="w-5 h-5 text-accent transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </div>
+                        </button>
+                        <div id="faq4-content" class="hidden px-6 pb-6">
+                            <p class="text-text-secondary">
+                                We provide comprehensive placement support including resume optimization, LinkedIn profile enhancement, 
+                                mock interviews, and direct referrals to our 50+ hiring partners. Our placement team works with you 
+                                for up to 6 months post-completion. We also offer salary negotiation guidance and career counseling.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="bg-surface rounded-xl border border-border">
+                        <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ('faq5')">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-lg font-semibold">Can I get a refund if I'm not satisfied?</h3>
+                                <svg id="faq5-icon" class="w-5 h-5 text-accent transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </div>
+                        </button>
+                        <div id="faq5-content" class="hidden px-6 pb-6">
+                            <p class="text-text-secondary">
+                                Yes, we offer a 7-day money-back guarantee. If you're not satisfied with the program quality within the first week, 
+                                you can request a full refund. After the first week, refunds are processed on a pro-rata basis for genuine cases. 
+                                We're confident in our program quality and want you to be completely satisfied.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="bg-surface rounded-xl border border-border">
+                        <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ('faq6')">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-lg font-semibold">What happens if I miss classes due to work or personal commitments?</h3>
+                                <svg id="faq6-icon" class="w-5 h-5 text-accent transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </div>
+                        </button>
+                        <div id="faq6-content" class="hidden px-6 pb-6">
+                            <p class="text-text-secondary">
+                                All sessions are recorded and available for 1 year. You can catch up on missed content anytime. 
+                                We also provide additional doubt-clearing sessions and one-on-one mentorship to ensure you don't fall behind. 
+                                For working professionals, we offer weekend batches and flexible scheduling options.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-accent" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4"/>
+                        </svg>
+                        <span class="text-xl font-bold">ProDatalytics</span>
+                    </div>
+                    <p class="text-text-secondary mb-4">
+                        Transforming data into decisions through cutting-edge analytics and machine learning solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-text-secondary">
+                        <li><a href="services.html" class="hover:text-accent transition-colors duration-300">Data Science Consulting</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition-colors duration-300">Machine Learning Solutions</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition-colors duration-300">Training Programs</a></li>
+                        <li><a href="internship_program.html" class="hover:text-accent transition-colors duration-300">Internship Program</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-text-secondary">
+                        <li><a href="about.html" class="hover:text-accent transition-colors duration-300">About Us</a></li>
+                        <li><a href="about.html" class="hover:text-accent transition-colors duration-300">Our Team</a></li>
+                        <li><a href="contact.html" class="hover:text-accent transition-colors duration-300">Contact</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-accent transition-colors duration-300">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-text-secondary">
+                        <p>Email: internships@prodatalytics.com</p>
+                        <p>Phone: +91 98765 43210</p>
+                        <p>Available: 24/7 IST</p>
+                        <p>Mumbai, India</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-border pt-8 text-center text-text-secondary">
+                <p>&copy; 2025 ProDatalytics. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Curriculum module toggle
+        function toggleModule(moduleId) {
+            const content = document.getElementById(moduleId + '-content');
+            const icon = document.getElementById(moduleId + '-icon');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // FAQ toggle
+        function toggleFAQ(faqId) {
+            const content = document.getElementById(faqId + '-content');
+            const icon = document.getElementById(faqId + '-icon');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Testimonial carousel
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function showTestimonial(index) {
+            testimonials.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.add('active');
+                    slide.style.display = 'block';
+                } else {
+                    slide.classList.remove('active');
+                    slide.style.display = 'none';
+                }
+            });
+
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-text-secondary');
+                    dot.classList.add('bg-accent');
+                } else {
+                    dot.classList.remove('bg-accent');
+                    dot.classList.add('bg-text-secondary');
+                }
+            });
+
+            currentTestimonial = index;
+        }
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 8000);
+
+        // Initialize first testimonial
+        showTestimonial(0);
+
+        // Form submission handling
+        const form = document.getElementById('internship-application-form');
+        form.addEventListener('submit', function(e) {
+            // Form will be handled by FormSubmit.co
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting Application...';
+            submitBtn.disabled = true;
+            
+            // Re-enable after a delay (in case of errors)
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 5000);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('bg-black/40');
+            } else {
+                header.classList.remove('bg-black/40');
+            }
+        });
+
+        // Form validation enhancements
+        const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (!this.value.trim()) {
+                    this.classList.add('border-error');
+                } else {
+                    this.classList.remove('border-error');
+                }
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
