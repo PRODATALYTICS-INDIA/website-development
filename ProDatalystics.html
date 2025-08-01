@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRODATALYTICS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"
+    
+  />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    html {
+  scroll-behavior: smooth;
+}
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .glass-header {
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px dashed rgba(0, 0, 0, 0.1);
+    }
+
+    .hamburger-line {
+      transition: all 0.3s ease;
+    }
+
+    .menu-item {
+      transition: all 0.3s ease;
+    }
+
+    .menu-item:hover {
+      color: #10b981;
+    }
+
+    .icon-hover:hover {
+      transform: translateY(-5px) scale(1.1);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+
+    .section {
+      scroll-margin-top: 130px;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5);
+    }
+
+    .nav-menu {
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transform-origin: top;
+    }
+  </style>
+</head>
+
+<!-- ✅ Here’s the update: added scroll-smooth -->
+<body class="relative scroll-smooth">
+
+  <!-- Header -->
+  <header class="glass-header fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="#home" class="text-2xl font-black cursor-pointer">PRO<span class="text-green-500">DATA</span>LYTICS</a>
+
+    <!-- Status & Timezone Right-Aligned -->
+    <div class="ml-auto mr-6 flex flex-col items-end text-right space-y-1">
+      <div class="flex items-center space-x-2">
+        <div class="w-2 h-2 rounded-full bg-green-500"></div>
+        <span class="text-sm font-medium">Available For Projects</span>
+      </div>
+      <span class="text-xs text-gray-300">IST - India (GMT+5:30)</span>
+    </div>
+
+    <!-- Menu Button -->
+<!-- Menu Button -->
+<div class="relative">
+  <button id="menu-btn" class="flex flex-col space-y-1.5 focus:outline-none">
+    <span class="hamburger-line w-6 h-0.5 bg-green-500 !bg-green-500"></span>
+    <span class="hamburger-line w-6 h-0.5 bg-green-500 !bg-green-500"></span>
+    <span class="hamburger-line w-6 h-0.5 bg-green-500 !bg-green-500"></span>
+  </button>
+
+      <!-- Dropdown Menu -->
+      <div
+        id="nav-menu"
+        class="nav-menu absolute right-0 mt-4 w-48 origin-top scale-y-0 bg-white rounded-md shadow-lg py-1 z-50"
+      >
+        <a href="#home" class="menu-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Home</a>
+        <a href="#about" class="menu-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About</a>
+        <a href="#services" class="menu-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Services</a>
+        <a href="#contact" class="menu-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Contact</a>
+        <a href="Internship.html" class="menu-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Internship</a>
+      </div>
+    </div>
+  </header>
+
+
+    <!-- Home Section -->
+<section id="home" class="section min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20 pb-16">
+  <h1 class="text-5xl md:text-7xl font-black mb-6">
+    PRO<span class="text-green-500">DATA</span>LYTICS
+  </h1>
+  <p class="text-xl md:text-2xl font-bold mb-12 max-w-3xl">
+    EMPOWERING YOUR BUSINESS WITH DATA - DRIVEN INSIGHTS
+  </p>
+
+  <div class="flex flex-wrap justify-center gap-6 md:gap-8 max-w-4xl">
+    <div class="flex flex-col items-center">
+      <div class="icon-hover w-12 h-12 md:w-16 md:h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+        <i class="fab fa-r-project text-2xl md:text-3xl text-green-500"></i>
+      </div>
+      <span class="text-xs mt-2 font-semibold text-green-500">R Project</span>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <div class="icon-hover w-12 h-12 md:w-16 md:h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+        <i class="fab fa-python text-2xl md:text-3xl text-green-500"></i>
+      </div>
+      <span class="text-xs mt-2 font-semibold text-green-500">Python</span>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <div class="icon-hover w-12 h-12 md:w-16 md:h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+        <i class="fas fa-chart-bar text-2xl md:text-3xl text-green-500"></i>
+      </div>
+      <span class="text-xs mt-2 font-semibold text-green-500">Analytics</span>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <div class="icon-hover w-12 h-12 md:w-16 md:h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+        <i class="fas fa-brain text-2xl md:text-3xl text-green-500"></i>
+      </div>
+      <span class="text-xs mt-2 font-semibold text-green-500">AI</span>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <div class="icon-hover w-12 h-12 md:w-16 md:h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+        <i class="fas fa-robot text-2xl md:text-3xl text-green-500"></i>
+      </div>
+      <span class="text-xs mt-2 font-semibold text-green-500">Automation</span>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <div class="icon-hover w-12 h-12 md:w-16 md:h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+        <i class="fab fa-github text-2xl md:text-3xl text-green-500"></i>
+      </div>
+      <span class="text-xs mt-2 font-semibold text-green-500">Version Control</span>
+    </div>
+
+    <!-- Replaced IBM Tools with PNG -->
+    <div class="flex flex-col items-center">
+      <div class="icon-hover w-12 h-12 md:w-16 md:h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+        <img src="IBM.png" alt="IBM Tools" class="w-6 md:w-8 object-contain">
+      </div>
+      <span class="text-xs mt-2 font-semibold text-green-500">IBM Tools</span>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <div class="icon-hover w-12 h-12 md:w-16 md:h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+        <i class="fas fa-file-excel text-2xl md:text-3xl text-green-500"></i>
+      </div>
+      <span class="text-xs mt-2 font-semibold text-green-500">Excel</span>
+    </div>
+
+    <!-- Replaced IBM icon with PNG -->
+    <div class="flex flex-col items-center">
+      <div class="icon-hover w-12 h-12 md:w-16 md:h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+        <img src="IBM.png" alt="IBM" class="w-6 md:w-8 object-contain">
+      </div>
+      <span class="text-xs mt-2 font-semibold text-green-500">IBM</span>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <div class="icon-hover w-12 h-12 md:w-16 md:h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+        <i class="fas fa-chart-pie text-2xl md:text-3xl text-green-500"></i>
+      </div>
+      <span class="text-xs mt-2 font-semibold text-green-500">Visualization</span>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <div class="icon-hover w-12 h-12 md:w-16 md:h-16 bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+        <i class="fas fa-chart-line text-2xl md:text-3xl text-green-500"></i>
+      </div>
+      <span class="text-xs mt-2 font-semibold text-green-500">Trends</span>
+    </div>
+  </div>
+
+  <div class="mt-16 animate-bounce">
+    <a href="#services" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105">
+      Explore Our Services
+      <i class="fas fa-arrow-down ml-2"></i>
+    </a>
+  </div>
+</section>
+
+    <!-- About Section -->
+<section id="about" class="section min-h-screen py-20 px-6 md:px-12">
+  <h2 class="text-3xl md:text-4xl font-black text-center mb-16">
+    ABOUT PRO<span class="text-green-500">DATA</span>LYTICS
+  </h2>
+  
+  <div class="max-w-4xl mx-auto space-y-12">
+    <div class="bg-green-900 p-8 rounded-lg shadow-lg hover:bg-green-800 transition-all duration-300">
+      <div class="flex items-center mb-4">
+        <div class="w-8 h-1 bg-green-500 mr-4"></div>
+        <h3 class="text-xl font-bold text-white">OUR STORY</h3>
+      </div>
+      <p class="text-white">
+        Founded in 2023 by a team of data scientists and engineers, PRODATALYTICS began as a passion project to democratize data analytics. What started as a small consultancy has grown into a full-service data solutions provider serving clients across 3 continents. Our unique blend of technical expertise and business acumen helps clients bridge the gap between data and decisions.
+      </p>
+    </div>
+
+    <div class="bg-green-900 p-8 rounded-lg shadow-lg hover:bg-green-800 transition-all duration-300">
+      <div class="flex items-center mb-4">
+        <div class="w-8 h-1 bg-green-500 mr-4"></div>
+        <h3 class="text-xl font-bold text-white">OUR VISION</h3>
+      </div>
+      <p class="text-white">
+        We believe data transforms lives and businesses. Our vision is to lead the data revolution by unlocking insights and creating new opportunities through cutting-edge analytics and AI solutions that drive measurable business impact.
+      </p>
+    </div>
+
+    <div class="bg-green-900 p-8 rounded-lg shadow-lg hover:bg-green-800 transition-all duration-300">
+      <div class="flex items-center mb-4">
+        <div class="w-8 h-1 bg-green-500 mr-4"></div>
+        <h3 class="text-xl font-bold text-white">OUR TECHNOLOGY</h3>
+      </div>
+      <p class="text-white">
+        We constantly upgrade our platform with cutting-edge practices in AI, data science, and ML. Our tech stack includes Python, R, TensorFlow, PyTorch, Spark, and cloud platforms to ensure advanced, powerful insights for our clients.
+      </p>
+    </div>
+  </div>
+</section>
+
+    <!-- Services Section -->
+    <section id="services" class="section min-h-screen py-20 px-6 md:px-12 bg-black">
+
+        <h2 class="text-3xl md:text-4xl font-black text-center mb-16">Our Expertise</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16 bg-green-600 p-8 rounded-xl">
+            <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                <h3 class="text-xl font-bold mb-4 text-black">Data Science and Statistical Consulting</h3>
+                <p class="text-gray-900 font-medium">
+                    Our comprehensive consulting service provides end-to-end data solutions including predictive modeling, A/B testing, experimental design, and advanced analytics. We help businesses transform raw data into actionable insights using R, Python, and specialized statistical software. Our team of PhD-level statisticians ensures rigorous methodology and reproducible results.
+                </p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold mb-4">Machine Learning Consulting</h3>
+                <p class="text-gray-700 italic">
+                    Machine Learning enables systems to improve from data and experience without explicit programming. We use NLP and ML tools to optimize and automate business operations.
+                </p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold mb-4">Data Science Trainings</h3>
+                <p class="text-gray-700 italic">
+                    We offer hands-on training using real data, projects, and tools like R, Python, Power BI. Our goal is to help you develop practical skills for a successful data career.
+                </p>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- Contact Section -->
+<section id="contact" class="section min-h-screen py-20 px-6 md:px-12 bg-black">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-black text-center mb-4">Contact Us.</h2>
+    <p class="text-center text-gray-700 italic mb-12 max-w-2xl mx-auto">
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-black p-8 rounded-xl border border-green-600">
+      <!-- Form Column -->
+      <div class="bg-green-600 p-8 rounded-lg shadow-lg border border-white border-opacity-20">
+<form id="contactForm" action="https://formsubmit.co/jayhystic22@gmail.com" method="POST">
+  <!-- Hidden Fields -->
+  <input type="hidden" name="_next" value="Contacting.html">
+  <input type="hidden" name="_subject" value="New Contact Form Submission">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_autoresponse" value="Thanks for contacting us! We'll reply shortly.">
+
+  <!-- Inputs -->
+  <div class="mb-4">
+    <input type="text" name="name" placeholder="Name" required
+      class="w-full px-4 py-2 border border-gray-300 rounded-md bg-black text-white placeholder-gray-400 focus:border-green-500">
+  </div>
+  <div class="mb-4">
+    <input type="email" name="email" placeholder="Email" required
+      class="w-full px-4 py-2 border border-gray-300 rounded-md bg-black text-white placeholder-gray-400 focus:border-green-500">
+  </div>
+  <div class="mb-4">
+    <input type="text" name="subject" placeholder="Subject"
+      class="w-full px-4 py-2 border border-gray-300 rounded-md bg-black text-white placeholder-gray-400 focus:border-green-500">
+  </div>
+  <div class="mb-4">
+    <input type="tel" name="phone" placeholder="Phone"
+      class="w-full px-4 py-2 border border-gray-300 rounded-md bg-black text-white placeholder-gray-400 focus:border-green-500">
+  </div>
+  <div class="mb-4">
+    <textarea name="message" rows="4" placeholder="Description" required
+      class="w-full px-4 py-2 border border-gray-300 rounded-md bg-black text-white placeholder-gray-400 focus:border-green-500"></textarea>
+  </div>
+
+  <button type="submit"
+    class="w-full bg-black text-white py-3 px-6 rounded-md hover:bg-gray-900 transition-all duration-300 transform hover:scale-[1.02]">
+    Submit
+  </button>
+</form>
+
+
+      </div>
+
+      <!-- Contact Info Column -->
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-xl font-bold mb-2">📍 Office Details</h3>
+          <p class="text-gray-700">
+            PRODATALYTICS INDIA PRIVATE LIMITED<br>
+            IX 483 Grand Central, Edachira,<br>
+            Ernakulam, Kerala 682030, India<br><br>
+            Email: info@prodatalytics.com<br>
+            Phone: +91 90745 21683
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-2">Follow Us</h3>
+          <div class="flex flex-wrap gap-4">
+<a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-green-500 hover:bg-gray-600 transition-colors">
+  <i class="fab fa-twitter"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-green-500 hover:bg-gray-600 transition-colors">
+  <i class="fab fa-instagram"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-green-500 hover:bg-gray-600 transition-colors">
+  <i class="fab fa-linkedin-in"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-green-500 hover:bg-gray-600 transition-colors">
+  <i class="fab fa-facebook-f"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-green-500 hover:bg-gray-600 transition-colors">
+  <i class="fab fa-github"></i>
+</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ✅ Sticky Message Box (working version) -->
+<div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-2">
+  <div class="relative rounded-lg backdrop-blur-md bg-black/85 shadow-lg px-5 py-3">
+    <form id="stickyForm" action="https://formsubmit.co/jayhystic22@gmail.com" method="POST" class="relative z-10 w-full flex items-center">
+      <!-- Hidden config for FormSubmit -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_subject" value="Sticky Box Message">
+      <input type="hidden" name="_autoresponse" value="Thanks for messaging us. We’ll reach out shortly.">
+
+      <!-- This redirect is now handled in JS -->
+      <!-- DO NOT use _next here -->
+
+      <!-- Input -->
+      <input
+        type="text"
+        name="message"
+        required
+        placeholder="@Gmail – Message"
+        class="bg-transparent border-none focus:outline-none focus:ring-0 w-full text-white placeholder-gray-300 caret-white"
+      >
+      
+      <!-- Send button -->
+      <button type="submit" class="ml-3">
+        <i class="fas fa-paper-plane text-green-500 text-lg"></i>
+      </button>
+    </form>
+
+    <!-- Dotted border overlay -->
+    <div class="absolute inset-1 rounded-md border-2 border-dotted border-white/70 pointer-events-none"></div>
+  </div>
+</div>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const navMenu = document.getElementById('nav-menu');
+  const hamburgerLines = document.querySelectorAll('.hamburger-line');
+
+  let menuOpen = false;
+
+  menuBtn.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+
+    if (menuOpen) {
+      navMenu.classList.remove('scale-y-0');
+      navMenu.classList.add('scale-y-100');
+
+      // Hamburger to X animation
+      hamburgerLines[0].classList.add('rotate-45', 'translate-y-2');
+      hamburgerLines[1].classList.add('opacity-0');
+      hamburgerLines[2].classList.add('-rotate-45', '-translate-y-2');
+
+      // Change color to green
+      hamburgerLines.forEach(line => {
+        line.classList.add('bg-green-500');
+        line.classList.remove('bg-black');
+      });
+    } else {
+      navMenu.classList.remove('scale-y-100');
+      navMenu.classList.add('scale-y-0');
+
+      // X to hamburger animation
+      hamburgerLines[0].classList.remove('rotate-45', 'translate-y-2');
+      hamburgerLines[1].classList.remove('opacity-0');
+      hamburgerLines[2].classList.remove('-rotate-45', '-translate-y-2');
+
+      // Change color back to black
+      hamburgerLines.forEach(line => {
+        line.classList.remove('bg-green-500');
+        line.classList.add('bg-black');
+      });
+    }
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!menuBtn.contains(e.target) && !navMenu.contains(e.target) && menuOpen) {
+      menuBtn.click();
+    }
+  });
+
+  // Message box placeholder behavior
+  const messageInput = document.querySelector('.glass-box input');
+  if (messageInput) {
+    messageInput.addEventListener('focus', () => {
+      messageInput.placeholder = '';
+    });
+
+    messageInput.addEventListener('blur', () => {
+      if (messageInput.value === '') {
+        messageInput.placeholder = '@Gmail – Message';
+      }
+    });
+  }
+</script>
+
+<script>
+  // Smooth scroll with dynamic offset based on header height
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      const header = document.querySelector('.glass-header');
+
+      if (targetElement) {
+        e.preventDefault();
+
+        const headerHeight = header.offsetHeight;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+
+<script>
+  const stickyForm = document.getElementById('stickyForm');
+  if (stickyForm) {
+    stickyForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      fetch(stickyForm.action, {
+        method: 'POST',
+        body: new FormData(stickyForm)
+      }).then(response => {
+        if (response.ok) {
+          window.location.href = 'Contacting.html'; // ✅ redirect to the new page
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      }).catch(() => {
+        window.location.href = 'Contacting.html'; // fallback redirect
+      });
+    });
+  }
+</script>
+
+
+
+</body>
+</html>
