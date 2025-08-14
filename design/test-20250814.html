@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Playground: K-Means, Linear Regression & SVM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .pulse-animation {
+            animation: pulse 1.5s ease-in-out;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        canvas {
+            background: rgba(2,6,10,0.4);
+            border-radius: 0.5rem;
+            touch-action: none;
+        }
+        .spinner {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+            Machine Learning Playground
+        </h1>
+        
+        <!-- Tab Navigation -->
+        <div class="flex justify-center mb-8">
+            <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button type="button" data-tab="kmeans" class="tab-btn px-4 py-2 text-sm font-medium rounded-l-lg bg-blue-600 text-white hover:bg-blue-700 transition">
+                    K-Means Clustering
+                </button>
+                <button type="button" data-tab="linear" class="tab-btn px-4 py-2 text-sm font-medium bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white transition">
+                    Linear Regression
+                </button>
+                <button type="button" data-tab="svm" class="tab-btn px-4 py-2 text-sm font-medium rounded-r-lg bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white transition">
+                    SVM Classifier
+                </button>
+            </div>
+        </div>
+
+        <!-- K-Means Tab -->
+        <div id="kmeans" class="tab-content active">
+            <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Canvas -->
+                    <div class="flex-1">
+                        <div id="ml-canvas-wrap" class="w-full h-96 lg:h-[32rem] rounded-lg overflow-hidden relative">
+                            <canvas id="ml-canvas" class="w-full h-full"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Controls -->
+                    <div class="w-full lg:w-64 space-y-4">
+                        <div class="bg-gray-700 p-4 rounded-lg">
+                            <h3 class="font-medium mb-3">Controls</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm mb-1">Clusters (K): <span id="k-val" class="font-medium">3</span></label>
+                                    <input id="k-range" type="range" min="1" max="8" value="3" class="w-full">
+                                </div>
+                                <button id="add-random" class="w-full bg-gray-600 hover:bg-gray-500 text-white py-2 px-4 rounded transition">
+                                    Add Random Points
+                                </button>
+                                <button id="clear-points" class="w-full bg-gray-600 hover:bg-gray-500 text-white py-2 px-4 rounded transition">
+                                    Clear All
+                                </button>
+                                <button id="run-kmeans" class="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded transition flex items-center justify-center gap-2">
+                                    <span id="run-text">Run K-Means</span>
+                                    <svg id="run-spinner" class="hidden w-4 h-4 spinner" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Results -->
+                        <div id="kmeans-results" class="bg-gray-700 p-4 rounded-lg hidden">
+                            <h3 class="font-medium mb-3">Results</h3>
+                            <div class="space-y-3">
+                                <div id="iterations-count" class="text-sm">0 iterations</div>
+                                <div id="inertia-value" class="text-sm">Inertia: <span class="text-blue-400">0.00</span></div>
+                                <div class="grid grid-cols-3 gap-2 mt-2" id="cluster-sizes"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-gray-400 text-sm">
+                    <p><span class="text-blue-400">Tip:</span> Click on the canvas to add points. Drag centroids to reposition them.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Linear Regression Tab -->
+        <div id="linear" class="tab-content">
+            <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Canvas -->
+                    <div class="flex-1">
+                        <div id="linear-canvas-wrap" class="w-full h-96 lg:h-[32rem] rounded-lg overflow-hidden relative">
+                            <canvas id="linear-canvas" class="w-full h-full"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Controls -->
+                    <div class="w-full lg:w-64 space-y-4">
+                        <div class="bg-gray-700 p-4 rounded-lg">
+                            <h3 class="font-medium mb-3">Controls</h3>
+                            <div class="space-y-4">
+                                <button id="linear-add-random" class="w-full bg-gray-600 hover:bg-gray-500 text-white py-2 px-4 rounded transition">
+                                    Add Random Points
+                                </button>
+                                <button id="linear-clear" class="w-full bg-gray-600 hover:bg-gray-500 text-white py-2 px-4 rounded transition">
+                                    Clear All
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Results -->
+                        <div class="bg-gray-700 p-4 rounded-lg">
+                            <h3 class="font-medium mb-3">Statistics</h3>
+                            <div id="linear-stats" class="text-sm">
+                                Points: 0 • Slope: — • Intercept: —
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-gray-400 text-sm">
+                    <p><span class="text-blue-400">Tip:</span> Click on the canvas to add points. The regression line updates automatically.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SVM Tab -->
+        <div id="svm" class="tab-content">
+            <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Canvas -->
+                    <div class="flex-1">
+                        <div id="svm-canvas-wrap" class="w-full h-96 lg:h-[32rem] rounded-lg overflow-hidden relative">
+                            <canvas id="svm-canvas" class="w-full h-full"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Controls -->
+                    <div class="w-full lg:w-64 space-y-4">
+                        <div class="bg-gray-700 p-4 rounded-lg">
+                            <h3 class="font-medium mb-3">Controls</h3>
+                            <div class="space-y-4">
+                                <button id="svm-add-random-separable" class="w-full bg-gray-600 hover:bg-gray-500 text-white py-2 px-4 rounded transition">
+                                    Add Separable Data
+                                </button>
+                                <button id="svm-clear" class="w-full bg-gray-600 hover:bg-gray-500 text-white py-2 px-4 rounded transition">
+                                    Clear All
+                                </button>
+                                <button id="svm-train" class="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded transition flex items-center justify-center gap-2">
+                                    <span>Train SVM</span>
+                                    <svg id="svm-spinner" class="hidden w-4 h-4 spinner" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Results -->
+                        <div class="bg-gray-700 p-4 rounded-lg">
+                            <h3 class="font-medium mb-3">Status</h3>
+                            <div id="svm-stats" class="text-sm">
+                                Points: 0. Ready to train.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-gray-400 text-sm">
+                    <p><span class="text-blue-400">Tip:</span> Click left side for class -1 (magenta), right side for class 1 (cyan).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active tab button
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('bg-blue-600', 'text-white');
+                    b.classList.add('bg-gray-700', 'text-gray-300');
+                });
+                btn.classList.remove('bg-gray-700', 'text-gray-300');
+                btn.classList.add('bg-blue-600', 'text-white');
+                
+                // Show selected tab content
+                const tabId = btn.getAttribute('data-tab');
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.getElementById(tabId).classList.add('active');
+                
+                // Trigger canvas resize for the active tab
+                setTimeout(() => {
+                    if (tabId === 'kmeans' && window.kmeansModule) kmeansModule.fitCanvas();
+                    if (tabId === 'linear' && window.linearModule) linearModule.init();
+                    if (tabId === 'svm' && window.svmModule) svmModule.init();
+                }, 10);
+            });
+        });
+
+        // =================================================================================
+        // ===== SHARED UTILITY: Canvas Setup =============================================
+        // =================================================================================
+        function setupResponsiveCanvas(canvas, wrapper) {
+            const dpr = window.devicePixelRatio || 1;
+            const width = Math.floor(wrapper.clientWidth * dpr);
+            const height = Math.floor(wrapper.clientHeight * dpr);
+            canvas.width = width;
+            canvas.height = height;
+            canvas.style.width = wrapper.clientWidth + 'px';
+            canvas.style.height = wrapper.clientHeight + 'px';
+            const ctx = canvas.getContext('2d');
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            return { ctx, w: wrapper.clientWidth, h: wrapper.clientHeight };
+        }
+
+        function drawGrid(ctx, w, h) {
+            ctx.clearRect(0, 0, w, h);
+            ctx.fillStyle = 'rgba(2, 6, 10, 0.4)';
+            ctx.fillRect(0, 0, w, h);
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+            ctx.lineWidth = 1;
+            for (let x = 0; x < w; x += 40) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+            }
+            for (let y = 0; y < h; y += 40) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+            }
+        }
+
+        // =================================================================================
+        // ===== K-MEANS MODULE ===========================================================
+        // =================================================================================
+        (function(){
+            const wrapper = document.getElementById('ml-canvas-wrap');
+            if (!wrapper) return;
+            const canvas = document.getElementById('ml-canvas');
+            const ctx = canvas.getContext('2d');
+            let points = []; // {x,y,cluster}
+            let centroids = []; // {x,y}
+            let animating = false;
+            let K = 3;
+            let iterationCount = 0;
+            let inertia = 0;
+
+            function fitCanvas() {
+                const { w, h } = setupResponsiveCanvas(canvas, wrapper);
+                draw(w, h);
+            }
+            window.addEventListener('resize', fitCanvas);
+
+            function draw(w, h) {
+                drawGrid(ctx, w, h);
+
+                // draw cluster connections
+                if (!animating && centroids.length > 0) {
+                    points.forEach(p => {
+                        if (p.cluster !== undefined) {
+                            const c = centroids[p.cluster];
+                            ctx.strokeStyle = palette[p.cluster % palette.length] + '30';
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(c.x, c.y);
+                            ctx.stroke();
+                        }
+                    });
+                }
+
+                // draw points
+                points.forEach(p => {
+                    const col = p.cluster !== undefined ? palette[p.cluster % palette.length] : '#9aa4b2';
+                    ctx.fillStyle = col;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.strokeStyle = 'rgba(0,0,0,0.25)';
+                    ctx.stroke();
+                });
+
+                // draw centroids
+                centroids.forEach((c, i) => {
+                    ctx.beginPath();
+                    ctx.fillStyle = palette[i % palette.length];
+                    ctx.arc(c.x, c.y, 10, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = '#00000060';
+                    ctx.stroke();
+                    ctx.fillStyle = '#fff';
+                    ctx.font = '11px Inter';
+                    ctx.fillText('C' + (i + 1), c.x + 12, c.y + 4);
+                });
+            }
+
+            const palette = ['#10b981', '#06b6d4', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#14b8a6', '#fb923c'];
+
+            canvas.addEventListener('click', (e) => {
+                if (animating) return;
+                const r = canvas.getBoundingClientRect();
+                const x = (e.clientX - r.left);
+                const y = (e.clientY - r.top);
+                points.push({ x, y });
+                updateResultsDisplay();
+                const { w, h } = setupResponsiveCanvas(canvas, wrapper);
+                draw(w,h);
+            });
+
+            // Controls
+            const kRange = document.getElementById('k-range');
+            const kVal = document.getElementById('k-val');
+            const addRandom = document.getElementById('add-random');
+            const clearBtn = document.getElementById('clear-points');
+            const runBtn = document.getElementById('run-kmeans');
+            const runText = document.getElementById('run-text');
+            const runSpinner = document.getElementById('run-spinner');
+            const resultsPanel = document.getElementById('kmeans-results');
+            const iterationsCount = document.getElementById('iterations-count');
+            const clusterSizes = document.getElementById('cluster-sizes');
+            const inertiaValue = document.getElementById('inertia-value');
+
+            kRange.addEventListener('input', () => {
+                K = +kRange.value;
+                kVal.textContent = K;
+                if (!animating) {
+                    centroids = [];
+                    points.forEach(p => p.cluster = undefined);
+                    updateResultsDisplay();
+                    fitCanvas();
+                }
+            });
+            kVal.textContent = K;
+
+            addRandom.addEventListener('click', () => {
+                if (animating) return;
+                const { w, h } = setupResponsiveCanvas(canvas, wrapper);
+                for (let i = 0; i < 20; i++) {
+                    points.push({ x: Math.random() * w, y: Math.random() * h });
+                }
+                updateResultsDisplay();
+                fitCanvas();
+            });
+
+            clearBtn.addEventListener('click', () => {
+                if (animating) return;
+                points = [];
+                centroids = [];
+                animating = false;
+                iterationCount = 0;
+                inertia = 0;
+                updateResultsDisplay();
+                fitCanvas();
+            });
+
+            function updateResultsDisplay() {
+                if (points.length === 0 || centroids.length === 0) {
+                    if(resultsPanel) resultsPanel.classList.add('hidden');
+                    return;
+                }
+                const sizes = new Array(K).fill(0);
+                points.forEach(p => {
+                    if (p.cluster !== undefined) sizes[p.cluster]++;
+                });
+                clusterSizes.innerHTML = sizes.map((size, i) =>
+                    `<div class="text-center">
+                        <div class="text-blue-400 font-medium">${size}</div>
+                        <div class="text-xs">Cluster ${i + 1}</div>
+                    </div>`
+                ).join('');
+                iterationsCount.textContent = `${iterationCount} iteration${iterationCount !== 1 ? 's' : ''}`;
+                inertiaValue.innerHTML = `Inertia: <span class="text-blue-400">${inertia.toFixed(2)}</span>`;
+                resultsPanel.classList.remove('hidden');
+                resultsPanel.classList.add('pulse-animation');
+                setTimeout(() => resultsPanel.classList.remove('pulse-animation'), 1500);
+            }
+
+            function dist(a, b) { const dx = a.x - b.x, dy = a.y - b.y; return Math.sqrt(dx * dx + dy * dy); }
+
+            function initCentroids() {
+                const { w, h } = setupResponsiveCanvas(canvas, wrapper);
+                centroids = [];
+                if (points.length === 0) {
+                    for (let i = 0; i < K; i++) centroids.push({ x: Math.random() * w, y: Math.random() * h });
+                    return;
+                }
+                centroids.push(Object.assign({}, points[Math.floor(Math.random() * points.length)]));
+                while (centroids.length < K) {
+                    const distances = points.map(p => {
+                        let d = Infinity;
+                        centroids.forEach(c => d = Math.min(d, dist(p, c)));
+                        return d;
+                    });
+                    const sum = distances.reduce((a, b) => a + b, 0);
+                    let r = Math.random() * sum;
+                    let idx = 0;
+                    for (let i = 0; i < distances.length; i++) {
+                        r -= distances[i];
+                        if (r <= 0) { idx = i; break; }
+                    }
+                    centroids.push(Object.assign({}, points[idx]));
+                }
+            }
+
+            function kmeansStep() {
+                const { w, h } = setupResponsiveCanvas(canvas, wrapper);
+                if (centroids.length === 0) initCentroids();
+                inertia = 0;
+                points.forEach(p => {
+                    let best = 0; let bd = Infinity;
+                    centroids.forEach((c, i) => {
+                        const d = dist(p, c);
+                        if (d < bd) { bd = d; best = i; }
+                    });
+                    p.cluster = best;
+                    inertia += bd * bd;
+                });
+                const sums = centroids.map(() => ({ x: 0, y: 0, count: 0 }));
+                points.forEach(p => {
+                    const c = sums[p.cluster];
+                    c.x += p.x; c.y += p.y; c.count += 1;
+                });
+                let moved = false;
+                sums.forEach((s, i) => {
+                    if (s.count === 0) {
+                        const nx = Math.random() * w, ny = Math.random() * h;
+                        if (nx !== centroids[i].x || ny !== centroids[i].y) moved = true;
+                        centroids[i].x = nx; centroids[i].y = ny;
+                    } else {
+                        const nx = s.x / s.count, ny = s.y / s.count;
+                        if (nx !== centroids[i].x || ny !== centroids[i].y) moved = true;
+                        centroids[i].x = nx; centroids[i].y = ny;
+                    }
+                });
+                iterationCount++;
+                updateResultsDisplay();
+                fitCanvas();
+                return moved;
+            }
+
+            async function runKMeansAnimated() {
+                if (animating) return;
+                if (points.length === 0) { alert('Add points first (click canvas or Add Random Points).'); return; }
+                animating = true;
+                runText.textContent = 'Running...';
+                runSpinner.classList.remove('hidden');
+                runBtn.disabled = true;
+                iterationCount = 0;
+                initCentroids();
+                let iter = 0;
+                while (animating && iter < 30) {
+                    const moved = kmeansStep();
+                    await new Promise(r => setTimeout(r, 420));
+                    iter++;
+                    if (!moved) break;
+                }
+                animating = false;
+                runText.textContent = 'Run K-Means';
+                runSpinner.classList.add('hidden');
+                runBtn.disabled = false;
+            }
+
+            runBtn.addEventListener('click', runKMeansAnimated);
+
+            // Dragging logic
+            let dragging = null;
+            canvas.addEventListener('mousedown', (e) => {
+                if (animating) return;
+                const r = canvas.getBoundingClientRect();
+                const x = (e.clientX - r.left);
+                const y = (e.clientY - r.top);
+                for (let i = 0; i < centroids.length; i++) {
+                    if (dist({ x, y }, centroids[i]) < 14) { dragging = i; break; }
+                }
+            });
+            window.addEventListener('mouseup', () => { dragging = null; });
+            window.addEventListener('mousemove', (e) => {
+                if (dragging === null || animating) return;
+                const r = canvas.getBoundingClientRect();
+                centroids[dragging].x = (e.clientX - r.left);
+                centroids[dragging].y = (e.clientY - r.top);
+                points.forEach(p => {
+                    let best = 0; let bd = Infinity;
+                    centroids.forEach((c, i) => {
+                        const d = dist(p, c);
+                        if (d < bd) { bd = d; best = i; }
+                    });
+                    p.cluster = best;
+                });
+                updateResultsDisplay();
+                fitCanvas();
+            });
+
+            fitCanvas(); // Initial draw
+            
+            // Expose for tab switching
+            window.kmeansModule = { fitCanvas };
+        })();
+
+        // =================================================================================
+        // ===== LINEAR REGRESSION MODULE =================================================
+        // =================================================================================
+        (function() {
+            const wrapper = document.getElementById('linear-canvas-wrap');
+            if (!wrapper) return;
+            const canvas = document.getElementById('linear-canvas');
+            const statsEl = document.getElementById('linear-stats');
+            let points = [];
+            let slope = null, intercept = null;
+
+            function init() {
+                const { ctx, w, h } = setupResponsiveCanvas(canvas, wrapper);
+                draw(ctx, w, h);
+            }
+            window.addEventListener('resize', init);
+
+            function computeRegression() {
+                if (points.length < 2) {
+                    slope = null; intercept = null;
+                    return;
+                }
+                const n = points.length;
+                let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+                points.forEach(p => { 
+                    sumX += p.x; 
+                    sumY += p.y; 
+                    sumXY += p.x * p.y; 
+                    sumX2 += p.x * p.x; 
+                });
+                
+                const denom = (n * sumX2 - sumX * sumX);
+                if (Math.abs(denom) < 1e-9) {
+                    slope = Infinity;
+                    intercept = sumX / n;
+                    return;
+                }
+                
+                slope = (n * sumXY - sumX * sumY) / denom;
+                intercept = (sumY - slope * sumX) / n;
+            }
+
+            function draw(ctx, w, h) {
+                drawGrid(ctx, w, h);
+
+                // Draw points
+                points.forEach(p => {
+                    ctx.beginPath();
+                    ctx.fillStyle = '#10b981';
+                    ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.strokeStyle = 'rgba(0,0,0,0.25)';
+                    ctx.stroke();
+                });
+
+                // Draw regression line
+                if (slope !== null) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = '#f59e0b';
+                    ctx.lineWidth = 3;
+                    
+                    if (slope === Infinity) {
+                        ctx.moveTo(intercept, 0);
+                        ctx.lineTo(intercept, h);
+                    } else {
+                        const y1 = slope * 0 + intercept;
+                        const y2 = slope * w + intercept;
+                        ctx.moveTo(0, y1);
+                        ctx.lineTo(w, y2);
+                    }
+                    ctx.stroke();
+                }
+
+                // Update stats
+                if (statsEl) {
+                    statsEl.textContent = `Points: ${points.length} • Slope: ${slope === null ? '—' : slope === Infinity ? '∞' : slope.toFixed(3)} • Intercept: ${intercept === null ? '—' : intercept.toFixed(1)}`;
+                }
+            }
+
+            canvas.addEventListener('click', (e) => {
+                const r = canvas.getBoundingClientRect();
+                const x = e.clientX - r.left;
+                const y = e.clientY - r.top;
+                points.push({ x, y });
+                computeRegression();
+                init();
+            });
+
+            document.getElementById('linear-clear').addEventListener('click', () => {
+                points = []; slope = null; intercept = null; 
+                init();
+            });
+
+            document.getElementById('linear-add-random').addEventListener('click', () => {
+                const { w, h } = setupResponsiveCanvas(canvas, wrapper);
+                const A = (Math.random() - 0.5) * 2;
+                const B = h / 2 + (Math.random() * 100 - 50);
+                for (let i = 0; i < 15; i++) {
+                    const x = Math.random() * w;
+                    const y = A * x + B + (Math.random() * 80 - 40);
+                    if (x > 0 && x < w && y > 0 && y < h) {
+                        points.push({ x, y });
+                    }
+                }
+                computeRegression();
+                init();
+            });
+
+            // Expose for tab switching
+            window.linearModule = { init };
+            
+            // Initial draw if tab is visible on load
+            if (!wrapper.parentElement.classList.contains('hidden')) {
+                init();
+            }
+        })();
+
+        // =================================================================================
+        // ===== SVM MODULE ===============================================================
+        // =================================================================================
+        (function() {
+            const wrapper = document.getElementById('svm-canvas-wrap');
+            if (!wrapper) return;
+            const canvas = document.getElementById('svm-canvas');
+            const statsEl = document.getElementById('svm-stats');
+            let points = []; // {x, y, label} where label is 1 or -1
+            let model = { w: { x: 0, y: 0 }, b: 0 }; // The SVM model: w*x + b = 0
+            let training = false;
+
+            function init() {
+                const { ctx, w, h } = setupResponsiveCanvas(canvas, wrapper);
+                draw(ctx, w, h);
+            }
+            window.addEventListener('resize', init);
+
+            function draw(ctx, w, h) {
+                drawGrid(ctx, w, h);
+                
+                // Draw points (Class A: cyan, Class B: magenta)
+                points.forEach(p => {
+                    ctx.fillStyle = p.label === 1 ? '#06b6d4' : '#ec4899';
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.strokeStyle = 'rgba(0,0,0,0.25)';
+                    ctx.stroke();
+                });
+
+                // Draw decision boundary and margins
+                if (model.w.x !== 0 || model.w.y !== 0) {
+                    const { w: wVec, b } = model;
+                    
+                    const getY = (x, val) => (-wVec.x * x - b + val) / wVec.y;
+                    
+                    // Decision boundary: w*x + b = 0
+                    ctx.beginPath();
+                    ctx.moveTo(0, getY(0, 0));
+                    ctx.lineTo(w, getY(w, 0));
+                    ctx.strokeStyle = '#f59e0b';
+                    ctx.lineWidth = 3;
+                    ctx.stroke();
+                    
+                    // Margin 1: w*x + b = 1
+                    ctx.beginPath();
+                    ctx.moveTo(0, getY(0, 1));
+                    ctx.lineTo(w, getY(w, 1));
+                    ctx.setLineDash([5, 5]);
+                    ctx.strokeStyle = '#ffffffaa';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                    
+                    // Margin -1: w*x + b = -1
+                    ctx.beginPath();
+                    ctx.moveTo(0, getY(0, -1));
+                    ctx.lineTo(w, getY(w, -1));
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                }
+                
+                if (statsEl) {
+                    statsEl.textContent = training ? "Training..." : `Points: ${points.length}. Ready to train.`;
+                }
+            }
+
+            async function trainSVM() {
+                if (training || points.length < 2) return;
+                training = true;
+                
+                // Show training UI
+                document.getElementById('svm-spinner').classList.remove('hidden');
+                statsEl.textContent = "Training...";
+                
+                // Reset model
+                model = { w: { x: 0, y: 0.1 }, b: 0 };
+                
+                const learningRate = 0.1;
+                const lambda = 0.001;
+                const epochs = 100;
+                
+                for (let epoch = 0; epoch < epochs; epoch++) {
+                    let gradW = { x: 0, y: 0 };
+                    let gradB = 0;
+                    
+                    points.forEach(p => {
+                        const condition = p.label * (model.w.x * p.x + model.w.y * p.y + model.b);
+                        if (condition < 1) {
+                            gradW.x -= p.label * p.x;
+                            gradW.y -= p.label * p.y;
+                            gradB -= p.label;
+                        }
+                    });
+                    
+                    // Update weights
+                    model.w.x -= learningRate * ((gradW.x / points.length) + 2 * lambda * model.w.x);
+                    model.w.y -= learningRate * ((gradW.y / points.length) + 2 * lambda * model.w.y);
+                    model.b -= learningRate * (gradB / points.length);
+                    
+                    // Animate every 5 epochs
+                    if (epoch % 5 === 0) {
+                        init();
+                        await new Promise(r => setTimeout(r, 30));
+                    }
+                }
+                
+                training = false;
+                document.getElementById('svm-spinner').classList.add('hidden');
+                statsEl.textContent = `Points: ${points.length}. Training complete.`;
+                init();
+            }
+                
+            canvas.addEventListener('click', (e) => {
+                if (training) return;
+                const r = canvas.getBoundingClientRect();
+                const x = e.clientX - r.left;
+                const y = e.clientY - r.top;
+                const label = (x > r.width / 2) ? 1 : -1;
+                points.push({ x, y, label });
+                init();
+            });
+                
+            document.getElementById('svm-clear').addEventListener('click', () => {
+                points = [];
+                model = { w: { x: 0, y: 0 }, b: 0 };
+                training = false;
+                init();
+            });
+                
+            document.getElementById('svm-add-random-separable').addEventListener('click', () => {
+                points = [];
+                model = { w: { x: 0, y: 0 }, b: 0 };
+                const { w, h } = setupResponsiveCanvas(canvas, wrapper);
+                
+                const margin = 50;
+                // Class -1 (Magenta)
+                for (let i = 0; i < 15; i++) {
+                    points.push({ 
+                        x: w * 0.25 + (Math.random()-0.5) * (w/2 - margin), 
+                        y: h * 0.5 + (Math.random()-0.5) * h, 
+                        label: -1 
+                    });
+                }
+                // Class 1 (Cyan)
+                for (let i = 0; i < 15; i++) {
+                    points.push({ 
+                        x: w * 0.75 + (Math.random()-0.5) * (w/2 - margin), 
+                        y: h * 0.5 + (Math.random()-0.5) * h, 
+                        label: 1 
+                    });
+                }
+                init();
+            });
+                
+            document.getElementById('svm-train').addEventListener('click', trainSVM);
+                
+            // Expose for tab switching
+            window.svmModule = { init };
+            
+            // Initial draw if tab is visible on load
+            if (!wrapper.parentElement.classList.contains('hidden')) {
+                init();
+            }
+        })();
+    </script>
+</body>
+</html>
