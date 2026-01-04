@@ -55,18 +55,217 @@
 }
 
 @layer components {
+  /* ============================================
+     BUTTONS
+     ============================================ */
   .btn-primary {
-    @apply bg-accent text-white font-semibold px-6 py-3 rounded-lg transition-all duration-normal hover:bg-success focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background;
+    @apply bg-accent text-white font-semibold px-8 py-4 rounded-lg hover:bg-success transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-glow;
   }
   
   .btn-secondary {
-    @apply bg-surface text-text-primary font-semibold px-6 py-3 rounded-lg border border-border transition-all duration-normal hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background;
+    @apply bg-surface text-text-primary font-semibold px-8 py-4 rounded-lg border border-border hover:bg-secondary transition-all duration-300;
   }
   
+  .btn-small {
+    @apply px-6 py-2 text-sm;
+  }
+
+  /* ============================================
+     HERO SECTIONS
+     ============================================ */
+  .hero-section {
+    @apply relative pt-32 pb-20 overflow-hidden;
+  }
+  
+  .hero-overlay {
+    @apply absolute inset-0 bg-black/40;
+  }
+  
+  .hero-animated-bg {
+    @apply absolute inset-0 opacity-10;
+  }
+  
+  .hero-content {
+    @apply container mx-auto px-6 relative z-10;
+  }
+  
+  .hero-heading {
+    @apply text-3xl md:text-5xl font-bold mb-6 leading-tight whitespace-nowrap text-center;
+  }
+  
+  .hero-heading-accent {
+    @apply text-accent;
+  }
+
+  /* ============================================
+     KEY INDICATORS / METRICS
+     ============================================ */
+  .key-indicators-grid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto mb-12;
+  }
+  
+  .key-indicator-item {
+    @apply text-center;
+  }
+  
+  .key-indicator-value {
+    @apply text-3xl font-bold text-accent mb-2;
+  }
+  
+  .key-indicator-label {
+    @apply text-text-secondary text-sm;
+  }
+
+  /* ============================================
+     CTA SECTIONS
+     ============================================ */
+  .cta-section {
+    @apply py-20 bg-accent/5;
+  }
+  
+  .cta-container {
+    @apply container mx-auto px-6;
+  }
+  
+  .cta-content {
+    @apply max-w-3xl mx-auto;
+  }
+  
+  .cta-heading {
+    @apply text-4xl md:text-5xl font-bold mb-6 text-center whitespace-nowrap;
+  }
+  
+  .cta-description {
+    @apply text-xl text-text-secondary mb-8;
+  }
+  
+  .cta-buttons {
+    @apply flex flex-col sm:flex-row gap-4 justify-center;
+  }
+
+  /* ============================================
+     CARDS
+     ============================================ */
   .card {
-    @apply bg-surface rounded-lg p-6 shadow-card border border-border;
+    @apply bg-surface rounded-xl border border-border p-8 shadow-card;
   }
   
+  .card-hover {
+    @apply group hover:transform hover:scale-[1.02] transition-all duration-300;
+  }
+  
+  .card-icon-container {
+    @apply w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300;
+  }
+  
+  .card-icon {
+    @apply w-6 h-6 text-accent;
+  }
+  
+  .card-title {
+    @apply text-xl font-bold text-text-primary mb-2;
+  }
+  
+  .card-title-large {
+    @apply text-3xl md:text-4xl font-bold mb-6;
+  }
+  
+  .card-description {
+    @apply text-text-secondary;
+  }
+
+  /* ============================================
+     SECTION HEADINGS
+     ============================================ */
+  .section-heading {
+    @apply text-4xl md:text-5xl font-bold mb-6 text-center;
+  }
+  
+  .section-heading-left {
+    @apply text-4xl md:text-5xl font-bold mb-6;
+  }
+  
+  .section-description {
+    @apply text-xl text-text-secondary;
+  }
+  
+  .section-description-centered {
+    @apply text-xl text-text-secondary max-w-3xl mx-auto;
+  }
+
+  /* ============================================
+     SECTION CONTAINERS
+     ============================================ */
+  .section {
+    @apply py-20;
+  }
+  
+  .section-alt {
+    @apply py-20 bg-secondary/50;
+  }
+  
+  .section-container {
+    @apply container mx-auto px-6;
+  }
+  
+  .section-content {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* ============================================
+     FORM ELEMENTS
+     ============================================ */
+  .form-input {
+    @apply w-full bg-background border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-text-primary mb-2;
+  }
+  
+  .form-textarea {
+    @apply w-full bg-background border border-border rounded-lg px-4 py-3 text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300 resize-none;
+  }
+  
+  .form-select {
+    @apply w-full bg-background border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300;
+  }
+
+  /* ============================================
+     NAVIGATION
+     ============================================ */
+  .nav-link {
+    @apply text-text-secondary hover:text-accent transition-colors duration-300;
+  }
+  
+  .nav-link-active {
+    @apply text-accent font-medium;
+  }
+  
+  .nav-button {
+    @apply bg-accent text-white px-6 py-2 rounded-lg hover:bg-success transition-all duration-300;
+  }
+
+  /* ============================================
+     UTILITY CLASSES
+     ============================================ */
+  .text-accent-highlight {
+    @apply text-accent;
+  }
+  
+  .container-constrained {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .container-medium {
+    @apply max-w-4xl mx-auto;
+  }
+  
+  .container-small {
+    @apply max-w-2xl mx-auto;
+  }
+
+  /* Legacy classes - keeping for backward compatibility */
   .input-field {
     @apply bg-surface border border-border rounded-lg px-4 py-3 text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-normal;
   }
