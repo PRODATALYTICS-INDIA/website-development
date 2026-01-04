@@ -8,6 +8,9 @@
 - [Build Process](#build-process)
 - [Technologies Used](#technologies-used)
 - [Development Guidelines](#development-guidelines)
+- [Centralized Styling System](#centralized-styling-system)
+- [Deployment](#deployment)
+- [Recent Updates](#recent-updates)
 
 ---
 
@@ -38,7 +41,11 @@ website-development/
 │
 ├── documents/                # Documentation files (excluded from build)
 │   ├── README.md            # This file - project documentation
-│   └── REVIEW_SUMMARY.md    # Code review and optimization summary
+│   ├── REVIEW_SUMMARY.md    # Code review and optimization summary
+│   ├── STYLING_GUIDE.md     # Centralized styling system guide
+│   ├── TESTING_GUIDE.md     # Testing documentation
+│   ├── DEPLOYMENT_GUIDE.md  # Complete deployment instructions
+│   └── TODOLIST.md          # Removed sections and future enhancements
 │
 ├── js/                       # JavaScript files directory
 │   ├── common.js            # Shared functionality across all pages
@@ -57,6 +64,7 @@ website-development/
 │   └── manifest.json        # PWA manifest file
 │
 ├── .gitignore               # Git ignore rules (excludes .md files from build)
+├── deploy.sh                # Deployment script (prepares production build)
 ├── index.html               # Entry point (redirects to homepage)
 ├── package.json             # NPM dependencies and scripts
 └── tailwind.config.js       # Tailwind CSS configuration
@@ -81,14 +89,23 @@ website-development/
 ### CSS Files (`css/`)
 
 #### `tailwind.css`
-- **Purpose**: Tailwind CSS source file with custom styles
+- **Purpose**: Tailwind CSS source file with custom styles and reusable component classes
 - **Contents**:
   - Font imports (Inter, JetBrains Mono)
   - Tailwind directives (`@tailwind base`, `@tailwind components`, `@tailwind utilities`)
   - Custom CSS variables for colors, shadows, animations
-  - Custom utility classes (`.btn-primary`, `.btn-secondary`, `.card`, `.input-field`)
+  - **Reusable component classes** in `@layer components`:
+    - Hero sections (`.hero-section`, `.hero-heading`, `.hero-content`, etc.)
+    - CTA sections (`.cta-section`, `.cta-heading`, `.cta-buttons`, etc.)
+    - Key indicators (`.key-indicators-grid`, `.key-indicator-value`, etc.)
+    - Buttons (`.btn-primary`, `.btn-secondary`, `.btn-small`)
+    - Cards (`.card`, `.card-hover`, `.card-title`, etc.)
+    - Section headings and containers
+    - Form elements (`.form-input`, `.form-label`, etc.)
+    - Navigation components
   - Custom animations (`fadeIn`, `slideUp`)
 - **Build**: Compiled to `main.css` via Tailwind CLI
+- **See**: `documents/STYLING_GUIDE.md` for complete component documentation
 
 #### `main.css`
 - **Purpose**: Compiled Tailwind CSS output
@@ -203,6 +220,8 @@ website-development/
   - `build:css` - Build CSS once
   - `watch:css` - Build CSS and watch for changes
   - `dev` - Alias for `watch:css`
+  - `build` - Build CSS for production
+  - `deploy` - Run deployment script
 - **Dependencies**: Tailwind CSS plugins and utilities
 - **Dev Dependencies**: Tailwind CSS and related plugins
 
@@ -339,10 +358,13 @@ For production deployment:
 
 ### CSS Guidelines
 
-1. **Use Tailwind utility classes** for styling
-2. **Custom styles** should be added to `css/tailwind.css` using `@layer`
-3. **Run build** after modifying Tailwind config or source
-4. **Don't edit** `css/main.css` directly (it's generated)
+1. **Use component classes** from `@layer components` in `tailwind.css` for consistency
+2. **Refer to `documents/STYLING_GUIDE.md`** for available component classes
+3. **Use Tailwind utility classes** for one-off styling
+4. **Custom styles** should be added to `css/tailwind.css` using `@layer`
+5. **Run build** after modifying Tailwind config or source: `npm run build:css`
+6. **Don't edit** `css/main.css` directly (it's generated)
+7. **Add new component classes** to `@layer components` when patterns are repeated 2+ times
 
 ### JavaScript Guidelines
 
@@ -375,6 +397,180 @@ For production deployment:
 
 ---
 
+## 🎨 Centralized Styling System
+
+The project uses a centralized styling system with reusable component classes defined in `css/tailwind.css`. This ensures consistency across all pages and reduces manual changes.
+
+### Key Benefits
+- **Consistency**: Same styling patterns across all pages
+- **Maintainability**: Change once, update everywhere
+- **Less Repetition**: No need to repeat long class strings
+- **Documentation**: Complete guide in `documents/STYLING_GUIDE.md`
+
+### Available Component Classes
+
+#### Hero Sections
+- `.hero-section` - Main hero container
+- `.hero-overlay` - Dark background overlay
+- `.hero-heading` - Hero heading with responsive sizing
+- `.hero-content` - Content container
+
+#### CTA Sections
+- `.cta-section` - CTA section with accent background
+- `.cta-heading` - CTA heading (centered, no-wrap)
+- `.cta-buttons` - Button container
+
+#### Buttons
+- `.btn-primary` - Primary action button
+- `.btn-secondary` - Secondary/outlined button
+- `.btn-small` - Smaller button variant
+
+#### Cards
+- `.card` - Base card styling
+- `.card-hover` - Card with hover effects
+- `.card-title` - Card title styling
+
+#### Key Indicators
+- `.key-indicators-grid` - Grid for metrics/indicators
+- `.key-indicator-value` - Large number display
+- `.key-indicator-label` - Label text
+
+### Usage Example
+
+```html
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="hero-heading">
+            Title with <span class="hero-heading-accent">accent</span>
+        </h1>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="cta-container">
+        <h2 class="cta-heading">Ready to collaborate with us ?</h2>
+        <div class="cta-buttons">
+            <a href="#" class="btn-primary">Connect with us</a>
+            <a href="#" class="btn-secondary">Explore services</a>
+        </div>
+    </div>
+</section>
+```
+
+**For complete documentation, see `documents/STYLING_GUIDE.md`**
+
+---
+
+## 🚀 Deployment
+
+The website can be deployed to `prodatalytics.com` using various hosting options.
+
+### Quick Deployment
+
+1. **Prepare deployment package:**
+   ```bash
+   ./deploy.sh
+   ```
+   Or use npm:
+   ```bash
+   npm run deploy
+   ```
+
+2. **This creates a `deploy/` directory** with all production-ready files:
+   - Compiled CSS
+   - All HTML pages
+   - JavaScript files
+   - Assets and images
+   - `.htaccess` for Apache servers
+   - Deployment information
+
+### Deployment Options
+
+The website is a static site and can be deployed to:
+
+1. **Traditional Web Hosting** (cPanel, FTP)
+   - Upload `deploy/` folder contents to `public_html/`
+   - Configure DNS
+   - Set up SSL certificate
+
+2. **Netlify** (Recommended for ease)
+   - Drag and drop `deploy/` folder
+   - Automatic SSL
+   - Free tier available
+
+3. **Vercel**
+   - Deploy via CLI or Git integration
+   - Automatic SSL
+   - Free tier available
+
+4. **GitHub Pages**
+   - Push to GitHub repository
+   - Enable Pages in settings
+   - Free hosting
+
+5. **AWS S3 + CloudFront**
+   - Upload to S3 bucket
+   - Configure CloudFront distribution
+   - Enterprise-grade hosting
+
+### Requirements
+
+- ✅ Domain: `prodatalytics.com` (purchased)
+- ✅ Node.js and npm (for building)
+- ✅ Web hosting account (choose one option above)
+- ✅ DNS access (to point domain to hosting)
+
+### Detailed Instructions
+
+**For complete deployment guide with step-by-step instructions for each hosting option, see:**
+- 📚 `documents/DEPLOYMENT_GUIDE.md`
+
+The deployment guide includes:
+- Detailed setup for each hosting option
+- DNS configuration instructions
+- SSL certificate setup
+- Post-deployment checklist
+- Troubleshooting guide
+
+### Deployment Script Features
+
+The `deploy.sh` script:
+- ✅ Checks prerequisites (Node.js, npm)
+- ✅ Installs dependencies
+- ✅ Builds CSS for production
+- ✅ Creates optimized deployment package
+- ✅ Generates `.htaccess` for Apache
+- ✅ Creates deployment summary
+- ✅ Excludes development files
+
+---
+
+## 📝 Recent Updates
+
+### Styling System (Latest)
+- ✅ **Centralized component classes** added to `css/tailwind.css`
+- ✅ **Styling guide** created in `documents/STYLING_GUIDE.md`
+- ✅ **Reusable components** for hero sections, CTAs, buttons, cards, and more
+
+### Page Updates
+- ✅ **Hero sections** standardized across all pages (Homepage, Services, About, Contact)
+- ✅ **Key indicators** added to hero sections (24/7 Support, Response Time, etc.)
+- ✅ **CTA sections** standardized with consistent styling
+- ✅ **Email updated** from `info@prodatalytics.com` to `hello@prodatalytics.com` across all pages
+- ✅ **Content updates** to About page (company story, mission & values)
+- ✅ **Section removals** documented in `documents/TODOLIST.md`
+
+### Design Consistency
+- ✅ **Text alignment** standardized (headings centered, descriptions left-aligned)
+- ✅ **Dark overlay** added to hero sections for consistent appearance
+- ✅ **Font sizing** optimized for readability and one-line display
+- ✅ **Button styles** unified across all pages
+
+---
+
 ## 🔍 File Purpose Quick Reference
 
 | File/Folder | Purpose |
@@ -392,6 +588,7 @@ For production deployment:
 | `js/contact.js` | Contact page specific code |
 | `tailwind.config.js` | Tailwind configuration |
 | `package.json` | Dependencies and scripts |
+| `deploy.sh` | Deployment script |
 | `documents/` | Documentation (excluded from build) |
 
 ---
@@ -416,5 +613,22 @@ For questions or issues regarding this project, please contact the development t
 
 ---
 
-**Last Updated**: 2025
-**Version**: 1.0.0
+**Last Updated**: January 2025
+**Version**: 1.1.0
+
+### Changelog
+
+#### v1.1.0 (January 2025)
+- Added centralized styling system with reusable component classes
+- Created comprehensive styling guide documentation
+- Standardized hero sections across all pages
+- Added key indicators to hero sections
+- Unified CTA sections with consistent styling
+- Updated contact email to hello@prodatalytics.com
+- Improved design consistency and alignment
+- Documented removed sections in TODOLIST.md
+
+#### v1.0.0 (Initial Release)
+- Initial website structure
+- Basic pages and functionality
+- Tailwind CSS integration

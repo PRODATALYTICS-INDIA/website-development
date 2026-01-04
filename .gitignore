@@ -5,6 +5,7 @@ node_modules/
 # Note: css/main.css is kept in repo for deployment
 dist/
 build/
+deploy/
 
 # Environment files
 .env
