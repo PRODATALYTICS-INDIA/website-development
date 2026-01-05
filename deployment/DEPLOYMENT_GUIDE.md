@@ -40,7 +40,7 @@ Before deploying, ensure you have:
 Run the deployment script:
 
 ```bash
-./deploy.sh
+./deployment/deploy.sh
 ```
 
 This will:
@@ -70,7 +70,7 @@ Select one of the deployment options below based on your needs and budget.
 
 1. **Run deployment script:**
    ```bash
-   ./deploy.sh
+   ./deployment/deploy.sh
    ```
 
 2. **Upload files via FTP:**
@@ -165,7 +165,7 @@ Select one of the deployment options below based on your needs and budget.
 
 1. **Run deployment script:**
    ```bash
-   ./deploy.sh
+   ./deployment/deploy.sh
    ```
 
 2. **Deploy via Netlify Dashboard:**
@@ -188,7 +188,7 @@ Select one of the deployment options below based on your needs and budget.
    - SSL certificate is automatic (Let's Encrypt)
 
 5. **Configure redirects:**
-   Create `netlify.toml` in root:
+   Create `netlify.toml` in project root (Netlify requires it in root):
    ```toml
    [[redirects]]
      from = "/"
@@ -483,7 +483,7 @@ After deployment, verify:
 ### For Traditional Hosting:
 
 1. Make changes locally
-2. Run `./deploy.sh`
+2. Run `./deployment/deploy.sh`
 3. Upload new files via FTP
 4. Clear CDN cache (if using)
 

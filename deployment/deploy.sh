@@ -13,6 +13,11 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
+# Get the script directory and project root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+cd "$PROJECT_ROOT"
+
 DEPLOY_DIR="deploy"
 DOMAIN="prodatalytics.com"
 
@@ -205,7 +210,7 @@ echo "  4. Set up SSL certificate"
 echo "  5. Test the website"
 echo ""
 echo -e "${BLUE}📚 For detailed deployment instructions, see:${NC}"
-echo "  - documents/DEPLOYMENT_GUIDE.md"
+echo "  - deployment/DEPLOYMENT_GUIDE.md"
 echo ""
 echo -e "${GREEN}✨ Deployment preparation complete!${NC}"
 

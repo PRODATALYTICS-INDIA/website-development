@@ -44,7 +44,6 @@ website-development/
 │   ├── REVIEW_SUMMARY.md    # Code review and optimization summary
 │   ├── STYLING_GUIDE.md     # Centralized styling system guide
 │   ├── TESTING_GUIDE.md     # Testing documentation
-│   ├── DEPLOYMENT_GUIDE.md  # Complete deployment instructions
 │   └── TODOLIST.md          # Removed sections and future enhancements
 │
 ├── js/                       # JavaScript files directory
@@ -64,7 +63,12 @@ website-development/
 │   └── manifest.json        # PWA manifest file
 │
 ├── .gitignore               # Git ignore rules (excludes .md files from build)
-├── deploy.sh                # Deployment script (prepares production build)
+├── deployment/              # Deployment scripts and documentation
+│   ├── deploy.sh           # Production deployment script
+│   ├── deploy-dev.sh       # Dev/staging deployment script
+│   ├── DEPLOYMENT_GUIDE.md # Complete deployment instructions
+│   ├── DEV_DEPLOYMENT_GUIDE.md # Dev deployment guide
+│   └── QUICK_START_DEPLOY.md # Quick start guide
 ├── index.html               # Entry point (redirects to homepage)
 ├── package.json             # NPM dependencies and scripts
 └── tailwind.config.js       # Tailwind CSS configuration
@@ -468,11 +472,41 @@ The project uses a centralized styling system with reusable component classes de
 
 The website can be deployed to `prodatalytics.com` using various hosting options.
 
-### Quick Deployment
+### 🎯 Quick Dev/Staging Deployment (For Client Review)
+
+**Recommended: Netlify (Free, Easy, Fast)**
+
+1. **Prepare for deployment:**
+   ```bash
+   ./deployment/deploy-dev.sh
+   ```
+   Or manually:
+   ```bash
+   npm install
+   npm run build:css
+   ```
+
+2. **Deploy to Netlify:**
+   - Go to [netlify.com](https://netlify.com) and sign up/login
+   - Click **"Add new site"** → **"Deploy manually"**
+   - Drag and drop your entire project folder
+   - Your site will be live in ~30 seconds at a URL like: `https://random-name-12345.netlify.app`
+   - Share this URL with your client for review
+
+3. **For automatic deployments:**
+   - Push code to GitHub
+   - Connect GitHub repo to Netlify
+   - Every push automatically deploys
+
+**📚 Full dev deployment guide:** See `deployment/DEV_DEPLOYMENT_GUIDE.md`
+
+---
+
+### Production Deployment
 
 1. **Prepare deployment package:**
    ```bash
-   ./deploy.sh
+   ./deployment/deploy.sh
    ```
    Or use npm:
    ```bash
@@ -526,7 +560,7 @@ The website is a static site and can be deployed to:
 ### Detailed Instructions
 
 **For complete deployment guide with step-by-step instructions for each hosting option, see:**
-- 📚 `documents/DEPLOYMENT_GUIDE.md`
+- 📚 `deployment/DEPLOYMENT_GUIDE.md`
 
 The deployment guide includes:
 - Detailed setup for each hosting option
@@ -537,7 +571,7 @@ The deployment guide includes:
 
 ### Deployment Script Features
 
-The `deploy.sh` script:
+The `deployment/deploy.sh` script:
 - ✅ Checks prerequisites (Node.js, npm)
 - ✅ Installs dependencies
 - ✅ Builds CSS for production
@@ -588,7 +622,8 @@ The `deploy.sh` script:
 | `js/contact.js` | Contact page specific code |
 | `tailwind.config.js` | Tailwind configuration |
 | `package.json` | Dependencies and scripts |
-| `deploy.sh` | Deployment script |
+| `deployment/deploy.sh` | Production deployment script |
+| `deployment/deploy-dev.sh` | Dev/staging deployment script |
 | `documents/` | Documentation (excluded from build) |
 
 ---

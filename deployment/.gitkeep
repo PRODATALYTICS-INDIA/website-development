@@ -1,0 +1,3 @@
+# This file ensures the deployment directory is tracked by git
+# All deployment scripts and documentation are in this folder
+
