@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PRODATALYTICS - Data Analytics Solutions</title>
-    <meta name="description" content="Premium data science consulting firm specializing in machine learning solutions, data analytics, and training programs." />
+    <title>PRODATALYTICS - Transforming data into actionable insights | Data Science Consulting</title>
+    <meta name="description" content="Premium data science consulting firm specializing in machine learning solutions, data analytics, and training programs. Transform your data into actionable business intelligence." />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://prodatalytics.com/" />
-    <meta property="og:title" content="PRODATALYTICS - Transform Data Into Decisions" />
+    <meta property="og:url" content="https://www.prodatalytics.com/" />
+    <meta property="og:title" content="PRODATALYTICS - Transforming data into actionable insights" />
     <meta property="og:description" content="Premium data science consulting firm specializing in machine learning solutions, data analytics, and training programs." />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://prodatalytics.com/" />
-    <meta property="twitter:title" content="PRODATALYTICS - Transform Data Into Decisions" />
+    <meta property="twitter:url" content="https://www.prodatalytics.com/" />
+    <meta property="twitter:title" content="PRODATALYTICS - Transforming data into actionable insights" />
     <meta property="twitter:description" content="Premium data science consulting firm specializing in machine learning solutions, data analytics, and training programs." />
     
     <!-- Favicon -->
@@ -24,34 +24,351 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/main.css" />
-    <script>
-        // Redirect to homepage after a brief moment
-        window.onload = function() {
-            setTimeout(function() {
-                window.location.href = 'pages/homepage.html';
-            }, 100);
-        };
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
 </head>
-<body>
-    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f8f9fa;">
-        <div style="text-align: center;">
-            <h1 style="color: #333; margin-bottom: 20px;">Welcome to PRODATALYTICS</h1>
-            <p style="color: #666; margin-bottom: 30px;">Redirecting to homepage...</p>
-            <div style="width: 50px; height: 50px; border: 3px solid #f3f3f3; border-top: 3px solid #007bff; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+<body class="bg-background text-text-primary font-sans">
+    <!-- Glassmorphic Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-border/30">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <a href="index.html"><img src="assets/images/logo/White on Transparent.png" alt="PRODATALYTICS Logo" class="h-8 w-auto" /></a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-accent font-medium">Home</a>
+                    <a href="pages/services.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Services</a>
+                    <a href="pages/about.html" class="text-text-secondary hover:text-accent transition-colors duration-300">About</a>
+                    <a href="pages/contact.html" class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-success transition-all duration-300">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-text-primary">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-border/30">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="index.html" class="text-accent font-medium">Home</a>
+                    <a href="pages/services.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Services</a>
+                    <a href="pages/about.html" class="text-text-secondary hover:text-accent transition-colors duration-300">About</a>
+                    <a href="pages/contact.html" class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-success transition-all duration-300 text-center">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 overflow-hidden">
+        <!-- Dark Background Overlay -->
+        <div class="absolute inset-0 bg-black/40"></div>
+        
+        <!-- Animated Background -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 bg-success/20 rounded-full blur-lg animate-pulse delay-1000"></div>
+            <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-accent/10 rounded-full blur-2xl animate-pulse delay-2000"></div>
+            <div class="absolute bottom-20 right-1/3 w-28 h-28 bg-success/15 rounded-full blur-xl animate-pulse delay-3000"></div>
+        </div>
+
+        <!-- Data Visualization Background -->
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" viewBox="0 0 1200 800">
+                <defs>
+                    <linearGradient id="dataGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.3"/>
+                        <stop offset="100%" style="stop-color:#059669;stop-opacity:0.1"/>
+                    </linearGradient>
+                </defs>
+                <path d="M0,400 Q300,200 600,300 T1200,250" stroke="url(#dataGradient)" stroke-width="2" fill="none" opacity="0.6">
+                    <animate attributeName="d" dur="8s" repeatCount="indefinite" values="M0,400 Q300,200 600,300 T1200,250;M0,350 Q300,150 600,400 T1200,200;M0,400 Q300,200 600,300 T1200,250"/>
+                </path>
+                <path d="M0,500 Q400,300 800,400 T1200,350" stroke="url(#dataGradient)" stroke-width="1.5" fill="none" opacity="0.4">
+                    <animate attributeName="d" dur="10s" repeatCount="indefinite" values="M0,500 Q400,300 800,400 T1200,350;M0,450 Q400,250 800,500 T1200,300;M0,500 Q400,300 800,400 T1200,350"/>
+                </path>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <h1 class="text-3xl md:text-5xl font-bold mb-6 leading-tight whitespace-nowrap text-center">
+                Transforming <span class="text-accent">data</span> into actionable <span class="text-accent">insights</span>
+            </h1>
+
+            <!-- Primary CTAs -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                    <a href="pages/contact.html" class="bg-accent text-white font-semibold px-8 py-4 rounded-lg hover:bg-success transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-glow">
+                        Connect with us
+                    </a>
+                    <a href="pages/services.html" class="bg-surface text-text-primary font-semibold px-8 py-4 rounded-lg border border-border hover:bg-secondary transition-all duration-300">
+                        Explore Services
+                    </a>
+                    <a href="pages/about.html" class="bg-surface text-text-primary font-semibold px-8 py-4 rounded-lg border border-border hover:bg-secondary transition-all duration-300">
+                        Know more about us
+                    </a>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent mb-2">20+</div>
+                        <div class="text-text-secondary text-sm">Projects delivered</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent mb-2">10+</div>
+                        <div class="text-text-secondary text-sm">Workshops conducted</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent mb-2">50+</div>
+                        <div class="text-text-secondary text-sm">Training, seminars and consultations</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent mb-2">5+</div>
+                        <div class="text-text-secondary text-sm">Products deployed</div>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Services Preview Section -->
+    <section class="py-20 bg-secondary/50">
+        <div class="container mx-auto px-6">
+            <div class="mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-center">What we do ?</h2>
+                <div>
+                    <p class="text-xl text-text-secondary mb-6">
+                        Premium data science consulting that bridges the gap between complex analytics and actionable business intelligence. 
+                        Unlock your data's potential with cutting-edge ML solutions. We deliver comprehensive data science solutions that transform businesses through intelligent analytics, 
+                        strategic consulting, and innovative machine learning applications tailored to your unique challenges.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Data Science Consulting -->
+                <a href="pages/services.html#consulting" class="bg-surface rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border block">
+                    <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-text-primary mb-2">Data science consulting</h3>
+                    <p class="text-sm text-text-secondary">
+                        Strategic data initiatives that align with your business objectives. We sit one to one with clients to understand their pain points and figure out solutions. We also help validating the methodology or approach they have made to build more confidence.
+                    </p>
+                </a>
+
+                <!-- Machine Learning Solutions & Product Development -->
+                <a href="pages/services.html#ml-solutions" class="bg-surface rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border block">
+                    <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-text-primary mb-2">Product development</h3>
+                    <p class="text-sm text-text-secondary">
+                        From Machine learning models to complex Computer vision challenges and statistical calculations, we develop and deliver high-end scalable products—APIs, dashboards, forms, or other modes—tailored to requirements to create market presence.
+                    </p>
+                </a>
+
+                <!-- Training and Internship Program -->
+                <a href="pages/services.html#training" class="bg-surface rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border block">
+                    <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9l-11-6zM18.82 9L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-text-primary mb-2">Training and internship program</h3>
+                    <p class="text-sm text-text-secondary">
+                        Comprehensive training programs and hands-on 12-week internship programs to build data science capabilities and real-world experience.
+                    </p>
+                </a>
+
+                <!-- Statistical Reporting -->
+                <a href="pages/services.html#statistical-reporting" class="bg-surface rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border block">
+                    <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-text-primary mb-2">Statistical reporting</h3>
+                    <p class="text-sm text-text-secondary">
+                        Precise statistical reporting and consultations for confident decision-making. We also help produce automated reports and support students, research scholars, and other professionals to understand and apply right statistical techniques, and effectively generate interpretations with visuals and usage of proper statistical methods.
+                    </p>
+                </a>
+
+                <!-- Workshops, Masterclass & Collaboration with Academia -->
+                <a href="pages/services.html#workshops" class="bg-surface rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border block">
+                    <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-text-primary mb-2">Workshops, masterclass & collaboration with academia</h3>
+                    <p class="text-sm text-text-secondary">
+                        Hands-on workshops and partnerships with universities to foster innovation. Not only with universities but with institutions and industry, we architect courses and workshop sessions to enhance their productivity.
+                    </p>
+                </a>
+
+                <!-- Continuous Research and Development -->
+                <a href="pages/services.html#research" class="bg-surface rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border block">
+                    <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-2.24 0-.96-.27-1.46-.7-1.86-.88-.6-1.94-1.04-2.6-1.33v-.07c.56-.24 1.24-.56 1.56-1.12.21-.34.34-.85.34-1.38 0-1.13-.49-2.07-1.47-2.37V4h2.67v1.95c1.16.26 1.94 1.13 2.05 2.87H13.3c-.09-1-.6-1.61-1.9-1.61-1.23 0-1.82.49-1.82 1.39 0 .66.33.99.85 1.31.52.31 1.14.53 1.57.74.28.13.37.23.37.45 0 .2-.15.36-.43.5-.43.21-1.06.33-1.78.33v1.97z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-text-primary mb-2">Continuous research and development</h3>
+                    <p class="text-sm text-text-secondary">
+                        Staying ahead of the curve in data analytics trends through continuous innovation.
+                    </p>
+                </a>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Separator between What we do & How we do it -->
+    <div class="border-t border-border/60" aria-hidden="true"></div>
+
+    <!-- Technologies & Tools Section -->
+    <section class="py-16 bg-secondary/50">
+        <div class="container mx-auto px-6">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">How we do it ?</h2>
+                <p class="text-lg text-text-secondary">
+                    We use a combination of traditional tools and modern AI-based technologies to stay current with the market. 
+                    We regularly study new trends and keep improving our approach. Through this continuous research, 
+                    we find practical methods that help the data science community—whether in academia, government, private 
+                    organizations, or new industries. Some of the tools we are fond of and familiar with include:
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Open Source Tools -->
+                <div class="bg-surface rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9.585 11.692h4.328s2.432.034 2.432-2.018c0-2.018-1.96-1.96-2.432-1.96h-4.328V11.692zm-1.384 1.5v-6.75h5.712s3.432-.034 3.432 3.384c0 3.35-2.568 3.366-3.432 3.366H8.201zm-1.384-8.25h8.25s5.25 0 5.25 5.25v2.25s0 5.25-5.25 5.25h-8.25V4.942z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-text-primary mb-4">Open source tools</h3>
+                    <div class="space-y-3 text-text-secondary">
+                        <p><strong class="text-text-primary">Python:</strong> The world's most popular programming language for data science, machine learning, and AI, used by data scientists, researchers, and developers globally in academia, tech companies, and enterprises.</p>
+                        <p><strong class="text-text-primary">R Studio:</strong> Integrated development environment for R programming, widely used by statisticians, data analysts, and researchers in academia, healthcare, finance, and government agencies for statistical analysis and data visualization.</p>
+                        <p><strong class="text-text-primary">JASP:</strong> Free and open-source statistical software for Bayesian and frequentist analysis, popular among researchers, psychologists, and social scientists in universities and research institutions worldwide.</p>
+                        <p><strong class="text-text-primary">GitHub:</strong> World's largest code hosting platform for version control and collaboration, used by millions of developers, data scientists, and software engineers globally for managing code repositories and collaborative development.</p>
+                    </div>
+                </div>
+                
+                <!-- Analytical Dashboards -->
+                <div class="bg-surface rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-text-primary mb-4">Analytical dashboards</h3>
+                    <div class="space-y-3 text-text-secondary">
+                        <p><strong class="text-text-primary">Power BI:</strong> Microsoft's business analytics service for creating interactive dashboards and reports, used by business analysts and executives for data-driven decision making.</p>
+                        <p><strong class="text-text-primary">Tableau:</strong> Leading data visualization and business intelligence platform for creating interactive dashboards, used by data analysts and BI professionals globally.</p>
+                        <p><strong class="text-text-primary">Dashboards with Shiny:</strong> R-based web application framework for building interactive dashboards and data visualizations, widely used by data scientists and researchers in academia and healthcare.</p>
+                        <p><strong class="text-text-primary">Dashboards with Streamlit:</strong> Python-based open-source framework for building interactive web applications and dashboards, popular among data scientists and ML engineers for quickly creating data-driven web apps.</p>
+                    </div>
+                </div>
+                
+                <!-- Enterprise Analytics Tools -->
+                <div class="bg-surface rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-text-primary mb-4">Enterprise analytics tools</h3>
+                    <div class="space-y-3 text-text-secondary">
+                        <p><strong class="text-text-primary">IBM SPSS:</strong> Statistical analysis software for predictive analytics and data mining, extensively used by market researchers, social scientists, and business analysts in corporations, government agencies, and academic institutions.</p>
+                        <p><strong class="text-text-primary">SAS:</strong> Enterprise analytics software suite for advanced analytics, business intelligence, and data management, trusted by Fortune 500 companies, banks, pharmaceutical companies, and government organizations worldwide.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Floating Email Contact Box -->
+    <div id="floating-email" class="fixed bottom-6 right-6 z-40">
+        <div class="bg-surface border border-border rounded-lg p-4 shadow-lg max-w-sm transform transition-all duration-300 hover:scale-105">
+            <div class="flex items-center justify-between mb-3">
+                <h4 class="font-semibold text-text-primary">Quick contact</h4>
+                <button id="close-floating" class="text-text-secondary hover:text-text-primary">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+            </div>
+            <form id="quick-contact-form" class="space-y-3">
+                <input type="email" placeholder="Your email" required class="w-full bg-background border border-border rounded px-3 py-2 text-sm text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-accent" />
+                <textarea placeholder="Your message" rows="3" required class="w-full bg-background border border-border rounded px-3 py-2 text-sm text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-accent resize-none"></textarea>
+                <button type="submit" class="w-full bg-accent text-white py-2 rounded hover:bg-success transition-colors duration-300 text-sm font-medium">
+                    Send Message
+                </button>
+            </form>
         </div>
     </div>
-    
-    <style>
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
-    
-    <noscript>
-        <meta http-equiv="refresh" content="0; url=pages/homepage.html" />
-    </noscript>
-<script id="dhws-dataInjector" src="/public/dhws-data-injector.js"></script>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="assets/images/logo/White on Transparent.png" alt="PRODATALYTICS Logo" class="h-8 w-auto" />
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://x.com/prodatalytics" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-accent transition-colors duration-300" aria-label="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/prodatalytics" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-accent transition-colors duration-300" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/prodatalytics/" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold mb-4">Contact info</h4>
+                    <div class="space-y-2 text-text-secondary">
+                        <p>Email: hello@prodatalytics.com</p>
+                        <p>PRODATALYTICS INDIA PRIVATE LIMITED<br>
+                        Spazehive, 16/4263 Anjikathu road, CSEZ, Chittethukara, Kakkanad, Kochi - 682037</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-border pt-8 text-center text-text-secondary">
+                <p>&copy; 2025 PRODATALYTICS INDIA PRIVATE LIMITED. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script id="dhws-dataInjector" src="public/dhws-data-injector.js"></script>
 </body>
 </html>
