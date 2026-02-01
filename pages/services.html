@@ -30,7 +30,7 @@
 <body class="bg-background text-text-primary font-sans">
     <!-- Glassmorphic Header -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-border/30">
-        <nav class="container mx-auto px-6 py-4">
+        <nav class="container mx-auto px-4 sm:px-6 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <div class="flex items-center space-x-2">
@@ -46,7 +46,7 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-text-primary">
+                <button id="mobile-menu-btn" class="md:hidden text-text-primary min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Toggle menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -55,18 +55,18 @@
 
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-border/30">
-                <div class="flex flex-col space-y-4 pt-4">
-                    <a href="homepage.html" class="text-text-secondary hover:text-accent transition-colors duration-300">Home</a>
-                    <a href="services.html" class="text-accent font-medium">Services</a>
-                    <a href="about.html" class="text-text-secondary hover:text-accent transition-colors duration-300">About</a>
-                    <a href="contact.html" class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-success transition-all duration-300 text-center">Contact</a>
+                <div class="flex flex-col pt-4">
+                    <a href="homepage.html" class="text-text-secondary hover:text-accent transition-colors duration-300 py-3 block">Home</a>
+                    <a href="services.html" class="text-accent font-medium py-3 block">Services</a>
+                    <a href="about.html" class="text-text-secondary hover:text-accent transition-colors duration-300 py-3 block">About</a>
+                    <a href="contact.html" class="bg-accent text-white px-6 py-3 rounded-lg hover:bg-success transition-all duration-300 text-center block">Contact</a>
                 </div>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 overflow-hidden">
+    <section class="relative pt-24 pb-16 sm:pt-32 sm:pb-20 overflow-hidden">
         <!-- Dark Background Overlay -->
         <div class="absolute inset-0 bg-black/40"></div>
         
@@ -96,8 +96,8 @@
             </svg>
         </div>
 
-        <div class="container mx-auto px-6 relative z-10">
-            <h1 class="text-3xl md:text-5xl font-bold mb-6 leading-tight whitespace-nowrap text-center">
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
+            <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 leading-tight text-center">
                 Empowering your business with <span class="text-accent">data-driven</span> <span class="text-accent">solutions</span>
             </h1>
 
@@ -130,7 +130,7 @@
 
     <!-- Data Science Consulting -->
     <section id="consulting" class="py-20">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-4 sm:px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <div class="flex items-center mb-6">
@@ -224,7 +224,7 @@
 
     <!-- Machine Learning Solutions -->
     <section id="ml-solutions" class="py-20">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-4 sm:px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="order-2 lg:order-1 relative">
                     <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Machine Learning Models" class="rounded-xl shadow-card w-full h-96 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
@@ -325,7 +325,7 @@
 
     <!-- Training Programs -->
     <section id="training" class="py-20">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-4 sm:px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <div class="flex items-center mb-6">
@@ -403,7 +403,7 @@
 
     <!-- Statistical Reporting -->
     <section id="statistical-reporting" class="py-20">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-4 sm:px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <div class="flex items-center mb-6">
@@ -463,7 +463,7 @@
 
     <!-- Workshops, Masterclass & Collaboration with Academia -->
     <section id="workshops" class="py-20 bg-secondary/50">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-4 sm:px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="order-2 lg:order-1 relative">
                     <img src="https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg" alt="Workshop Session" class="rounded-xl shadow-card w-full h-96 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
@@ -524,7 +524,7 @@
 
     <!-- Continuous Research and Development -->
     <section id="research" class="py-20">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-4 sm:px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <div class="flex items-center mb-6">
@@ -585,9 +585,9 @@
 
     <!-- CTA Section -->
     <section class="py-20 bg-accent/5">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-4 sm:px-6">
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-center whitespace-nowrap">Ready to collaborate with us ?</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-center">Ready to collaborate with us ?</h2>
                 <p class="text-xl text-text-secondary mb-8">
                     Let's discuss how our proven methodology and expert team can transform your data 
                     into actionable business intelligence. Schedule a consultation today.
@@ -606,7 +606,7 @@
 
     <!-- Footer -->
     <footer class="bg-primary py-16">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-4 sm:px-6">
             <div class="grid md:grid-cols-2 gap-8 mb-8">
                 <!-- Company Info -->
                 <div>

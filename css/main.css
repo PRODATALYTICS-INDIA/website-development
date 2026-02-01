@@ -672,14 +672,6 @@ code, pre {
   inset: 0px;
 }
 
-.-bottom-4{
-  bottom: -1rem;
-}
-
-.-right-4{
-  right: -1rem;
-}
-
 .bottom-20{
   bottom: 5rem;
 }
@@ -738,10 +730,6 @@ code, pre {
 
 .top-20{
   top: 5rem;
-}
-
-.top-4{
-  top: 1rem;
 }
 
 .top-40{
@@ -861,10 +849,6 @@ code, pre {
   aspect-ratio: 16 / 9;
 }
 
-.h-10{
-  height: 2.5rem;
-}
-
 .h-12{
   height: 3rem;
 }
@@ -917,8 +901,8 @@ code, pre {
   height: 100%;
 }
 
-.w-10{
-  width: 2.5rem;
+.min-h-\[44px\]{
+  min-height: 44px;
 }
 
 .w-12{
@@ -969,6 +953,10 @@ code, pre {
   width: 100%;
 }
 
+.min-w-\[44px\]{
+  min-width: 44px;
+}
+
 .max-w-2xl{
   max-width: 42rem;
 }
@@ -979,10 +967,6 @@ code, pre {
 
 .max-w-4xl{
   max-width: 56rem;
-}
-
-.max-w-6xl{
-  max-width: 72rem;
 }
 
 .max-w-7xl{
@@ -1035,10 +1019,6 @@ code, pre {
 
 .grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.grid-cols-3{
-  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .flex-col{
@@ -1133,18 +1113,8 @@ code, pre {
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
-.space-y-8 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-y-reverse: 0;
-  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
-}
-
 .overflow-hidden{
   overflow: hidden;
-}
-
-.whitespace-nowrap{
-  white-space: nowrap;
 }
 
 .rounded{
@@ -1183,10 +1153,6 @@ code, pre {
   border-color: rgb(16 185 129 / 0.2);
 }
 
-.border-accent\/30{
-  border-color: rgb(16 185 129 / 0.3);
-}
-
 .border-border{
   --tw-border-opacity: 1;
   border-color: rgb(42 42 42 / var(--tw-border-opacity, 1));
@@ -1194,6 +1160,10 @@ code, pre {
 
 .border-border\/30{
   border-color: rgb(42 42 42 / 0.3);
+}
+
+.border-border\/60{
+  border-color: rgb(42 42 42 / 0.6);
 }
 
 .border-error{
@@ -1270,6 +1240,10 @@ code, pre {
      object-fit: cover;
 }
 
+.p-2{
+  padding: 0.5rem;
+}
+
 .p-4{
   padding: 1rem;
 }
@@ -1327,16 +1301,16 @@ code, pre {
   padding-bottom: 1rem;
 }
 
-.pb-20{
-  padding-bottom: 5rem;
+.pb-16{
+  padding-bottom: 4rem;
 }
 
 .pb-4{
   padding-bottom: 1rem;
 }
 
-.pt-32{
-  padding-top: 8rem;
+.pt-24{
+  padding-top: 6rem;
 }
 
 .pt-4{
@@ -1372,6 +1346,11 @@ code, pre {
 .text-4xl{
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-base{
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .text-lg{
@@ -1674,8 +1653,39 @@ code, pre {
 }
 
 @media (min-width: 640px){
+  .sm\:block{
+    display: block;
+  }
+
   .sm\:flex-row{
     flex-direction: row;
+  }
+
+  .sm\:gap-8{
+    gap: 2rem;
+  }
+
+  .sm\:px-6{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .sm\:pb-20{
+    padding-bottom: 5rem;
+  }
+
+  .sm\:pt-32{
+    padding-top: 8rem;
+  }
+
+  .sm\:text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .sm\:text-4xl{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 }
 
@@ -1709,6 +1719,11 @@ code, pre {
     font-size: 3rem;
     line-height: 1;
   }
+
+  .md\:text-xl{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 1024px){
@@ -1730,10 +1745,6 @@ code, pre {
 
   .lg\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .lg\:grid-cols-5{
-    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .lg\:flex-row{

@@ -315,3 +315,13 @@
     transform: translateY(0);
   }
 }
+
+/* Safe area for notched devices (e.g. iPhone) */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  footer {
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+  }
+  #floating-email > div {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+}

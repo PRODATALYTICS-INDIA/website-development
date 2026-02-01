@@ -11,6 +11,20 @@ function initMobileMenu() {
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+
+        // Close menu when a nav link is clicked (same page or navigation)
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Close menu when clicking outside (not on button or menu)
+        document.addEventListener('click', (e) => {
+            if (mobileMenu.classList.contains('hidden')) return;
+            if (mobileMenuBtn.contains(e.target) || mobileMenu.contains(e.target)) return;
+            mobileMenu.classList.add('hidden');
+        });
     }
 }
 

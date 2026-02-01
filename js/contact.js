@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form submission handlers
     const forms = [
         'consultation-form',
-        'internship-inquiry-form',
         'floating-contact-form'
     ];
 
