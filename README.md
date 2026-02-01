@@ -6,17 +6,32 @@ Professional website for PRODATALYTICS — a premium data science consulting fir
 
 ## Table of Contents
 
-- [Motivation & purpose](#motivation--purpose)
-- [Quick start](#quick-start)
-- [Important steps](#important-steps)
-- [Project structure](#project-structure)
-- [Site overview & navigation](#site-overview--navigation)
-- [Styling system](#styling-system)
-- [Testing the website](#testing-the-website)
-- [Deployment (GitHub Pages)](#deployment-github-pages)
-- [Next to-do's & future enhancements](#next-to-dos--future-enhancements)
-- [File reference](#file-reference)
-- [Technologies](#technologies)
+- [PRODATALYTICS Website](#prodatalytics-website)
+  - [Table of Contents](#table-of-contents)
+  - [Motivation \& purpose](#motivation--purpose)
+  - [Quick start](#quick-start)
+  - [Important steps](#important-steps)
+    - [1. Development](#1-development)
+    - [2. Testing](#2-testing)
+    - [3. Deployment](#3-deployment)
+  - [Project structure](#project-structure)
+  - [Site overview \& navigation](#site-overview--navigation)
+  - [Styling system](#styling-system)
+  - [Testing the website](#testing-the-website)
+  - [Deployment (GitHub Pages)](#deployment-github-pages)
+    - [Prerequisites](#prerequisites)
+    - [Step 1: Push the site to GitHub](#step-1-push-the-site-to-github)
+    - [Step 2: Enable GitHub Pages (GitHub UI)](#step-2-enable-github-pages-github-ui)
+    - [Step 3: Assign a custom domain (CNAME + DNS in Wix)](#step-3-assign-a-custom-domain-cname--dns-in-wix)
+      - [3.1 Set the custom domain in GitHub](#31-set-the-custom-domain-in-github)
+      - [3.2 Add a CNAME file in the repo](#32-add-a-cname-file-in-the-repo)
+      - [3.3 Add DNS records in Wix](#33-add-dns-records-in-wix)
+      - [3.4 Enforce HTTPS](#34-enforce-https)
+    - [Deployment summary](#deployment-summary)
+  - [Next to-do's \& future enhancements](#next-to-dos--future-enhancements)
+  - [File reference](#file-reference)
+  - [Technologies](#technologies)
+  - [License](#license)
 
 ---
 
@@ -25,7 +40,7 @@ Professional website for PRODATALYTICS — a premium data science consulting fir
 **Why this website exists**
 
 - **Client-facing presence** for PRODATALYTICS: data science consulting, ML solutions, training, and research-driven collaboration.
-- **Conversion**: Guide visitors from awareness (homepage, services, about) to contact (consultation form, quick inquiry).
+- **Conversion**: Guide visitors from awareness (homepage, services, about) to contact (consultation form, floating quick contact).
 - **Credibility**: Company story, methodology, and clear service descriptions.
 - **Maintainability**: Static site with centralized styling and simple deployment (GitHub Pages).
 
@@ -111,7 +126,7 @@ website-development/
 │   ├── common.js            # Mobile menu, smooth scroll, floating contact, etc.
 │   └── contact.js           # Contact page forms, FAQ
 ├── assets/images/           # Logos, images
-├── public/                  # Favicon, manifest
+├── public/                  # Favicon, manifest, dhws-data-injector.js
 ├── CNAME                    # Custom domain (www.prodatalytics.com)
 ├── package.json
 └── tailwind.config.js
@@ -360,6 +375,7 @@ The site will be available at **https://www.prodatalytics.com** (and at **https:
 | `css/main.css`     | Compiled CSS (generated) |
 | `js/common.js`     | Shared: menu, scroll, floating contact, etc. |
 | `js/contact.js`    | Contact forms, FAQ |
+| `public/`          | Favicon, manifest.json, dhws-data-injector.js |
 | `CNAME`            | Custom domain for GitHub Pages (see Deployment section above) |
 
 ---
