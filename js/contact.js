@@ -4,6 +4,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const floatingEmail = document.getElementById('floating-email');
+    const thankYouBanner = document.getElementById('thank-you');
+    
+    // Show confirmation banner when redirected after successful submission
+    if (thankYouBanner && window.location.hash === '#thank-you') {
+        thankYouBanner.classList.remove('hidden');
+    }
     
     // Form validation enhancement
     document.querySelectorAll('input[required], textarea[required], select[required]').forEach(field => {
