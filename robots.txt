@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /pages/homepage.html
+
+Sitemap: https://www.prodatalytics.com/sitemap.xml
