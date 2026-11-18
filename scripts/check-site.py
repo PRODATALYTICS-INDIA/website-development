@@ -96,6 +96,20 @@ for page in PAGES:
     if f"https://www.prodatalytics.com/{rel}" not in sm:
         errors.append(f"sitemap.xml: missing {rel}")
 
+# docs/SITE-MAP.md mirrors sitemap.xml (both directions)
+smap = ROOT / "docs/SITE-MAP.md"
+if smap.exists():
+    doc = smap.read_text(encoding="utf-8")
+    for loc in re.findall(r"<loc>https://www\.prodatalytics\.com/([^<]*)</loc>", sm):
+        rel = loc or "index.html"
+        if rel not in doc:
+            errors.append(f"docs/SITE-MAP.md: missing {rel}")
+    for rel in set(re.findall(r"`(pages/[\w/.-]+\.html)`", doc)):
+        if not (ROOT / rel).exists():
+            errors.append(f"docs/SITE-MAP.md: {rel} does not exist")
+else:
+    errors.append("docs/SITE-MAP.md missing")
+
 # shared chrome generated from scripts/chrome/*
 r = subprocess.run([sys.executable, str(ROOT / "scripts/sync-chrome.py"), "--check"], capture_output=True, text=True)
 if r.returncode:
