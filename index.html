@@ -74,7 +74,7 @@
                     <svg class="icon-moon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
                     <svg class="icon-sun w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                     </button>
-                    <a href="pages/contact.html" class="bg-accent text-white px-5 py-2 rounded-lg hover:bg-success transition-all duration-300">Contact</a>
+                    <a href="pages/contact.html" class="bg-[#047857] text-white px-5 py-2 rounded-lg hover:bg-[#065f46] transition-all duration-300">Contact</a>
                 </div>
                 <!-- Mobile controls -->
                 <div class="flex items-center gap-2 lg:hidden">
@@ -109,7 +109,7 @@
                     </div>
                 </div>
                     <a href="pages/about.html" class="text-text-secondary hover:text-accent transition-colors duration-300 py-3 block">About</a>
-                    <a href="pages/contact.html" class="bg-accent text-white px-6 py-3 rounded-lg hover:bg-success transition-all duration-300 text-center block">Contact</a>
+                    <a href="pages/contact.html" class="bg-[#047857] text-white px-6 py-3 rounded-lg hover:bg-[#065f46] transition-all duration-300 text-center block">Contact</a>
                 </div>
             </div>
         </nav>
@@ -123,93 +123,73 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="relative pt-24 pb-16 sm:pt-32 sm:pb-20 overflow-hidden">
-        <!-- Dark Background Overlay -->
+    <section class="hero-section-home">
         <div class="hero-overlay"></div>
-        
-        <!-- Animated Background -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-20 left-10 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-pulse"></div>
-            <div class="absolute top-40 right-20 w-24 h-24 bg-success/20 rounded-full blur-lg animate-pulse delay-1000"></div>
-            <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-accent/10 rounded-full blur-2xl animate-pulse delay-2000"></div>
-            <div class="absolute bottom-20 right-1/3 w-28 h-28 bg-success/15 rounded-full blur-xl animate-pulse delay-3000"></div>
-        </div>
-
-        <!-- Data Visualization Background -->
-        <div class="absolute inset-0 opacity-5">
-            <svg class="w-full h-full" viewBox="0 0 1200 800">
-                <defs>
-                    <linearGradient id="dataGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.3"/>
-                        <stop offset="100%" style="stop-color:#059669;stop-opacity:0.1"/>
-                    </linearGradient>
-                </defs>
-                <path d="M0,400 Q300,200 600,300 T1200,250" stroke="url(#dataGradient)" stroke-width="2" fill="none" opacity="0.6">
-                    <animate attributeName="d" dur="8s" repeatCount="indefinite" values="M0,400 Q300,200 600,300 T1200,250;M0,350 Q300,150 600,400 T1200,200;M0,400 Q300,200 600,300 T1200,250"/>
-                </path>
-                <path d="M0,500 Q400,300 800,400 T1200,350" stroke="url(#dataGradient)" stroke-width="1.5" fill="none" opacity="0.4">
-                    <animate attributeName="d" dur="10s" repeatCount="indefinite" values="M0,500 Q400,300 800,400 T1200,350;M0,450 Q400,250 800,500 T1200,300;M0,500 Q400,300 800,400 T1200,350"/>
-                </path>
-            </svg>
-        </div>
-
-        <div class="container mx-auto px-4 sm:px-6 relative z-10">
-            <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 leading-tight text-center">
-                Transforming <span class="text-accent">data</span> into actionable <span class="text-accent">insights</span>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container mx-auto px-4 sm:px-6 relative z-10 text-center">
+            <p class="eyebrow">Data science &middot; Machine learning &middot; GenAI</p>
+            <h1 class="hero-title">
+                Data science and AI, built for <span class="text-gradient">decisions that matter</span>
             </h1>
-
-            <!-- Primary CTAs -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-                    <a href="pages/contact.html" class="bg-accent text-white font-semibold px-8 py-4 rounded-lg hover:bg-success transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-glow">
-                        Connect with us
-                    </a>
-                    <a href="pages/services.html" class="bg-surface text-text-primary font-semibold px-8 py-4 rounded-lg border border-border hover:bg-secondary transition-all duration-300">
-                        Explore Services
-                    </a>
-                    <a href="pages/about.html" class="bg-surface text-text-primary font-semibold px-8 py-4 rounded-lg border border-border hover:bg-secondary transition-all duration-300">
-                        Know more about us
-                    </a>
+            <p class="hero-lead">
+                We partner with enterprises, institutions and research teams to design, build and deploy machine learning, GenAI and statistical solutions &mdash; and we train the next generation of data scientists.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-14">
+                <a href="pages/contact.html" class="btn-primary">Book a consultation</a>
+                <a href="pages/services.html" class="btn-secondary">Explore services</a>
             </div>
+            <div class="stat-band">
+                <div class="stat-item"><div class="stat-value">20+</div><div class="stat-label">Projects delivered</div></div>
+                <div class="stat-item"><div class="stat-value">10+</div><div class="stat-label">Workshops conducted</div></div>
+                <div class="stat-item"><div class="stat-value">50+</div><div class="stat-label">Trainings, seminars &amp; consultations</div></div>
+                <div class="stat-item"><div class="stat-value">5+</div><div class="stat-label">Products deployed</div></div>
+            </div>
+        </div>
+    </section>
 
-            <!-- Key Metrics -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 max-w-2xl mx-auto">
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-accent mb-2">20+</div>
-                        <div class="text-text-secondary text-sm">Projects delivered</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-accent mb-2">10+</div>
-                        <div class="text-text-secondary text-sm">Workshops conducted</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-accent mb-2">50+</div>
-                        <div class="text-text-secondary text-sm">Training, seminars and consultations</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-accent mb-2">5+</div>
-                        <div class="text-text-secondary text-sm">Products deployed</div>
-                    </div>
-                </div>
+    <!-- Audiences -->
+    <section class="section">
+        <div class="section-container">
+            <div class="mb-12 text-center max-w-3xl mx-auto">
+                <p class="eyebrow">Work with us</p>
+                <h2 class="section-heading !mb-4">One team, three ways to collaborate</h2>
+                <p class="section-description">Whether you are solving a business problem, building a career, or advancing research, there is a clear way in.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <a href="pages/services.html#consulting" class="audience-card group">
+                    <span class="tag-chip">Enterprises &amp; institutions</span>
+                    <h3 class="card-title mt-4">Solve high-stakes data problems</h3>
+                    <p class="card-description text-sm">Strategy, ML and GenAI solutions, and production-ready products &mdash; scoped around your data, security model and goals.</p>
+                    <span class="card-link">Partner with us &rarr;</span>
+                </a>
+                <a href="pages/services.html#training" class="audience-card group">
+                    <span class="tag-chip">Students &amp; early career</span>
+                    <h3 class="card-title mt-4">Learn by building real projects</h3>
+                    <p class="card-description text-sm">Hands-on training and a 12-week internship with mentorship, so you graduate with practical experience and a portfolio.</p>
+                    <span class="card-link">Start your journey &rarr;</span>
+                </a>
+                <a href="pages/services.html#workshops" class="audience-card group">
+                    <span class="tag-chip">Universities &amp; researchers</span>
+                    <h3 class="card-title mt-4">Strengthen research and teaching</h3>
+                    <p class="card-description text-sm">Workshops, masterclasses, course design and statistical support for scholars, institutions and industry teams.</p>
+                    <span class="card-link">Collaborate with us &rarr;</span>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Services Preview Section -->
     <section class="py-20 bg-secondary/50">
         <div class="container mx-auto px-4 sm:px-6">
-            <div class="mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-center">What we do ?</h2>
-                <div>
-                    <p class="text-xl text-text-secondary mb-6">
-                        Premium data science consulting that bridges the gap between complex analytics and actionable business intelligence. 
-                        Unlock your data's potential with cutting-edge ML solutions. We deliver comprehensive data science solutions that transform businesses through intelligent analytics, 
-                        strategic consulting, and innovative machine learning applications tailored to your unique challenges.
-                    </p>
-                </div>
+            <div class="mb-14 text-center max-w-3xl mx-auto">
+                <p class="eyebrow">Services</p>
+                <h2 class="section-heading !mb-4">What we do</h2>
+                <p class="section-description">From first conversation to deployed solution, we bridge complex analytics and practical business intelligence &mdash; with senior, hands-on involvement at every step.</p>
             </div>
-
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Data Science Consulting -->
-                <a href="pages/services.html#consulting" class="bg-surface rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border block">
+                <a href="pages/services.html#consulting" class="bg-surface rounded-xl p-6 hover:-translate-y-1 hover:border-accent/50 transition-all duration-300 shadow-card group border border-border block">
                     <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
                         <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
@@ -222,7 +202,7 @@
                 </a>
 
                 <!-- Machine Learning Solutions & Product Development -->
-                <a href="pages/services.html#ml-solutions" class="bg-surface rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border block">
+                <a href="pages/services.html#ml-solutions" class="bg-surface rounded-xl p-6 hover:-translate-y-1 hover:border-accent/50 transition-all duration-300 shadow-card group border border-border block">
                     <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
                         <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
@@ -235,7 +215,7 @@
                 </a>
 
                 <!-- Training and Internship Program -->
-                <a href="pages/services.html#training" class="bg-surface rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border block">
+                <a href="pages/services.html#training" class="bg-surface rounded-xl p-6 hover:-translate-y-1 hover:border-accent/50 transition-all duration-300 shadow-card group border border-border block">
                     <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
                         <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9l-11-6zM18.82 9L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
@@ -248,7 +228,7 @@
                 </a>
 
                 <!-- Statistical Reporting -->
-                <a href="pages/services.html#statistical-reporting" class="bg-surface rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border block">
+                <a href="pages/services.html#statistical-reporting" class="bg-surface rounded-xl p-6 hover:-translate-y-1 hover:border-accent/50 transition-all duration-300 shadow-card group border border-border block">
                     <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
                         <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
@@ -261,7 +241,7 @@
                 </a>
 
                 <!-- Workshops, Masterclass & Collaboration with Academia -->
-                <a href="pages/services.html#workshops" class="bg-surface rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border block">
+                <a href="pages/services.html#workshops" class="bg-surface rounded-xl p-6 hover:-translate-y-1 hover:border-accent/50 transition-all duration-300 shadow-card group border border-border block">
                     <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
                         <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
@@ -274,7 +254,7 @@
                 </a>
 
                 <!-- Continuous Research and Development -->
-                <a href="pages/services.html#research" class="bg-surface rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border block">
+                <a href="pages/services.html#research" class="bg-surface rounded-xl p-6 hover:-translate-y-1 hover:border-accent/50 transition-all duration-300 shadow-card group border border-border block">
                     <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300">
                         <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-2.24 0-.96-.27-1.46-.7-1.86-.88-.6-1.94-1.04-2.6-1.33v-.07c.56-.24 1.24-.56 1.56-1.12.21-.34.34-.85.34-1.38 0-1.13-.49-2.07-1.47-2.37V4h2.67v1.95c1.16.26 1.94 1.13 2.05 2.87H13.3c-.09-1-.6-1.61-1.9-1.61-1.23 0-1.82.49-1.82 1.39 0 .66.33.99.85 1.31.52.31 1.14.53 1.57.74.28.13.37.23.37.45 0 .2-.15.36-.43.5-.43.21-1.06.33-1.78.33v1.97z"/>
@@ -299,7 +279,7 @@
                 <p class="text-xl text-text-secondary">Reusable APIs, dashboards, and toolkits—ready to adapt to your stack, security model, and data.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <a href="pages/products.html#document-intelligence" class="bg-surface rounded-xl p-6 border border-border shadow-card hover:transform hover:scale-[1.02] transition-all duration-300 block group">
+                <a href="pages/products.html#document-intelligence" class="bg-surface rounded-xl p-6 border border-border shadow-card hover:-translate-y-1 hover:border-accent/50 transition-all duration-300 block group">
                     <div class="card-icon-container group-hover:bg-accent/20" aria-hidden="true">
                         <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                     </div>
@@ -308,7 +288,7 @@
                     <p class="text-sm text-text-secondary">OCR + GenAI REST API for invoices, contracts, and forms.</p>
                     <span class="inline-block mt-4 text-accent text-sm font-medium">Learn more &rarr;</span>
                 </a>
-                <a href="pages/products.html#knowledge-assistant" class="bg-surface rounded-xl p-6 border border-border shadow-card hover:transform hover:scale-[1.02] transition-all duration-300 block group">
+                <a href="pages/products.html#knowledge-assistant" class="bg-surface rounded-xl p-6 border border-border shadow-card hover:-translate-y-1 hover:border-accent/50 transition-all duration-300 block group">
                     <div class="card-icon-container group-hover:bg-accent/20" aria-hidden="true">
                         <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
                     </div>
@@ -317,7 +297,7 @@
                     <p class="text-sm text-text-secondary">Chat with internal documents via Dockerized RAG + LLMs.</p>
                     <span class="inline-block mt-4 text-accent text-sm font-medium">Learn more &rarr;</span>
                 </a>
-                <a href="pages/products.html#llm-evaluation" class="bg-surface rounded-xl p-6 border border-border shadow-card hover:transform hover:scale-[1.02] transition-all duration-300 block group">
+                <a href="pages/products.html#llm-evaluation" class="bg-surface rounded-xl p-6 border border-border shadow-card hover:-translate-y-1 hover:border-accent/50 transition-all duration-300 block group">
                     <div class="card-icon-container group-hover:bg-accent/20" aria-hidden="true">
                         <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
                     </div>
@@ -341,7 +321,7 @@
                 <p class="text-xl text-text-secondary">Selected engagements across energy, life sciences, enterprise AI, and retail—proof of how we turn data into decisions.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <a href="pages/case-studies/renewable-energy-grid-optimization.html" class="bg-surface rounded-xl p-6 border border-border shadow-card hover:transform hover:scale-[1.02] transition-all duration-300 block group">
+                <a href="pages/case-studies/renewable-energy-grid-optimization.html" class="bg-surface rounded-xl p-6 border border-border shadow-card hover:-translate-y-1 hover:border-accent/50 transition-all duration-300 block group">
                     <div class="card-icon-container group-hover:bg-accent/20" aria-hidden="true">
                         <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     </div>
@@ -350,7 +330,7 @@
                     <p class="text-sm text-text-secondary">Forecast demand and renewable load to stabilize grids and cut operational cost.</p>
                     <span class="inline-block mt-4 text-accent text-sm font-medium">Read case &rarr;</span>
                 </a>
-                <a href="pages/case-studies/enterprise-ai-knowledge-assistant.html" class="bg-surface rounded-xl p-6 border border-border shadow-card hover:transform hover:scale-[1.02] transition-all duration-300 block group">
+                <a href="pages/case-studies/enterprise-ai-knowledge-assistant.html" class="bg-surface rounded-xl p-6 border border-border shadow-card hover:-translate-y-1 hover:border-accent/50 transition-all duration-300 block group">
                     <div class="card-icon-container group-hover:bg-accent/20" aria-hidden="true">
                         <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
                     </div>
@@ -359,7 +339,7 @@
                     <p class="text-sm text-text-secondary">Secure RAG assistants for search, summarization, and contextual Q&amp;A.</p>
                     <span class="inline-block mt-4 text-accent text-sm font-medium">Read case &rarr;</span>
                 </a>
-                <a href="pages/case-studies/fraud-detection-financial-risk.html" class="bg-surface rounded-xl p-6 border border-border shadow-card hover:transform hover:scale-[1.02] transition-all duration-300 block group">
+                <a href="pages/case-studies/fraud-detection-financial-risk.html" class="bg-surface rounded-xl p-6 border border-border shadow-card hover:-translate-y-1 hover:border-accent/50 transition-all duration-300 block group">
                     <div class="card-icon-container group-hover:bg-accent/20" aria-hidden="true">
                         <svg class="card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                     </div>
@@ -375,73 +355,35 @@
         </div>
     </section>
 
-    <!-- Separator between What we do & How we do it -->
-    <div class="border-t border-border/60" aria-hidden="true"></div>
+    
 
-    <!-- Technologies & Tools Section -->
-    <section class="py-16 bg-secondary/50">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">How we do it ?</h2>
-                <p class="text-lg text-text-secondary">
-                    We use a combination of traditional tools and modern AI-based technologies to stay current with the market. 
-                    We regularly study new trends and keep improving our approach. Through this continuous research, 
-                    we find practical methods that help the data science community—whether in academia, government, private 
-                    organizations, or new industries. Some of the tools we are fond of and familiar with include:
-                </p>
+    
+    <section class="section-alt">
+        <div class="section-container">
+            <div class="mb-12 text-center max-w-3xl mx-auto">
+                <p class="eyebrow">Toolkit</p>
+                <h2 class="section-heading !mb-4">How we work</h2>
+                <p class="section-description">A blend of proven statistical software and modern AI tooling, chosen for the problem &mdash; not the trend.</p>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Open Source Tools -->
-                <div class="bg-surface rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border">
-                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
-                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M9.585 11.692h4.328s2.432.034 2.432-2.018c0-2.018-1.96-1.96-2.432-1.96h-4.328V11.692zm-1.384 1.5v-6.75h5.712s3.432-.034 3.432 3.384c0 3.35-2.568 3.366-3.432 3.366H8.201zm-1.384-8.25h8.25s5.25 0 5.25 5.25v2.25s0 5.25-5.25 5.25h-8.25V4.942z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-text-primary mb-4">Open source tools</h3>
-                    <div class="space-y-3 text-text-secondary">
-                        <p><strong class="text-text-primary">Python:</strong> The world's most popular programming language for data science, machine learning, and AI, used by data scientists, researchers, and developers globally in academia, tech companies, and enterprises.</p>
-                        <p><strong class="text-text-primary">R Studio:</strong> Integrated development environment for R programming, widely used by statisticians, data analysts, and researchers in academia, healthcare, finance, and government agencies for statistical analysis and data visualization.</p>
-                        <p><strong class="text-text-primary">JASP:</strong> Free and open-source statistical software for Bayesian and frequentist analysis, popular among researchers, psychologists, and social scientists in universities and research institutions worldwide.</p>
-                        <p><strong class="text-text-primary">GitHub:</strong> World's largest code hosting platform for version control and collaboration, used by millions of developers, data scientists, and software engineers globally for managing code repositories and collaborative development.</p>
-                    </div>
-                </div>
-                
-                <!-- Analytical Dashboards -->
-                <div class="bg-surface rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border">
-                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
-                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-text-primary mb-4">Analytical dashboards</h3>
-                    <div class="space-y-3 text-text-secondary">
-                        <p><strong class="text-text-primary">Power BI:</strong> Microsoft's business analytics service for creating interactive dashboards and reports, used by business analysts and executives for data-driven decision making.</p>
-                        <p><strong class="text-text-primary">Tableau:</strong> Leading data visualization and business intelligence platform for creating interactive dashboards, used by data analysts and BI professionals globally.</p>
-                        <p><strong class="text-text-primary">Dashboards with Shiny:</strong> R-based web application framework for building interactive dashboards and data visualizations, widely used by data scientists and researchers in academia and healthcare.</p>
-                        <p><strong class="text-text-primary">Dashboards with Streamlit:</strong> Python-based open-source framework for building interactive web applications and dashboards, popular among data scientists and ML engineers for quickly creating data-driven web apps.</p>
-                    </div>
-                </div>
-                
-                <!-- Enterprise Analytics Tools -->
-                <div class="bg-surface rounded-xl p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-card group border border-border">
-                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
-                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-text-primary mb-4">Enterprise analytics tools</h3>
-                    <div class="space-y-3 text-text-secondary">
-                        <p><strong class="text-text-primary">IBM SPSS:</strong> Statistical analysis software for predictive analytics and data mining, extensively used by market researchers, social scientists, and business analysts in corporations, government agencies, and academic institutions.</p>
-                        <p><strong class="text-text-primary">SAS:</strong> Enterprise analytics software suite for advanced analytics, business intelligence, and data management, trusted by Fortune 500 companies, banks, pharmaceutical companies, and government organizations worldwide.</p>
-                    </div>
-                </div>
-                
+            <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div class="card"><h3 class="card-title">Open source</h3><p class="card-description text-sm mb-4">Reproducible, transparent and community-backed.</p><div class="chip-row"><span class="tool-chip">Python</span><span class="tool-chip">R Studio</span><span class="tool-chip">JASP</span><span class="tool-chip">GitHub</span></div></div>
+                <div class="card"><h3 class="card-title">Dashboards &amp; BI</h3><p class="card-description text-sm mb-4">Interactive reporting for analysts and executives.</p><div class="chip-row"><span class="tool-chip">Power BI</span><span class="tool-chip">Tableau</span><span class="tool-chip">Shiny</span><span class="tool-chip">Streamlit</span></div></div>
+                <div class="card"><h3 class="card-title">Enterprise analytics</h3><p class="card-description text-sm mb-4">Trusted platforms for regulated, large-scale environments.</p><div class="chip-row"><span class="tool-chip">IBM SPSS</span><span class="tool-chip">SAS</span></div></div>
             </div>
         </div>
     </section>
 
+    <!-- Closing CTA -->
+    <section class="cta-band">
+        <div class="section-container text-center max-w-3xl mx-auto">
+            <h2 class="section-heading !mb-4">Let&rsquo;s build something that lasts</h2>
+            <p class="section-description mb-8">Tell us about your project, or your ambition to learn. We reply to every enquiry.</p>
+            <div class="cta-buttons">
+                <a href="pages/contact.html" class="btn-primary">Book a consultation</a>
+                <a href="pages/services.html#training" class="btn-secondary">Join our internship program</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Floating Email Contact Box -->
     <div id="floating-email" class="fixed bottom-6 right-6 z-40 hidden sm:block">
@@ -461,7 +403,7 @@
                 <input type="hidden" name="_autoresponse" value="Thank you for contacting PRODATALYTICS. We have received your message and will get back to you as soon as possible." />
                 <input type="email" name="email" placeholder="Your email" required class="w-full bg-background border border-border rounded px-3 py-2 text-base text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-accent" />
                 <textarea name="message" placeholder="Your message" rows="3" required class="w-full bg-background border border-border rounded px-3 py-2 text-base text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-accent resize-none"></textarea>
-                <button type="submit" class="w-full bg-accent text-white py-2 rounded hover:bg-success transition-colors duration-300 text-base font-medium">
+                <button type="submit" class="w-full bg-[#047857] text-white py-2 rounded hover:bg-[#065f46] transition-colors duration-300 text-base font-medium">
                     Send Message
                 </button>
             </form>
