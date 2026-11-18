@@ -1,0 +1,23 @@
+name: Site checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Rebuild CSS and ensure css/main.css is committed up to date
+        run: |
+          npm run build:css
+          git diff --exit-code -- css/main.css
+      - name: Static checks (links, index, sitemap, chrome sync)
+        run: python3 scripts/check-site.py

@@ -1,0 +1,56 @@
+<header class="site-header fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-border/30">
+        <nav class="container mx-auto px-4 sm:px-6 py-4" aria-label="Primary">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <a href="{{HOME}}"><span class="inline-flex items-center"><img src="{{ROOT}}assets/images/logo/optimized/logo-white-512.png" alt="PRODATALYTICS Logo" width="512" height="65" class="h-8 w-auto logo-dark" /><img src="{{ROOT}}assets/images/logo/optimized/logo-black-512.png" alt="PRODATALYTICS Logo" width="512" height="65" class="h-8 w-auto logo-light" /></span></a>
+                </div>
+                <div class="hidden lg:flex items-center space-x-5 text-sm">
+                    <a href="{{HOME}}" class="{{D_home}}">Home</a>
+                    <a href="{{PAGES}}services.html" class="{{D_services}}">Services</a>
+                    <a href="{{PAGES}}products.html" class="{{D_products}}">Products</a>
+                    <div class="nav-dropdown{{RES_active}}">
+                    <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+                        Resources
+                        <svg class="nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="nav-dropdown-menu hidden" role="menu">
+                        <a href="{{PAGES}}case-studies/index.html"{{M_cases}} role="menuitem">Case Studies</a>
+                        <a href="{{PAGES}}insights/index.html"{{M_insights}} role="menuitem">Insights</a>
+                    </div>
+                </div>
+                    <a href="{{PAGES}}about.html" class="{{D_about}}">About</a>
+                    {{TOGGLE}}
+                    <a href="{{PAGES}}contact.html" class="bg-accent text-white px-5 py-2 rounded-lg hover:bg-success transition-all duration-300"{{C_cur}}>Contact</a>
+                </div>
+                <!-- Mobile controls -->
+                <div class="flex items-center gap-2 lg:hidden">
+                {{TOGGLE}}
+                <button id="mobile-menu-btn" class="text-text-primary min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden lg:hidden mt-4 pb-4 border-t border-border/30">
+                <div class="flex flex-col pt-4">
+                    {{TOGGLE_MOBILE}}
+                    <a href="{{HOME}}" class="{{M_home_cls}}">Home</a>
+                    <a href="{{PAGES}}services.html" class="{{M_services_cls}}">Services</a>
+                    <a href="{{PAGES}}products.html" class="{{M_products_cls}}">Products</a>
+                    <div class="nav-dropdown nav-dropdown-mobile{{RES_active}}">
+                    <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+                        Resources
+                        <svg class="nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="nav-dropdown-menu hidden" role="menu">
+                        <a href="{{PAGES}}case-studies/index.html"{{M_cases}} role="menuitem">Case Studies</a>
+                        <a href="{{PAGES}}insights/index.html"{{M_insights}} role="menuitem">Insights</a>
+                    </div>
+                </div>
+                    <a href="{{PAGES}}about.html" class="{{M_about_cls}}">About</a>
+                    <a href="{{PAGES}}contact.html" class="bg-accent text-white px-6 py-3 rounded-lg hover:bg-success transition-all duration-300 text-center block"{{C_cur}}>Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
