@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
+:root,
+html[data-theme="dark"] {
   /* Primary Colors */
   --color-primary: #000000; /* black - Authoritative foundation, technical sophistication */
   --color-secondary: #1a1a1a; /* gray-900 - Subtle depth, content separation */
@@ -28,11 +27,34 @@
   
   /* Shadow Values */
   --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+
+  /* Theme-aware chrome */
+  --header-bg: rgba(0, 0, 0, 0.2);
+  --header-bg-scrolled: rgba(0, 0, 0, 0.4);
+  --hero-overlay-bg: rgba(0, 0, 0, 0.4);
   
   /* Animation Durations */
   --duration-fast: 200ms;
   --duration-normal: 300ms;
   --duration-slow: 400ms;
+}
+
+html[data-theme="light"] {
+  --color-primary: #f4f4f5;
+  --color-secondary: #e4e4e7;
+  --color-accent: #10b981;
+  --color-background: #fafafa;
+  --color-surface: #ffffff;
+  --color-text-primary: #18181b;
+  --color-text-secondary: #52525b;
+  --color-success: #059669;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-border: #d4d4d8;
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  --header-bg: rgba(255, 255, 255, 0.75);
+  --header-bg-scrolled: rgba(255, 255, 255, 0.92);
+  --hero-overlay-bg: rgba(250, 250, 250, 0.55);
 }
 
 @layer base {
@@ -78,7 +100,51 @@
   }
   
   .hero-overlay {
-    @apply absolute inset-0 bg-black/40;
+    @apply absolute inset-0;
+    background-color: var(--hero-overlay-bg);
+  }
+
+  /* ============================================
+     THEME CHROME / LOGOS
+     ============================================ */
+  .site-header {
+    background-color: var(--header-bg);
+  }
+
+  .site-header.is-scrolled {
+    background-color: var(--header-bg-scrolled);
+  }
+
+  .logo-light {
+    display: none;
+  }
+
+  html[data-theme="light"] .logo-dark {
+    display: none;
+  }
+
+  html[data-theme="light"] .logo-light {
+    display: block;
+  }
+
+  .theme-toggle {
+    @apply inline-flex items-center justify-center min-h-[44px] min-w-[44px] rounded-lg border border-border text-text-secondary hover:text-accent hover:border-accent/40 transition-colors duration-300;
+  }
+
+  .theme-toggle .icon-sun {
+    display: none;
+  }
+
+  .theme-toggle .icon-moon {
+    display: block;
+  }
+
+  html[data-theme="light"] .theme-toggle .icon-sun {
+    display: block;
+  }
+
+  html[data-theme="light"] .theme-toggle .icon-moon {
+    display: none;
   }
   
   .hero-animated-bg {
@@ -90,7 +156,7 @@
   }
   
   .hero-heading {
-    @apply text-3xl md:text-5xl font-bold mb-6 leading-tight whitespace-nowrap text-center;
+    @apply text-3xl md:text-5xl font-bold mb-6 leading-tight md:whitespace-nowrap text-center;
   }
   
   .hero-heading-accent {
@@ -132,7 +198,7 @@
   }
   
   .cta-heading {
-    @apply text-4xl md:text-5xl font-bold mb-6 text-center whitespace-nowrap;
+    @apply text-4xl md:text-5xl font-bold mb-6 text-center md:whitespace-nowrap;
   }
   
   .cta-description {
@@ -151,11 +217,16 @@
   }
   
   .card-hover {
-    @apply group hover:transform hover:scale-[1.02] transition-all duration-300;
+    @apply hover:scale-[1.02] transition-all duration-300;
   }
   
   .card-icon-container {
-    @apply w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors duration-300;
+    @apply w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 transition-colors duration-300;
+  }
+
+  .card:hover .card-icon-container,
+  .group:hover .card-icon-container {
+    @apply bg-accent/20;
   }
   
   .card-icon {
@@ -246,6 +317,51 @@
     @apply bg-accent text-white px-6 py-2 rounded-lg hover:bg-success transition-all duration-300;
   }
 
+  .nav-dropdown {
+    @apply relative;
+  }
+
+  .nav-dropdown-trigger {
+    @apply inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors duration-300;
+  }
+
+  .nav-dropdown-trigger[aria-expanded="true"],
+  .nav-dropdown.is-active .nav-dropdown-trigger {
+    @apply text-accent font-medium;
+  }
+
+  .nav-dropdown-trigger .nav-chevron {
+    @apply w-3.5 h-3.5 transition-transform duration-200;
+  }
+
+  .nav-dropdown-trigger[aria-expanded="true"] .nav-chevron {
+    transform: rotate(180deg);
+  }
+
+  .nav-dropdown-menu {
+    @apply absolute top-full left-0 mt-2 min-w-[11rem] rounded-lg border border-border bg-surface shadow-card py-2 z-50;
+  }
+
+  .nav-dropdown-menu a {
+    @apply block px-4 py-2.5 text-sm text-text-secondary hover:text-accent hover:bg-secondary/50 transition-colors duration-200;
+  }
+
+  .nav-dropdown-menu a.is-active {
+    @apply text-accent font-medium;
+  }
+
+  .nav-dropdown-mobile .nav-dropdown-menu {
+    @apply static mt-0 ml-3 border-0 shadow-none bg-transparent py-0 min-w-0;
+  }
+
+  .nav-dropdown-mobile .nav-dropdown-menu a {
+    @apply py-3 px-0;
+  }
+
+  .nav-dropdown-mobile .nav-dropdown-trigger {
+    @apply w-full justify-between py-3;
+  }
+
   /* ============================================
      UTILITY CLASSES
      ============================================ */
@@ -263,6 +379,33 @@
   
   .container-small {
     @apply max-w-2xl mx-auto;
+  }
+
+  /* ============================================
+     INSIGHTS / CASE STUDIES
+     ============================================ */
+  .tag-chip {
+    @apply inline-block text-xs font-medium text-accent bg-accent/10 border border-accent/20 rounded-md px-2.5 py-1;
+  }
+
+  .tag-chip-button {
+    @apply cursor-pointer hover:bg-accent/20 transition-colors duration-300;
+  }
+
+  .tag-chip-active {
+    @apply bg-accent text-white border-accent;
+  }
+
+  .series-card {
+    @apply bg-surface rounded-xl border border-border p-5 shadow-card;
+  }
+
+  .newsletter-block {
+    @apply bg-surface rounded-xl border border-border p-6 shadow-card;
+  }
+
+  .content-prose p {
+    @apply text-text-secondary leading-relaxed;
   }
 
   /* Legacy classes - keeping for backward compatibility */
@@ -323,5 +466,18 @@
   }
   #floating-email > div {
     padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card-hover:hover, .btn-primary:hover {
+    transform: none;
   }
 }
