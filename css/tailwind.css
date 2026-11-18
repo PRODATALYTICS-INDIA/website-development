@@ -5,17 +5,17 @@
 :root,
 html[data-theme="dark"] {
   /* Primary Colors */
-  --color-primary: #000000; /* black - Authoritative foundation, technical sophistication */
-  --color-secondary: #1a1a1a; /* gray-900 - Subtle depth, content separation */
+  --color-primary: #070a0e; /* black - Authoritative foundation, technical sophistication */
+  --color-secondary: #10161d; /* gray-900 - Subtle depth, content separation */
   --color-accent: #10b981; /* emerald-500 - Growth focus, conversion clarity */
   
   /* Background Colors */
-  --color-background: #111111; /* gray-950 - Professional canvas, reduced eye strain */
-  --color-surface: #2a2a2a; /* gray-800 - Card elevation, content grouping */
+  --color-background: #0b0f14; /* gray-950 - Professional canvas, reduced eye strain */
+  --color-surface: #131a22; /* gray-800 - Card elevation, content grouping */
   
   /* Text Colors */
   --color-text-primary: #ffffff; /* white - Maximum readability, clear hierarchy */
-  --color-text-secondary: #a1a1aa; /* gray-400 - Supporting information, visual rest */
+  --color-text-secondary: #9aa8b6; /* gray-400 - Supporting information, visual rest */
   
   /* Status Colors */
   --color-success: #059669; /* emerald-600 - Positive confirmation, completed actions */
@@ -23,14 +23,14 @@ html[data-theme="dark"] {
   --color-error: #ef4444; /* red-500 - Clear problem indication, helpful guidance */
   
   /* Border Colors */
-  --color-border: #2a2a2a; /* gray-800 - Minimal borders for form inputs and divisions */
+  --color-border: #212c37; /* gray-800 - Minimal borders for form inputs and divisions */
   
   /* Shadow Values */
-  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 1px 0 rgba(255,255,255,0.03) inset, 0 8px 24px -12px rgba(0, 0, 0, 0.6);
 
   /* Theme-aware chrome */
-  --header-bg: rgba(0, 0, 0, 0.2);
-  --header-bg-scrolled: rgba(0, 0, 0, 0.4);
+  --header-bg: rgba(7, 10, 14, 0.55);
+  --header-bg-scrolled: rgba(7, 10, 14, 0.85);
   --hero-overlay-bg: rgba(0, 0, 0, 0.4);
   
   /* Animation Durations */
@@ -40,21 +40,21 @@ html[data-theme="dark"] {
 }
 
 html[data-theme="light"] {
-  --color-primary: #f4f4f5;
-  --color-secondary: #e4e4e7;
+  --color-primary: #eef2f5;
+  --color-secondary: #e6ecf0;
   --color-accent: #10b981;
-  --color-background: #fafafa;
+  --color-background: #f6f8fa;
   --color-surface: #ffffff;
-  --color-text-primary: #18181b;
-  --color-text-secondary: #52525b;
+  --color-text-primary: #0f1720;
+  --color-text-secondary: #4b5a69;
   --color-success: #059669;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
-  --color-border: #d4d4d8;
-  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
-  --header-bg: rgba(255, 255, 255, 0.75);
+  --color-border: #d9e1e8;
+  --shadow-card: 0 1px 2px rgba(15, 23, 32, 0.05), 0 10px 28px -14px rgba(15, 23, 32, 0.18);
+  --header-bg: rgba(246, 248, 250, 0.75);
   --header-bg-scrolled: rgba(255, 255, 255, 0.92);
-  --hero-overlay-bg: rgba(250, 250, 250, 0.55);
+  --hero-overlay-bg: rgba(246, 248, 250, 0.55);
 }
 
 @layer base {
@@ -65,6 +65,10 @@ html[data-theme="light"] {
     line-height: 1.6;
   }
   
+  h1, h2 {
+    letter-spacing: -0.02em;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
@@ -81,7 +85,7 @@ html[data-theme="light"] {
      BUTTONS
      ============================================ */
   .btn-primary {
-    @apply bg-accent text-white font-semibold px-8 py-4 rounded-lg hover:bg-success transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-glow;
+    @apply bg-[#047857] text-white font-semibold px-8 py-4 rounded-lg hover:bg-[#065f46] transition-all duration-300 hover:-translate-y-0.5 shadow-lg hover:shadow-glow;
   }
   
   .btn-secondary {
@@ -314,7 +318,7 @@ html[data-theme="light"] {
   }
   
   .nav-button {
-    @apply bg-accent text-white px-6 py-2 rounded-lg hover:bg-success transition-all duration-300;
+    @apply bg-[#047857] text-white px-6 py-2 rounded-lg hover:bg-[#065f46] transition-all duration-300;
   }
 
   .nav-dropdown {
@@ -362,6 +366,61 @@ html[data-theme="light"] {
     @apply w-full justify-between py-3;
   }
 
+
+  /* ============================================
+     HOMEPAGE (v2): hero, stats, audiences, CTA band
+     ============================================ */
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4;
+  }
+  .hero-section-home {
+    @apply relative pt-32 pb-20 sm:pt-40 sm:pb-24 overflow-hidden;
+  }
+  .hero-grid {
+    @apply absolute inset-0 opacity-[0.07];
+    background-image: linear-gradient(var(--color-text-primary) 1px, transparent 1px), linear-gradient(90deg, var(--color-text-primary) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 70%);
+  }
+  .hero-glow {
+    @apply absolute left-1/2 top-0 -translate-x-1/2 w-[48rem] max-w-full h-80 rounded-full blur-3xl;
+    background: radial-gradient(closest-side, rgba(16, 185, 129, 0.22), rgba(34, 184, 207, 0.08) 60%, transparent);
+  }
+  .hero-title {
+    @apply text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight max-w-4xl mx-auto mb-6;
+  }
+  .hero-lead {
+    @apply text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10;
+  }
+  .stat-band {
+    @apply grid grid-cols-2 md:grid-cols-4 max-w-4xl mx-auto rounded-2xl border border-border bg-surface/70 backdrop-blur divide-border;
+  }
+  .stat-item {
+    @apply px-4 py-6 md:border-l border-border first:border-l-0;
+  }
+  .stat-value {
+    @apply text-3xl md:text-4xl font-bold text-accent mb-1;
+  }
+  .stat-label {
+    @apply text-sm text-text-secondary;
+  }
+  .audience-card {
+    @apply block bg-surface rounded-2xl border border-border p-8 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-accent/50;
+  }
+  .card-link {
+    @apply inline-block mt-5 text-sm font-semibold text-accent;
+  }
+  .chip-row {
+    @apply flex flex-wrap gap-2;
+  }
+  .tool-chip {
+    @apply text-sm text-text-primary bg-background border border-border rounded-full px-3 py-1;
+  }
+  .cta-band {
+    @apply py-24 bg-accent/5 border-t border-border/60;
+  }
+
   /* ============================================
      UTILITY CLASSES
      ============================================ */
@@ -393,7 +452,7 @@ html[data-theme="light"] {
   }
 
   .tag-chip-active {
-    @apply bg-accent text-white border-accent;
+    @apply bg-[#047857] text-white border-[#047857];
   }
 
   .series-card {
@@ -420,14 +479,14 @@ html[data-theme="light"] {
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, var(--color-accent), var(--color-success));
+    background: linear-gradient(135deg, #10b981, #22b8cf);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .shadow-glow {
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 0 24px rgba(16, 185, 129, 0.25);
   }
   
   .animate-fade-in {
