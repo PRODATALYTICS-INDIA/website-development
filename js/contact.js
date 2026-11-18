@@ -4,12 +4,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const floatingEmail = document.getElementById('floating-email');
-    const thankYouBanner = document.getElementById('thank-you');
     
-    // Show confirmation banner when redirected after successful submission
-    if (thankYouBanner && window.location.hash === '#thank-you') {
-        thankYouBanner.classList.remove('hidden');
-    }
+    // #thank-you banner and submit-button UX are handled in common.js
     
     // Form validation enhancement
     document.querySelectorAll('input[required], textarea[required], select[required]').forEach(field => {
@@ -62,33 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 150);
         });
     }
-
-    // Form submission handlers
-    const forms = [
-        'consultation-form',
-        'floating-contact-form'
-    ];
-
-    forms.forEach(formId => {
-        const form = document.getElementById(formId);
-        if (form) {
-            form.addEventListener('submit', (e) => {
-                const submitBtn = form.querySelector('button[type="submit"]');
-                if (submitBtn) {
-                    const originalText = submitBtn.textContent;
-                    
-                    submitBtn.textContent = 'Sending...';
-                    submitBtn.disabled = true;
-                    
-                    // Re-enable after 3 seconds (in case of issues)
-                    setTimeout(() => {
-                        submitBtn.textContent = originalText;
-                        submitBtn.disabled = false;
-                    }, 3000);
-                }
-            });
-        }
-    });
 
     // FAQ Toggle functionality
     document.querySelectorAll('.faq-toggle').forEach(button => {
