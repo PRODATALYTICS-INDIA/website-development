@@ -20,6 +20,9 @@ This is the **PRODATALYTICS** marketing site (`www.prodatalytics.com`): static H
 | `/pages/case-studies/` | Case study listing + detail pages |
 | `/pages/insights/` | Articles (search) + newsletter signup |
 
+RULE: keep `docs/SITE-MAP.md` in sync with every page, anchor, nav, JS or data-file change in the same edit (plus `sitemap.xml`, CODEBASE-INDEX, README tree). Never move/rename live pages without asking.
+Full URL → file → owner map: `docs/SITE-MAP.md` (update it when adding pages; `npm run check` enforces).
+
 ## Source of truth
 
 - Humans: `README.md`

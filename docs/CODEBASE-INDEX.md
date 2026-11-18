@@ -36,8 +36,9 @@ css/main.css               GENERATED (never hand-edit)
 js/common.js js/contact.js js/insights.js
 assets/images/logo/        9 PNG variants (names contain spaces)
 public/                    favicon.ico, manifest.json, icon-192/512.png
+assets/images/photos/      4 self-hosted stock JPEGs used on About and Services (lazy-loaded; replace with own visuals later)
 assets/images/og-default.png   1200x630 social preview; logo/optimized/ = 512px header/footer logos
-docs/                      content-templates.md, this index
+docs/                      SITE-MAP.md (URL→file map), content-templates.md, ToDoList.md, this index
 plans/                     case-studies-insights.md (feature plan)
 scripts/check-site.py      Read-only checker (links, index, sitemap, SEO meta, honeypots, chrome sync)
 scripts/sync-chrome.py     Generates header/footer on 17 pages from scripts/chrome/{header,footer,theme-toggle}.html
@@ -47,10 +48,11 @@ sitemap.xml robots.txt 404.html   SEO/hosting files
 .claude/                   Claude Code skills, agents, settings
 tailwind.config.js         Brand tokens (CSS-var backed colors), content globs
 CNAME  package.json  .gitignore
-deployment/                Empty directory (unused)
 ```
 
 ## 4. Pages
+
+URL → file → owner table with nav order and anchors: [SITE-MAP.md](SITE-MAP.md) (enforced by `npm run check`).
 
 | File | Purpose / sections | Scripts | Forms |
 |---|---|---|---|

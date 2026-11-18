@@ -5,6 +5,7 @@
 Everything in AGENTS.md applies (stack, boundaries, verification, git rules). This file adds Claude Code specifics.
 
 ## Orientation
+- Site map → code (URL → file → owner; keep updated when adding pages): @docs/SITE-MAP.md
 - Full file-by-file map: @docs/CODEBASE-INDEX.md
 - Content briefs: @docs/content-templates.md
 - Cursor rules in `.cursor/rules/` are authoritative for paths, forms and JS ownership.
@@ -25,6 +26,7 @@ Subagent: `site-reviewer` (read-only pre-ship review against AGENTS.md boundarie
 ## Working rules
 - Run `npm run check` after any HTML/JSON change (must be 0 errors, 0 warnings).
 - Never edit `css/main.css`; after class/style changes run `npm run build:css` (pure Tailwind now; the DhiWise tagger was removed).
+- Any page/section/anchor/nav change → update `docs/SITE-MAP.md` in the same change (and CODEBASE-INDEX / README tree if affected); `npm run check` fails if a sitemap URL is missing from it.
 - New page → also add it to `sitemap.xml`, give it canonical + og:image meta, and a `_honey` field on any FormSubmit form.
 - Match existing copy tone: confident, practical, consulting-grade. Use sentence/title case as seen on the page you edit.
 - Do not commit or push unless asked. `main` is production.

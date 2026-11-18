@@ -52,7 +52,7 @@ Professional website for PRODATALYTICS — a premium data science consulting fir
 
 - Responsive, mobile-first layout
 - SEO-friendly meta tags and semantic HTML
-- Single global nav (Home, Services, About, Contact) and footer on all main pages
+- Single global nav (Home, Services, Products, Resources → Case Studies / Insights, About, Contact) and footer on all main pages
 - Smooth scrolling, basic animations, form validation
 - Dark theme with accent green; glassmorphic header
 
@@ -121,6 +121,7 @@ website-development/
 ├── pages/
 │   ├── homepage.html        # Redirect stub to / (legacy URL)
 │   ├── services.html        # Services detail + anchors
+│   ├── products.html        # Product accelerators (APIs, dashboards, toolkits)
 │   ├── about.html           # Company story, methodology
 │   ├── contact.html         # Consultation form, FAQ, contact info
 │   ├── case-studies/        # Case study listing + detail pages
@@ -128,7 +129,14 @@ website-development/
 ├── data/
 │   └── insights-index.json  # Article search index
 ├── docs/
-│   └── content-templates.md # Content briefs for cases, articles, newsletters
+│   ├── SITE-MAP.md          # URL → file → owner map (start here)
+│   ├── CODEBASE-INDEX.md    # File-by-file index
+│   ├── content-templates.md # Content briefs for cases, articles, newsletters
+│   └── ToDoList.md          # Open items
+├── scripts/                 # check-site.py, sync-chrome.py, chrome/ (header/footer templates)
+├── .github/workflows/       # CI (CSS freshness + site check)
+├── .claude/  .cursor/rules/ # Agent skills and rules
+├── 404.html  sitemap.xml  robots.txt
 ├── plans/                   # Feature plans (e.g. case studies + insights)
 ├── css/
 │   ├── tailwind.css         # Source (edit here)
@@ -137,7 +145,7 @@ website-development/
 │   ├── common.js            # Mobile menu, smooth scroll, floating contact, etc.
 │   ├── contact.js           # Contact page forms, FAQ
 │   └── insights.js          # Insights search + newsletter thanks
-├── assets/images/           # Logos, images
+├── assets/images/           # Logos, self-hosted photos, social card
 ├── public/                  # Favicon, manifest, PWA icons
 ├── CNAME                    # Custom domain (www.prodatalytics.com)
 ├── package.json
@@ -150,16 +158,16 @@ website-development/
 
 **Entry & main pages**
 
-- **Root** (`/` or `index.html`): Serves the homepage in place (no redirect). Same content as `pages/homepage.html` so the live URL stays `https://www.prodatalytics.com/`.
-- **Main pages:** Home, Services, Case Studies, Insights, About, Contact. Same header and footer pattern on all (nested pages use `../../` asset paths).
+- **Root** (`/` or `index.html`): Serves the homepage in place (no redirect). `pages/homepage.html` is only a noindex redirect stub back to `/`. See [docs/SITE-MAP.md](docs/SITE-MAP.md) for the full URL → file map.
+- **Main pages:** Home, Services, Products, Resources (Case Studies, Insights), About, Contact. Same header and footer pattern on all (nested pages use `../../` asset paths).
 
 **Header (all main pages)**
 
 - Logo (left)
 - **Home** → `index.html` / homepage  
 - **Services** → `pages/services.html`  
-- **Case Studies** → `pages/case-studies/`  
-- **Insights** → `pages/insights/` (articles + newsletter series signup)  
+- **Products** → `pages/products.html`  
+- **Resources** (dropdown) → **Case Studies** `pages/case-studies/`, **Insights** `pages/insights/` (articles + newsletter signup)  
 - **About** → `pages/about.html`  
 - **Contact** → `pages/contact.html` (primary CTA style)
 - On small screens: hamburger opens the same links.

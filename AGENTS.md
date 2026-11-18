@@ -68,6 +68,8 @@ plans/                     # Human-readable feature plans (not deployed logic)
 - Edit `css/tailwind.css` (not `css/main.css`); run `npm run build:css` after style/class changes
 - Homepage content lives **only** in `index.html`; `pages/homepage.html` is a noindex redirect stub — leave it alone
 - Edit shared header/nav/footer in `scripts/chrome/*.html`, then run `python3 scripts/sync-chrome.py` (writes all 17 chrome pages; CI runs `--check`). Never hand-edit header/footer in a page. The floating contact block is still per-page
+- Keep `docs/SITE-MAP.md` in sync with the site: when adding, renaming, moving or removing a page, anchor, nav item, JS module or data file, update it in the same change (and `sitemap.xml`, `docs/CODEBASE-INDEX.md` and the README tree if affected). `npm run check` enforces the page list
+- Keep the repo layout mirroring the site map: pages live under `pages/` (nested folder per section: `case-studies/`, `insights/`); do not move or rename live pages without asking (URLs are indexed)
 - Prefer existing `@layer components` classes (`.btn-primary`, `.card`, `.section-*`, `.form-*`, `.nav-*`, etc.)
 
 **Ask first**
@@ -132,5 +134,6 @@ There is **no automated test runner**. Verification is local smoke + checklist:
 
 | Need | Source |
 |------|--------|
+| Site map → file/owner table (URLs, anchors, edit-via) | [docs/SITE-MAP.md](docs/SITE-MAP.md) |
 | Deploy, DNS, styling catalog, test checklist | [README.md](README.md) |
 | Always-on + file-scoped agent rules | [`.cursor/rules/`](.cursor/rules/) |
