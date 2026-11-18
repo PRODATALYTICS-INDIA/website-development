@@ -1,28 +1,37 @@
+/** Enable Tailwind opacity modifiers (e.g. bg-accent/10) with CSS custom properties. */
+function withAlpha(variable) {
+  return `color-mix(in srgb, var(${variable}) calc(<alpha-value> * 100%), transparent)`;
+}
+
 module.exports = {
-  content: ["./pages/*.{html,js}", "./index.html", "./js/**/*.js"],
+  content: ["./pages/**/*.{html,js}", "./index.html", "./js/**/*.js"],
   theme: {
     extend: {
       colors: {
-        // Primary Colors
-        primary: "#000000", // black - Authoritative foundation, technical sophistication
-        secondary: "#1a1a1a", // gray-900 - Subtle depth, content separation
-        accent: "#10b981", // emerald-500 - Growth focus, conversion clarity
-        
+        // Primary Colors (CSS vars — flip with data-theme)
+        primary: withAlpha("--color-primary"),
+        secondary: withAlpha("--color-secondary"),
+        accent: withAlpha("--color-accent"),
+
         // Background Colors
-        background: "#111111", // gray-950 - Professional canvas, reduced eye strain
-        surface: "#2a2a2a", // gray-800 - Card elevation, content grouping
-        
+        background: withAlpha("--color-background"),
+        surface: withAlpha("--color-surface"),
+
         // Text Colors
-        "text-primary": "#ffffff", // white - Maximum readability, clear hierarchy
-        "text-secondary": "#a1a1aa", // gray-400 - Supporting information, visual rest
-        
+        "text-primary": withAlpha("--color-text-primary"),
+        "text-secondary": withAlpha("--color-text-secondary"),
+
         // Status Colors
-        success: "#059669", // emerald-600 - Positive confirmation, completed actions
-        warning: "#f59e0b", // amber-500 - Important notices, attention without alarm
-        error: "#ef4444", // red-500 - Clear problem indication, helpful guidance
-        
+        success: withAlpha("--color-success"),
+        warning: withAlpha("--color-warning"),
+        error: withAlpha("--color-error"),
+
         // Border Colors
-        border: "#2a2a2a", // gray-800 - Minimal borders for form inputs and divisions
+        border: withAlpha("--color-border"),
+      },
+      boxShadow: {
+        card: "var(--shadow-card)",
+        glow: "0 0 20px rgba(16, 185, 129, 0.2)",
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
@@ -33,10 +42,6 @@ module.exports = {
         medium: '500',
         semibold: '600',
         bold: '700',
-      },
-      boxShadow: {
-        card: '0 4px 6px -1px rgba(0, 0, 0, 0.3)',
-        glow: '0 0 20px rgba(16, 185, 129, 0.2)',
       },
       transitionDuration: {
         fast: '200ms',
