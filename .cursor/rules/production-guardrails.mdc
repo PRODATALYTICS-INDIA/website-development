@@ -1,0 +1,32 @@
+---
+description: Production guardrails — deploy, CSS rebuild, sync rules, and definition of done
+alwaysApply: true
+---
+
+# Production guardrails
+
+Treat `main` as production. Deploy = push to GitHub Pages (root). Custom domain file: `CNAME` → `www.prodatalytics.com`.
+
+## Forbidden without explicit request
+
+- Hand-editing `css/main.css`
+- Changing `CNAME`, DNS notes, FormSubmit endpoints / `_next` URL / `hello@prodatalytics.com`
+- Changing brand tokens, primary logo in use, or legal/contact footer blocks
+- Large framework migrations or inventing `app/` / React structure
+- Drive-by refactors unrelated to the user’s ask
+
+## Sync contracts
+
+- After CSS/Tailwind class changes: run `npm run build:css` and commit `css/main.css` (Pages has no build step).
+- Header / nav / footer: edit `scripts/chrome/*` and run `python3 scripts/sync-chrome.py`. Floating contact shell is per-page.
+- `pages/homepage.html` is a redirect stub; homepage content lives only in `index.html`.
+
+## Pre-ship checklist
+
+0. `npm run check` passes
+1. Local HTTP server smoke test (not `file://`)
+2. Nav, mobile menu, and assets load (no 404s)
+3. Forms/FAQ still work on contact if touched
+4. No accidental brand or domain regressions
+
+See `AGENTS.md` for full Always / Ask first / Never boundaries and known hazards — ask before “fixing” them silently.

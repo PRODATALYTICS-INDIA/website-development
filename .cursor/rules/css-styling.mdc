@@ -1,0 +1,31 @@
+---
+description: CSS and Tailwind — edit source, brand tokens, rebuild contract
+globs: "css/**/*.css,tailwind.config.js"
+alwaysApply: false
+---
+
+# CSS / Tailwind
+
+## Edit vs generated
+
+| File | Action |
+|------|--------|
+| `css/tailwind.css` | **Edit** — `@layer components`, design tokens |
+| `css/main.css` | **Never hand-edit** — run `npm run build:css` |
+| `tailwind.config.js` | Brand tokens / `content` globs only when needed |
+
+After any style or class change used in HTML: rebuild and commit `css/main.css`.
+
+## Brand tokens (preserve)
+
+- Canvas: `#111111` (`background`)
+- Accent: `#10b981` (emerald)
+- Surfaces / text: as in `tailwind.config.js`
+- Fonts: Inter (sans), JetBrains Mono (mono)
+- Dark theme + glassmorphic header patterns already in use
+
+## Extending UI
+
+Prefer existing component classes (`.btn-primary`, `.card`, `.section-*`, `.form-*`, `.nav-*`, `.hero-*`) via `@apply` in `tailwind.css`.
+
+Do not enable unused Tailwind plugins in `tailwind.config.js` (`plugins: []` today) without a clear need — deps may exist but are not wired.

@@ -1,0 +1,35 @@
+---
+description: Vanilla JS boundaries — common.js vs contact.js, form/UI behavior
+globs: "js/**/*.js"
+alwaysApply: false
+---
+
+# JavaScript
+
+Keep **vanilla** ES6+. No React, no bundler, no new frameworks.
+
+## File boundaries
+
+| File | Owns |
+|------|------|
+| `js/common.js` | Mobile menu, smooth scroll, shared animations, floating contact UI on multi pages |
+| `js/contact.js` | Contact page validation, FAQ toggles, FormSubmit success UX |
+| `js/insights.js` | Insights listing search/filter + newsletter `#newsletter-thanks` hash UX |
+
+Put shared behavior in `common.js`. Keep contact-only logic in `contact.js`. Keep insights listing behavior in `insights.js`. Avoid duplicating listeners across files.
+
+## Do not break
+
+- Mobile menu open/close and overlay
+- Smooth scroll / in-page anchors (services)
+- FAQ accordion toggles on contact
+- Form validation feedback users already rely on
+
+## Forms note
+
+- Contact page: real FormSubmit POST (see `pages/contact.html`).
+- Homepage floating `#quick-contact-form`: posts via FormSubmit (same pattern as contact). Do not silently change fields / `_next` / email without an explicit product request.
+
+## Scripts
+
+Pages load scripts via relative `<script src="…">`. After moves, confirm paths for root vs `pages/`.

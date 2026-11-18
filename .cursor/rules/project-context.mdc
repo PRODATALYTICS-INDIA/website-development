@@ -1,0 +1,33 @@
+---
+description: PRODATALYTICS website — stack, page map, and source of truth for agents
+alwaysApply: true
+---
+
+# Project context
+
+This is the **PRODATALYTICS** marketing site (`www.prodatalytics.com`): static HTML + Tailwind + vanilla JS on GitHub Pages. Not a React/Next app.
+
+## Pages
+
+| URL (typical) | File |
+|---------------|------|
+| `/` | `index.html` |
+| `/pages/homepage.html` | Redirect stub to `/` (noindex) |
+| `/pages/services.html` | Services + in-page anchors |
+| `/pages/products.html` | Product accelerators (APIs, dashboards, toolkits) |
+| `/pages/about.html` | Story / methodology |
+| `/pages/contact.html` | FormSubmit + FAQ |
+| `/pages/case-studies/` | Case study listing + detail pages |
+| `/pages/insights/` | Articles (search) + newsletter signup |
+
+## Source of truth
+
+- Humans: `README.md`
+- Agents: `AGENTS.md` + `.cursor/rules/`
+- Styles: edit `css/tailwind.css` only; `css/main.css` is generated
+- Shared behavior: `js/common.js`; contact-only: `js/contact.js`; insights: `js/insights.js` + `data/insights-index.json`
+- Content briefs: `docs/content-templates.md`
+
+## Content model
+
+All copy is hardcoded in HTML. There is no CMS. Content changes = HTML edits, often duplicated across pages. New insight articles also need a row in `data/insights-index.json`.

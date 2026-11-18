@@ -2,6 +2,10 @@
 
 Professional website for PRODATALYTICS — a premium data science consulting firm. The site showcases services, company story, methodology, and contact options. Built with HTML, Tailwind CSS, and vanilla JavaScript; deployed via GitHub Pages.
 
+**Shared header/footer** are generated: edit `scripts/chrome/*.html`, run `python3 scripts/sync-chrome.py`, then `npm run check`. CI (`.github/workflows/check.yml`) verifies CSS freshness and site checks.
+
+**For AI agents:** see [AGENTS.md](AGENTS.md) and [`.cursor/rules/`](.cursor/rules/).
+
 ---
 
 ## Table of Contents
@@ -73,7 +77,7 @@ npm run build:css
 
 ```bash
 python3 -m http.server 8000
-# Then open http://localhost:8000 (or http://localhost:8000/pages/homepage.html)
+# Then open http://localhost:8000 ()
 ```
 
 Or use **VS Code Live Server** (right-click `index.html` → “Open with Live Server”) or **Node**: `npx http-server -p 8000`.
@@ -115,18 +119,26 @@ Summary: push to `prodatalytics-india/website-development`, enable Pages from br
 website-development/
 ├── index.html              # Entry point (root; serves homepage at www.prodatalytics.com/)
 ├── pages/
-│   ├── homepage.html        # Main landing
+│   ├── homepage.html        # Redirect stub to / (legacy URL)
 │   ├── services.html        # Services detail + anchors
 │   ├── about.html           # Company story, methodology
-│   └── contact.html         # Consultation form, FAQ, contact info
+│   ├── contact.html         # Consultation form, FAQ, contact info
+│   ├── case-studies/        # Case study listing + detail pages
+│   └── insights/            # Articles (searchable) + newsletter signup
+├── data/
+│   └── insights-index.json  # Article search index
+├── docs/
+│   └── content-templates.md # Content briefs for cases, articles, newsletters
+├── plans/                   # Feature plans (e.g. case studies + insights)
 ├── css/
 │   ├── tailwind.css         # Source (edit here)
 │   └── main.css             # Compiled (generated)
 ├── js/
 │   ├── common.js            # Mobile menu, smooth scroll, floating contact, etc.
-│   └── contact.js           # Contact page forms, FAQ
+│   ├── contact.js           # Contact page forms, FAQ
+│   └── insights.js          # Insights search + newsletter thanks
 ├── assets/images/           # Logos, images
-├── public/                  # Favicon, manifest, dhws-data-injector.js
+├── public/                  # Favicon, manifest, PWA icons
 ├── CNAME                    # Custom domain (www.prodatalytics.com)
 ├── package.json
 └── tailwind.config.js
@@ -139,13 +151,15 @@ website-development/
 **Entry & main pages**
 
 - **Root** (`/` or `index.html`): Serves the homepage in place (no redirect). Same content as `pages/homepage.html` so the live URL stays `https://www.prodatalytics.com/`.
-- **Main pages:** Home, Services, About, Contact. Same header and footer on all.
+- **Main pages:** Home, Services, Case Studies, Insights, About, Contact. Same header and footer pattern on all (nested pages use `../../` asset paths).
 
 **Header (all main pages)**
 
 - Logo (left)
 - **Home** → `index.html` / homepage  
 - **Services** → `pages/services.html`  
+- **Case Studies** → `pages/case-studies/`  
+- **Insights** → `pages/insights/` (articles + newsletter series signup)  
 - **About** → `pages/about.html`  
 - **Contact** → `pages/contact.html` (primary CTA style)
 - On small screens: hamburger opens the same links.
@@ -158,7 +172,9 @@ website-development/
 
 1. **Awareness → Services → Contact:** Homepage → “Explore Services” → services page → “Schedule Consultation” / CTAs → contact page.
 2. **Awareness → About → Contact:** Homepage → “Know more about us” → about page → “Connect with us” → contact page.
-3. **Direct contact:** “Contact” in header or any “Connect with us” CTA → contact page.
+3. **Proof → Case Studies → Contact:** Homepage “Selected work” or Case Studies nav → case detail → consultation CTA.
+4. **Thought leadership → Insights:** Insights nav → search articles or subscribe to newsletter series.
+5. **Direct contact:** “Contact” in header or any “Connect with us” CTA → contact page.
 
 **Services page**
 
@@ -348,13 +364,14 @@ The site will be available at **https://www.prodatalytics.com** (and at **https:
 
 - **Client testimonials:** Add a testimonials section with real client quotes and permissions.
 - **Content:** Sharpen service descriptions; expand team bios and internship curriculum.
-- **Technical:** Analytics; form handling/back-end if needed; blog/news; image optimisation and lazy loading.
+- **Technical:** Analytics; form handling/back-end if needed; image optimisation and lazy loading; newsletter ESP (Mailchimp/Buttondown) + on-site issue archive.
 - **SEO:** Structured data (Schema.org), `sitemap.xml`, `robots.txt`, stronger meta descriptions.
 
 **Completed**
 
 - Logo integration, PRODATALYTICS naming, Kochi address, LinkedIn links, title/sentence case, Technologies & Tools copy.
 - Centralized styling, responsive and mobile improvements, contact form simplification, social links (X, Instagram, LinkedIn), GitHub Pages deployment with CNAME and Wix DNS.
+- Case Studies + Insights (searchable articles) + newsletter series signup (FormSubmit capture). See `plans/case-studies-insights.md` and `docs/content-templates.md`.
 
 **Removed (for reference)**
 
@@ -367,15 +384,19 @@ The site will be available at **https://www.prodatalytics.com** (and at **https:
 | File / folder        | Purpose |
 |----------------------|--------|
 | `index.html`        | Site root; homepage content so URL stays `/` |
-| `pages/homepage.html` | Same content as root for legacy paths |
+| `pages/homepage.html` | Redirect stub to `/` (legacy path, noindex) |
 | `pages/services.html` | Services + anchor sections |
+| `pages/products.html` | Product accelerators (APIs, dashboards, toolkits) |
 | `pages/about.html`  | Company story, methodology |
 | `pages/contact.html`| Consultation form, FAQ, contact info |
+| `pages/case-studies/` | Case listing + detail pages |
+| `pages/insights/` | Articles listing (search) + article pages |
+| `data/insights-index.json` | Searchable article metadata |
 | `css/tailwind.css`  | Tailwind + component source (edit here) |
 | `css/main.css`     | Compiled CSS (generated) |
 | `js/common.js`     | Shared: menu, scroll, floating contact, etc. |
 | `js/contact.js`    | Contact forms, FAQ |
-| `public/`          | Favicon, manifest.json, dhws-data-injector.js |
+| `public/`          | Favicon, manifest.json, PWA icons |
 | `CNAME`            | Custom domain for GitHub Pages (see Deployment section above) |
 
 ---

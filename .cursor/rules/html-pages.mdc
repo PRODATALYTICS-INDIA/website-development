@@ -1,0 +1,46 @@
+---
+description: HTML page conventions — paths, chrome parity, SEO, FormSubmit
+globs: "**/*.html"
+alwaysApply: false
+---
+
+# HTML pages
+
+## Relative paths
+
+- Root `index.html`: `css/…`, `js/…`, `pages/…`, `assets/…`, `public/…`
+- Under `pages/`: `../css/…`, `../js/…`, sibling `*.html`, `../assets/…`
+- Under `pages/case-studies/` or `pages/insights/`: `../../css/…`, `../../js/…`, `../../assets/…`, `../../public/…`; sibling pages in the same folder; other top-level pages via `../services.html`, etc. Prefer Home/logo → `../../index.html` (canonical `/`), not `homepage.html`.
+- Under `pages/`: Home/logo → `../index.html`.
+
+Wrong paths are a common production break. Verify root, `pages/*`, and nested `pages/*/*` after moves.
+
+## Shared chrome
+
+Header and footer are **generated** from `scripts/chrome/` by `python3 scripts/sync-chrome.py` — edit the templates, never the pages. The floating contact block is still per-page.
+
+Nav order: Home · Services · Products · Resources (dropdown: Case Studies, Insights) · About · Contact.
+
+Homepage content lives only in `index.html`; `pages/homepage.html` is a noindex redirect stub.
+
+## Forms (contact + newsletter)
+
+Preserve Contact FormSubmit fields (`_subject`, `_next`, `_template`, `_autoresponse`) and the thank-you hash flow (`#thank-you`) unless explicitly changing conversion UX.
+
+Insights newsletter uses a **separate** FormSubmit form (same `hello@prodatalytics.com`, different `_subject` / `_next` → `#newsletter-thanks`). Do not alter Contact form fields when editing the newsletter.
+
+Homepage floating form posts via FormSubmit in `js/common.js` (submit UX only; do not `preventDefault` the FormSubmit POST).
+
+## Insights content
+
+- Articles: `pages/insights/<slug>.html` + row in `data/insights-index.json` (search via `js/insights.js`)
+- Case studies: `pages/case-studies/<slug>.html` + listing card on `pages/case-studies/index.html`
+- Briefs / series templates: `docs/content-templates.md`
+
+## SEO / meta
+
+Keep per-page `title`, description, and OG/Twitter tags accurate. Prefer `https://www.prodatalytics.com/…` for canonical/OG URLs when touching them.
+
+## Do not casually reintroduce
+
+Removed marketing blocks (testimonials, ROI strips, “trusted by”) — only with product intent. See README future items. Selected work / case studies are intentional and allowed.
