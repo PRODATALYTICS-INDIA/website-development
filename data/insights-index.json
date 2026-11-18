@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "ai-chatbots-to-ai-agents-2026",
+    "title": "From AI Chatbots to AI Agents: What Businesses Need to Know in 2026",
+    "date": "2026-01-15",
+    "excerpt": "Agentic AI goes beyond chatbots by pursuing goals with tools and controls—here is where businesses see the strongest early ROI.",
+    "tags": [
+      "Agentic AI",
+      "Strategy"
+    ],
+    "href": "ai-chatbots-to-ai-agents-2026.html"
+  },
+  {
+    "slug": "why-enterprise-ai-projects-fail",
+    "title": "Why Most Enterprise AI Projects Fail\u2014and How to Make Yours Successful",
+    "date": "2026-02-12",
+    "excerpt": "Most enterprise AI initiatives stall after the demo. These are the delivery pitfalls that separate pilots from production systems.",
+    "tags": [
+      "Enterprise AI",
+      "Best practices"
+    ],
+    "href": "why-enterprise-ai-projects-fail.html"
+  },
+  {
+    "slug": "rag-enterprise-knowledge-management",
+    "title": "Retrieval-Augmented Generation (RAG): The Future of Enterprise Knowledge Management",
+    "date": "2026-03-10",
+    "excerpt": "RAG lets organizations put Generative AI to work on internal knowledge—securely, with retrieval controls that support real decisions.",
+    "tags": [
+      "RAG",
+      "GenAI",
+      "Knowledge"
+    ],
+    "href": "rag-enterprise-knowledge-management.html"
+  },
+  {
+    "slug": "predictive-analytics-alongside-genai",
+    "title": "Predictive Analytics in the Age of Generative AI: Why Machine Learning Still Matters",
+    "date": "2026-04-08",
+    "excerpt": "Generative AI does not replace forecasting and scoring. Predictive analytics still powers the business decisions GenAI alone cannot own.",
+    "tags": [
+      "ML",
+      "Predictive analytics"
+    ],
+    "href": "predictive-analytics-alongside-genai.html"
+  },
+  {
+    "slug": "ai-readiness-assessment",
+    "title": "AI Readiness Assessment: Is Your Organization Ready for Enterprise AI?",
+    "date": "2026-05-06",
+    "excerpt": "Before investing in enterprise AI, assess data quality, infrastructure, governance, and process readiness with a practical checklist.",
+    "tags": [
+      "Strategy",
+      "Governance"
+    ],
+    "href": "ai-readiness-assessment.html"
+  }
+]
