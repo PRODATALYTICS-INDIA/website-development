@@ -4,48 +4,60 @@
 
 const THEME_STORAGE_KEY = 'pd-theme';
 
+const THEME_CHOICES = ['light', 'auto', 'dark'];
+const THEME_DEFAULT = 'light';
+
 function getStoredTheme() {
     try {
         const stored = localStorage.getItem(THEME_STORAGE_KEY);
-        if (stored === 'light' || stored === 'dark') return stored;
+        if (THEME_CHOICES.indexOf(stored) !== -1) return stored;
     } catch (e) {
         /* ignore */
     }
-    return 'dark';
+    return THEME_DEFAULT;
 }
 
-function applyTheme(theme) {
-    const next = theme === 'light' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
+function resolveTheme(choice) {
+    if (choice === 'auto') {
+        const dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        return dark ? 'dark' : 'light';
+    }
+    return choice === 'dark' ? 'dark' : 'light';
+}
+
+function applyTheme(choice) {
+    const pref = THEME_CHOICES.indexOf(choice) !== -1 ? choice : THEME_DEFAULT;
+    document.documentElement.setAttribute('data-theme', resolveTheme(pref));
     try {
-        localStorage.setItem(THEME_STORAGE_KEY, next);
+        localStorage.setItem(THEME_STORAGE_KEY, pref);
     } catch (e) {
         /* ignore */
     }
-    syncThemeToggles(next);
+    syncThemeToggles(pref);
 }
 
-function syncThemeToggles(theme) {
-    const isLight = theme === 'light';
-    document.querySelectorAll('.theme-toggle').forEach((btn) => {
-        btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
-        btn.setAttribute(
-            'aria-label',
-            isLight ? 'Switch to dark mode' : 'Switch to light mode'
-        );
+function syncThemeToggles(pref) {
+    document.querySelectorAll('[data-theme-choice]').forEach((btn) => {
+        btn.setAttribute('aria-pressed', btn.dataset.themeChoice === pref ? 'true' : 'false');
     });
 }
 
 function initThemeToggle() {
-    const theme = getStoredTheme();
-    applyTheme(theme);
+    applyTheme(getStoredTheme());
 
-    document.querySelectorAll('.theme-toggle').forEach((btn) => {
-        btn.addEventListener('click', () => {
-            const current = document.documentElement.getAttribute('data-theme') || 'dark';
-            applyTheme(current === 'light' ? 'dark' : 'light');
-        });
+    document.querySelectorAll('[data-theme-choice]').forEach((btn) => {
+        btn.addEventListener('click', () => applyTheme(btn.dataset.themeChoice));
     });
+
+    // In Auto mode, follow live changes to the system theme
+    if (window.matchMedia) {
+        const mq = window.matchMedia('(prefers-color-scheme: dark)');
+        const onChange = () => {
+            if (getStoredTheme() === 'auto') applyTheme('auto');
+        };
+        if (mq.addEventListener) mq.addEventListener('change', onChange);
+        else if (mq.addListener) mq.addListener(onChange);
+    }
 }
 
 // Mobile menu toggle
