@@ -84,7 +84,7 @@ Edit `scripts/chrome/*.html`, run `python3 scripts/sync-chrome.py`; CI/`npm run 
 ## 6. CSS system (`css/tailwind.css`)
 
 - Tokens as CSS variables in `:root, html[data-theme="dark"]` and `html[data-theme="light"]`; `tailwind.config.js` maps them to colors using `color-mix` so opacity modifiers (`bg-accent/10`) work.
-- Brand: accent `#10b981`, dark canvas `#111111`, surface `#2a2a2a`, text `#fff` / `#a1a1aa`; light: bg `#fafafa`, surface `#fff`.
+- Brand ("Fresh Light", from the logo): steel blue `#2a5c85` (accent + `brand` buttons), leaf green `#5fa86b`, lime `#c5f07f` (`lime` highlighter/CTA). Light is default: bg `#fafcfe`, surface `#fff`, text `#0b1f33`/`#3c5166`. Dark is a navy variant: bg `#0b1f33`, surface `#12304a`, accent lime. Headings use Plus Jakarta Sans, body Inter. Light logo = `logo-color-512.png`.
 - `@layer components`: buttons (`btn-primary/secondary/small`), hero (`hero-*`), theme chrome (`site-header`, `logo-*`, `theme-toggle`), key indicators, CTA (`cta-*`), cards (`card`, `card-hover`, `card-icon*`, `card-title*`, `card-description`), sections (`section`, `section-alt`, `section-container`, `section-content`, `section-heading*`, `section-description*`), forms (`form-input/label/textarea/select`), nav (`nav-link*`, `nav-button`, `nav-dropdown*`), containers, insights (`tag-chip*`, `series-card`, `newsletter-block`, `content-prose`), legacy (`input-field`, `text-accent-hover`).
 - Utilities: `text-gradient`, `shadow-glow`, `animate-fade-in`, `animate-slide-up`. Safe-area padding for footer / `#floating-email`.
 - Tailwind `content` globs: `pages/**`, `index.html`, `js/**` — classes must appear there to survive the build (JS-generated class strings in `js/` are covered).
