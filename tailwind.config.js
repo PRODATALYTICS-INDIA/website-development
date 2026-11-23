@@ -12,6 +12,10 @@ module.exports = {
         primary: withAlpha("--color-primary"),
         secondary: withAlpha("--color-secondary"),
         accent: withAlpha("--color-accent"),
+        // Brand: button fill (steel blue from the logo) and lime highlight
+        brand: withAlpha("--color-brand"),
+        "brand-hover": withAlpha("--color-brand-hover"),
+        lime: withAlpha("--color-lime"),
 
         // Background Colors
         background: withAlpha("--color-background"),
@@ -31,10 +35,11 @@ module.exports = {
       },
       boxShadow: {
         card: "var(--shadow-card)",
-        glow: "0 0 20px rgba(16, 185, 129, 0.2)",
+        glow: "0 12px 28px rgba(42, 92, 133, 0.28)",
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       fontWeight: {
